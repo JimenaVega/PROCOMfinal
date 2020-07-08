@@ -1,0 +1,13 @@
+TAREAS A REALIZAR:
+*Investigacion implementacion en FPGA
+*Analisis de la resolución:
+  -PUNTO FLOTANTE: se utiliza como referencia para verificar el analisis 
+  -PUNTO FIJO    : se implementa en la FPGA 
+*Implementacion:
+  -FPGA VERILOG  : 
+    -Codigo 
+    -TestBench
+  -PYTHON        :
+    -Plataforma de verificacion del procesamiento
+    -WEB_RTC 
+    
