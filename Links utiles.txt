@@ -1,0 +1,7 @@
+https://ebuah.uah.es/dspace/bitstream/handle/10017/1381/tesis_ignacio_bravo.pdf?sequence=1&isAllowed=y tesis largota
+
+http://www.scielo.org.co/pdf/tecn/v19n43/v19n43a10.pdf conv MATLAB
+https://ccc.inaoep.mx/~cferegrino/Publicaciones/articulos/Arquitectura%20FPGA%20para%20un%20Procesador%20Matricial_TCR03.pdf  conv HANDEL C
+http://www.geintra-uah.org/system/files/private/Algoritmos_no_Sistolicos__para_la_Multiplicacion_de_Matrices_en_FPGAs_JCRA_BRAVO_06.pdf algoritmos multipl matrices en fpga
+http://congresos.cio.mx/3_enc_mujer/files/extensos/Sesion%202/S2-ING03.pdf un poco mas de lo mismo
+https://www.youtube.com/watch?v=wlZQgeIlSnU fpga course
