@@ -1,0 +1,339 @@
+
+*** Running vivado
+    with args -log fpga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
+
+
+
+****** Vivado v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source fpga.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/xilinx/Vivado/2020.1/data/ip'.
+add_files: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1073.789 ; gain = 0.000
+Command: synth_design -top fpga -part xc7a35ticsg324-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 4324
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1073.789 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'fpga' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/fpga_procom.v:12]
+	Parameter NB_GPIOS bound to: 32 - type: integer 
+	Parameter NB_LEDS bound to: 4 - type: integer 
+	Parameter NB_ENABLE_RX bound to: 2 - type: integer 
+	Parameter NB_ENABLE_TOTAL bound to: 4 - type: integer 
+	Parameter NB_DATA_RAM_LOG bound to: 16 - type: integer 
+	Parameter NB_ADDR_RAM_LOG bound to: 15 - type: integer 
+	Parameter NB_DEVICES bound to: 1 - type: integer 
+	Parameter INIT_FILE bound to: /home/apola/projects/cursodda/GuiaPractica06/rtl/debug/ram_init16.txt - type: string 
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:13]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_axi_gpio_0_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_axi_gpio_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_axi_gpio_0_1' (1#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_axi_gpio_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_axi_uartlite_0_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_axi_uartlite_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_axi_uartlite_0_1' (2#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_axi_uartlite_0_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'MicroGPIO_axi_uartlite_0_1' is unconnected for instance 'axi_uartlite_0' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:160]
+WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'MicroGPIO_axi_uartlite_0_1' has 22 connections declared, but only 21 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:160]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_clk_wiz_0_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_clk_wiz_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_clk_wiz_0_1' (3#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_clk_wiz_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_mdm_1_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_mdm_1_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_mdm_1_1' (4#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_mdm_1_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_microblaze_0_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_microblaze_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_microblaze_0_1' (5#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_microblaze_0_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'MicroGPIO_microblaze_0_1' is unconnected for instance 'microblaze_0' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:200]
+WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'MicroGPIO_microblaze_0_1' has 52 connections declared, but only 51 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:200]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_microblaze_0_axi_periph_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:347]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_8ZFSIN' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:797]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_8ZFSIN' (6#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:797]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1WOCYFB' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:929]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1WOCYFB' (7#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:929]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1F4TXKZ' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1295]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1F4TXKZ' (8#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1295]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_xbar_0' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_xbar_0' (9#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_xbar_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'MicroGPIO_xbar_0' is unconnected for instance 'xbar' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:756]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'MicroGPIO_xbar_0' is unconnected for instance 'xbar' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:756]
+WARNING: [Synth 8-7023] instance 'xbar' of module 'MicroGPIO_xbar_0' has 40 connections declared, but only 38 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:756]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_microblaze_0_axi_periph_1' (10#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:347]
+INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_MHCC3B' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1061]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_dlmb_bram_if_cntlr_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_dlmb_bram_if_cntlr_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_dlmb_bram_if_cntlr_1' (11#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_dlmb_bram_if_cntlr_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_dlmb_v10_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_dlmb_v10_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_dlmb_v10_1' (12#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_dlmb_v10_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'MicroGPIO_dlmb_v10_1' is unconnected for instance 'dlmb_v10' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1207]
+WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'MicroGPIO_dlmb_v10_1' has 25 connections declared, but only 24 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1207]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_ilmb_bram_if_cntlr_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_ilmb_bram_if_cntlr_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_ilmb_bram_if_cntlr_1' (13#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_ilmb_bram_if_cntlr_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_ilmb_v10_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_ilmb_v10_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_ilmb_v10_1' (14#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_ilmb_v10_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'MicroGPIO_ilmb_v10_1' is unconnected for instance 'ilmb_v10' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1253]
+WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'MicroGPIO_ilmb_v10_1' has 25 connections declared, but only 24 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1253]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_lmb_bram_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_lmb_bram_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_lmb_bram_1' (15#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_lmb_bram_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'MicroGPIO_lmb_bram_1' is unconnected for instance 'lmb_bram' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1278]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'MicroGPIO_lmb_bram_1' is unconnected for instance 'lmb_bram' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1278]
+WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'MicroGPIO_lmb_bram_1' has 16 connections declared, but only 14 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1278]
+INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_MHCC3B' (16#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:1061]
+INFO: [Synth 8-6157] synthesizing module 'MicroGPIO_rst_clk_wiz_0_100M_1' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_rst_clk_wiz_0_100M_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO_rst_clk_wiz_0_100M_1' (17#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/.Xil/Vivado-9812-DESKTOP-1MVCO4C/realtime/MicroGPIO_rst_clk_wiz_0_100M_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'MicroGPIO_rst_clk_wiz_0_100M_1' is unconnected for instance 'rst_clk_wiz_0_100M' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:336]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'MicroGPIO_rst_clk_wiz_0_100M_1' is unconnected for instance 'rst_clk_wiz_0_100M' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:336]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_0_100M' of module 'MicroGPIO_rst_clk_wiz_0_100M_1' has 10 connections declared, but only 8 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:336]
+INFO: [Synth 8-6155] done synthesizing module 'MicroGPIO' (18#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/synth/MicroGPIO.v:13]
+WARNING: [Synth 8-7071] port 'gpio_rtl_tri_t' of module 'MicroGPIO' is unconnected for instance 'u_micro' [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/fpga_procom.v:72]
+WARNING: [Synth 8-7023] instance 'u_micro' of module 'MicroGPIO' has 9 connections declared, but only 8 given [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/fpga_procom.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'fpga' (19#1) [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/fpga_procom.v:12]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1122.777 ; gain = 48.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1122.777 ; gain = 48.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1122.777 ; gain = 48.988
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 1122.777 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_in_context.xdc] for cell 'u_micro/clk_wiz_0'
+WARNING: [Vivado 12-584] No ports matched ''. [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_in_context.xdc:1]
+WARNING: [Vivado 12-584] No ports matched ''. [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_in_context.xdc:4]
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_in_context.xdc] for cell 'u_micro/clk_wiz_0'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_microblaze_0_1/MicroGPIO_microblaze_0_1/MicroGPIO_microblaze_0_1_in_context.xdc] for cell 'u_micro/microblaze_0'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_microblaze_0_1/MicroGPIO_microblaze_0_1/MicroGPIO_microblaze_0_1_in_context.xdc] for cell 'u_micro/microblaze_0'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_v10_1/MicroGPIO_dlmb_v10_1/MicroGPIO_dlmb_v10_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/dlmb_v10'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_v10_1/MicroGPIO_dlmb_v10_1/MicroGPIO_dlmb_v10_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/dlmb_v10'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_v10_1/MicroGPIO_ilmb_v10_1/MicroGPIO_dlmb_v10_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/ilmb_v10'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_v10_1/MicroGPIO_ilmb_v10_1/MicroGPIO_dlmb_v10_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/ilmb_v10'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_bram_if_cntlr_1/MicroGPIO_dlmb_bram_if_cntlr_1/MicroGPIO_dlmb_bram_if_cntlr_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+WARNING: [Vivado 12-584] No ports matched ''. [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_bram_if_cntlr_1/MicroGPIO_dlmb_bram_if_cntlr_1/MicroGPIO_dlmb_bram_if_cntlr_1_in_context.xdc:2]
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_bram_if_cntlr_1/MicroGPIO_dlmb_bram_if_cntlr_1/MicroGPIO_dlmb_bram_if_cntlr_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_bram_if_cntlr_1/MicroGPIO_ilmb_bram_if_cntlr_1/MicroGPIO_ilmb_bram_if_cntlr_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+WARNING: [Vivado 12-584] No ports matched ''. [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_bram_if_cntlr_1/MicroGPIO_ilmb_bram_if_cntlr_1/MicroGPIO_ilmb_bram_if_cntlr_1_in_context.xdc:2]
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_bram_if_cntlr_1/MicroGPIO_ilmb_bram_if_cntlr_1/MicroGPIO_ilmb_bram_if_cntlr_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_lmb_bram_1/MicroGPIO_lmb_bram_1/MicroGPIO_lmb_bram_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/lmb_bram'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_lmb_bram_1/MicroGPIO_lmb_bram_1/MicroGPIO_lmb_bram_1_in_context.xdc] for cell 'u_micro/microblaze_0_local_memory/lmb_bram'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1_in_context.xdc] for cell 'u_micro/mdm_1'
+WARNING: [Vivado 12-584] No ports matched ''. [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1_in_context.xdc:2]
+WARNING: [Vivado 12-584] No ports matched ''. [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1_in_context.xdc:4]
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1/MicroGPIO_mdm_1_1_in_context.xdc] for cell 'u_micro/mdm_1'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_rst_clk_wiz_0_100M_1/MicroGPIO_rst_clk_wiz_0_100M_1/MicroGPIO_rst_clk_wiz_0_100M_1_in_context.xdc] for cell 'u_micro/rst_clk_wiz_0_100M'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_rst_clk_wiz_0_100M_1/MicroGPIO_rst_clk_wiz_0_100M_1/MicroGPIO_rst_clk_wiz_0_100M_1_in_context.xdc] for cell 'u_micro/rst_clk_wiz_0_100M'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_axi_uartlite_0_1/MicroGPIO_axi_uartlite_0_1/MicroGPIO_axi_uartlite_0_1_in_context.xdc] for cell 'u_micro/axi_uartlite_0'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_axi_uartlite_0_1/MicroGPIO_axi_uartlite_0_1/MicroGPIO_axi_uartlite_0_1_in_context.xdc] for cell 'u_micro/axi_uartlite_0'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_xbar_0/MicroGPIO_xbar_0/MicroGPIO_xbar_0_in_context.xdc] for cell 'u_micro/microblaze_0_axi_periph/xbar'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_xbar_0/MicroGPIO_xbar_0/MicroGPIO_xbar_0_in_context.xdc] for cell 'u_micro/microblaze_0_axi_periph/xbar'
+Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_axi_gpio_0_1/MicroGPIO_axi_gpio_0_1/MicroGPIO_axi_gpio_0_1_in_context.xdc] for cell 'u_micro/axi_gpio_0'
+Finished Parsing XDC File [c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_axi_gpio_0_1/MicroGPIO_axi_gpio_0_1/MicroGPIO_axi_gpio_0_1_in_context.xdc] for cell 'u_micro/axi_gpio_0'
+Parsing XDC File [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/Arty_Master.xdc]
+Finished Parsing XDC File [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/Arty_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/rtl_procom/top_board/Arty_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1212.766 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1212.766 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'u_micro/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk100. (constraint file  c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk100. (constraint file  c:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_in_context.xdc, line 6).
+Applied set_property DONT_TOUCH = true for u_micro. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/clk_wiz_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_local_memory/dlmb_v10. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_local_memory/ilmb_v10. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_local_memory/dlmb_bram_if_cntlr. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_local_memory/ilmb_bram_if_cntlr. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_local_memory/lmb_bram. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/mdm_1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/rst_clk_wiz_0_100M. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/axi_uartlite_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_axi_periph/xbar. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/microblaze_0_axi_periph. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_micro/axi_gpio_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1217.176 ; gain = 143.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1232.422 ; gain = 158.633
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-------------------------------+----------+
+|      |BlackBox name                  |Instances |
++------+-------------------------------+----------+
+|1     |MicroGPIO_xbar_0               |         1|
+|2     |MicroGPIO_axi_gpio_0_1         |         1|
+|3     |MicroGPIO_axi_uartlite_0_1     |         1|
+|4     |MicroGPIO_clk_wiz_0_1          |         1|
+|5     |MicroGPIO_mdm_1_1              |         1|
+|6     |MicroGPIO_microblaze_0_1       |         1|
+|7     |MicroGPIO_rst_clk_wiz_0_100M_1 |         1|
+|8     |MicroGPIO_dlmb_bram_if_cntlr_1 |         1|
+|9     |MicroGPIO_dlmb_v10_1           |         1|
+|10    |MicroGPIO_ilmb_bram_if_cntlr_1 |         1|
+|11    |MicroGPIO_ilmb_v10_1           |         1|
+|12    |MicroGPIO_lmb_bram_1           |         1|
++------+-------------------------------+----------+
+
+Report Cell Usage: 
++------+-----------------------------+------+
+|      |Cell                         |Count |
++------+-----------------------------+------+
+|1     |MicroGPIO_axi_gpio_0         |     1|
+|2     |MicroGPIO_axi_uartlite_0     |     1|
+|3     |MicroGPIO_clk_wiz_0          |     1|
+|4     |MicroGPIO_dlmb_bram_if_cntlr |     1|
+|5     |MicroGPIO_dlmb_v10           |     1|
+|6     |MicroGPIO_ilmb_bram_if_cntlr |     1|
+|7     |MicroGPIO_ilmb_v10           |     1|
+|8     |MicroGPIO_lmb_bram           |     1|
+|9     |MicroGPIO_mdm_1              |     1|
+|10    |MicroGPIO_microblaze_0       |     1|
+|11    |MicroGPIO_rst_clk_wiz_0_100M |     1|
+|12    |MicroGPIO_xbar               |     1|
+|13    |LUT1                         |     1|
+|14    |IBUF                         |     6|
+|15    |OBUF                         |    17|
++------+-----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 1238.207 ; gain = 164.418
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:47 . Memory (MB): peak = 1238.207 ; gain = 70.020
+Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 1238.207 ; gain = 164.418
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 1250.258 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1253.203 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+54 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:07 . Memory (MB): peak = 1253.203 ; gain = 179.414
+INFO: [Common 17-1381] The checkpoint 'C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/synth_1/fpga.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file fpga_utilization_synth.rpt -pb fpga_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 11 13:38:56 2020...

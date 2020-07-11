@@ -1,0 +1,12 @@
+vhdl xil_defaultlib  \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_microblaze_0_1/sim/MicroGPIO_microblaze_0_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_v10_1/sim/MicroGPIO_dlmb_v10_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_v10_1/sim/MicroGPIO_ilmb_v10_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_dlmb_bram_if_cntlr_1/sim/MicroGPIO_dlmb_bram_if_cntlr_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_ilmb_bram_if_cntlr_1/sim/MicroGPIO_ilmb_bram_if_cntlr_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_mdm_1_1/sim/MicroGPIO_mdm_1_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_rst_clk_wiz_0_100M_1/sim/MicroGPIO_rst_clk_wiz_0_100M_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_axi_uartlite_0_1/sim/MicroGPIO_axi_uartlite_0_1.vhd" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_axi_gpio_0_1/sim/MicroGPIO_axi_gpio_0_1.vhd" \
+
+nosort

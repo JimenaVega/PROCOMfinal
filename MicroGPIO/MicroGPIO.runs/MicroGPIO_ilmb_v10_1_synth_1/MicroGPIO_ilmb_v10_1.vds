@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Jul 11 13:27:52 2020
+# Process ID: 3628
+# Current directory: C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/MicroGPIO_ilmb_v10_1_synth_1
+# Command line: vivado.exe -log MicroGPIO_ilmb_v10_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MicroGPIO_ilmb_v10_1.tcl
+# Log file: C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/MicroGPIO_ilmb_v10_1_synth_1/MicroGPIO_ilmb_v10_1.vds
+# Journal file: C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/MicroGPIO/MicroGPIO.runs/MicroGPIO_ilmb_v10_1_synth_1\vivado.jou
+#-----------------------------------------------------------
+source MicroGPIO_ilmb_v10_1.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1065.359 ; gain = 4.793
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP MicroGPIO_ilmb_v10_1, cache-ID = e526270214073a86.
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 11 13:28:39 2020...

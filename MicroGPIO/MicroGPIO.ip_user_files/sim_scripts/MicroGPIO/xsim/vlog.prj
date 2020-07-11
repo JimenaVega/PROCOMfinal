@@ -1,0 +1,10 @@
+verilog xil_defaultlib --include "../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ipshared/8b3d" --include "../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ipshared/ec67/hdl" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1_clk_wiz.v" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_clk_wiz_0_1/MicroGPIO_clk_wiz_0_1.v" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_lmb_bram_1/sim/MicroGPIO_lmb_bram_1.v" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/ip/MicroGPIO_xbar_0/sim/MicroGPIO_xbar_0.v" \
+"../../../../MicroGPIO.srcs/sources_1/bd/MicroGPIO/sim/MicroGPIO.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

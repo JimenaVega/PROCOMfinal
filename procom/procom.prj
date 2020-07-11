@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="procom" location="C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/procom" platform="C:/Users/miner/Documents/JIME/4toAnio/procom/vivado_stuff/fpga/export/fpga/fpga.xpfm" platformUID="xilinx:arty::0.0(custom)" systemProject="procom_system" sysConfig="fpga" runtime="cpp" cpu="domain_microblaze_0" cpuInstance="microblaze_0" os="standalone" mssSignature="9f789270f439a37169ed252269704f1a">
+  <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.962332825" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.2121446940" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>
