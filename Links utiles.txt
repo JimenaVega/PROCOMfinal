@@ -7,5 +7,9 @@ http://congresos.cio.mx/3_enc_mujer/files/extensos/Sesion%202/S2-ING03.pdf un po
 https://www.youtube.com/watch?v=wlZQgeIlSnU fpga course
 
 DMA DIRECT MEMORY ACCESS:
-https://open4tech.com/direct-memory-access-dma-in-embedded-systems/
+  Funcionamiento
+    https://open4tech.com/direct-memory-access-dma-in-embedded-systems/
+  Ejemplo aplicacion en FPGA 
+    https://www.fpgadeveloper.com/2014/08/using-the-axi-dma-in-vivado.html
+    https://www.fpgadeveloper.com/2017/10/using-axi-dma-in-vivado-reloaded.html
 
