@@ -5,3 +5,7 @@ https://ccc.inaoep.mx/~cferegrino/Publicaciones/articulos/Arquitectura%20FPGA%20
 http://www.geintra-uah.org/system/files/private/Algoritmos_no_Sistolicos__para_la_Multiplicacion_de_Matrices_en_FPGAs_JCRA_BRAVO_06.pdf algoritmos multipl matrices en fpga
 http://congresos.cio.mx/3_enc_mujer/files/extensos/Sesion%202/S2-ING03.pdf un poco mas de lo mismo
 https://www.youtube.com/watch?v=wlZQgeIlSnU fpga course
+
+DMA DIRECT MEMORY ACCESS:
+https://open4tech.com/direct-memory-access-dma-in-embedded-systems/
+
