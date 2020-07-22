@@ -12,4 +12,7 @@ DMA DIRECT MEMORY ACCESS:
   Ejemplo aplicacion en FPGA 
     https://www.fpgadeveloper.com/2014/08/using-the-axi-dma-in-vivado.html
     https://www.fpgadeveloper.com/2017/10/using-axi-dma-in-vivado-reloaded.html
+    
+    MANEJO DE IP
+    https://www.xilinx.com/support/documentation/ip_documentation/axi_cdma/v4_1/pg034-axi-cdma.pdf
 
