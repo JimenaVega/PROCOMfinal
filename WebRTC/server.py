@@ -50,32 +50,39 @@ class VideoTransformTrack(MediaStreamTrack):
 
     kind = "video"
 
+    row=0
+    col=0
+
     def __init__(self, track, rows, cols, kernel):
         super().__init__()  # don't forget this!
         self.track = track
         self.rows = rows
         self.cols = cols
         self.kernel = kernel
+
+        global row
+        row=rows
+        global col
+        col=cols
+        imagen_gris = np.ndarray(shape=(row,col)) #se hace una variable global para accederla luego
         self.edgeMatrix = np.array((
 	    [-1, -1, -1],
 	    [-1,  8, -1],
 	    [-1, -1, -1]), dtype="int")
 
-
     
+
+  
     async def recv(self):
         frame = await self.track.recv()
-        flag=0
+        
         img  = frame.to_ndarray(format="bgr24")
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        if(flag=='0'):
-            imagen=gray
-            cv2.imshow('imagen',imagen)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            flag=1
         
+        global imagen_gris
+        imagen_gris=gray #copia a gray
+
+
         
         if(self.kernel == 1):   
             gauss = cv2.GaussianBlur(gray, (5,5), 0)
@@ -113,19 +120,19 @@ class VideoTransformTrack(MediaStreamTrack):
         return new_frame
 
 
+#carga el html
 async def index(request):
     content = open(os.path.join(ROOT, "index2.html"), "r").read()
     return web.Response(content_type="text/html", text=content)
 
 
-# Serve the RTCBot javascript library at /rtcbot.js
-
+# Carga el archivo de javascript RTCBOT
 async def rtcbotjs(request):
     return web.Response(content_type="application/javascript", text=getRTCBotJS())
 
 
 
-
+#Carga el javascript client
 async def javascript(request):
     content = open(os.path.join(ROOT, "client.js"), "r").read()
     return web.Response(content_type="application/javascript", text=content)
@@ -175,7 +182,7 @@ async def offer(request):
 
 
 async def on_shutdown(app):
-    # close peer connections
+    # close peer connections (ambas)
     await conn.close()
     coros = [pc.close() for pc in pcs]
     await asyncio.gather(*coros)
@@ -183,16 +190,27 @@ async def on_shutdown(app):
 
 
 
-
+ #Cuando se presione el boton de enviar foto, se entra al condicional
 @conn.subscribe
-def onMessage(msg):  # Called when each message is sent
-    print("Got message:", msg)
+async def onMessage(msg):  # Called when each message is sent
+    if(msg=='send_photo'):
+        global imagen_gris # es la imagen del frame actual, NO es la imagen de Take_Photo, eso lo tengo que corregir
+        cv2.imshow('imagen_gris',imagen_gris)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        flag=1
+    
+        print("EXITO")
+
+       
+    
+
+
+    
 
 
 
-
-# This sets up the connection
-
+# es la conexion para el envio de mensajes
 async def connect(request):
     clientOffer = await request.json()
     serverResponse = await conn.getLocalDescription(clientOffer)
@@ -228,7 +246,7 @@ if __name__ == "__main__":
     app = web.Application()
     app.on_shutdown.append(on_shutdown)
     app.router.add_get("/", index)
-    app.router.add_get("/client.js", javascript)
+    app.router.add_get("/client.js", javascript) #se agregan las funciones  a usar
     app.router.add_post("/offer", offer)
     app.router.add_get("/rtcbot.js",rtcbotjs)
     app.router.add_post("/connect",connect)

@@ -10,7 +10,7 @@ var dataChannelLog = document.getElementById('data-channel'),
     const snap = document.getElementById("snap");
     const send_b = document.getElementById("send_b")
     const canvas = document.querySelector("#canvas");
-    const create_b= document.getElementById("CreateCon")
+    
  
 // peer connection
 var pc = null;
@@ -174,52 +174,18 @@ function start(){
     document.getElementById('stop').style.display = 'inline-block';
 }
 
-function createConnection() {
-    
-    var servers = null;
-    pcConstraint = null;
-    dataConstraint = null;
-    trace('Using SCTP based data channels');
-    // SCTP is supported from Chrome 31 and is supported in FF.
-    // No need to pass DTLS constraint as it is on by default in Chrome 31.
-    // For SCTP, reliable and ordered is true by default.
-    // Add localConnection to global scope to make it visible
-    // from the browser console.
-    window.localConnection = localConnection =
-        new RTCPeerConnection(servers, pcConstraint);
-    trace('Created local peer connection object localConnection');
-  
-    sendChannel = localConnection.createDataChannel('sendDataChannel',
-      dataConstraint);
-    trace('Created send data channel');
-  
-    localConnection.onicecandidate = function(e) {
-      onIceCandidate(localConnection, e);
-    };
-    
-  
-    // Add remoteConnection to global scope to make it visible
-    // from the browser console.
-    window.remoteConnection = remoteConnection =
-        new RTCPeerConnection(servers, pcConstraint);
-    trace('Created remote peer connection object remoteConnection');
-  
-    remoteConnection.onicecandidate = function(e) {
-      onIceCandidate(remoteConnection, e);
-    };
- 
-  }
 
 
-function    send_photo(){ 
 
-    //pc = createPeerConnection()
-    var data = "HolaPrueba";
-    sendChannel.send(data);
-    trace('Sent Data: ' + data);
-}
+// function    send_photo(){  NO HACE NADA AUN
 
-// logging utility
+//     //pc = createPeerConnection()
+//     var data = "HolaPrueba";
+//     sendChannel.send(data);
+//     trace('Sent Data: ' + data);
+// }
+
+// logging utility . Sirve para agregar comentarios en la consola web (apretar F12  en la web y luego consola)
 function trace(arg) {
     var now = (window.performance.now() / 1000).toFixed(3);
     console.log(now + ': ', arg);
@@ -342,7 +308,44 @@ function escapeRegExp(string) {
 
 
 
-function take_photo() {
+
+
+var conn = new rtcbot.RTCConnection();
+
+async function connect() { //establece la conexion para mandar mensajes
+    let offer = await conn.getLocalDescription();
+
+    // POST the information to /connect
+    let response = await fetch("/connect", {
+        method: "POST",
+        cache: "no-cache",
+        body: JSON.stringify(offer)
+    });
+
+    await conn.setRemoteDescription(await response.json());
+
+    trace("Ready!");
+    
+}
+
+connect();
+
+// agregar tantos botones como flags se requieran
+//estas funciones reciben un mensaje apretado
+var mybutton = document.querySelector("#mybutton");
+mybutton.onclick = function() {
+    conn.put_nowait("send_photo");
+    trace("Capturando Foto")
+};
+
+var mybutton = document.querySelector("#mybutton2"); //este no hace nada esta puesto a modo de dejmeplo
+mybutton.onclick = function() {
+    conn.put_nowait("Button Clicked!asdassadasd");
+};
+
+
+
+function take_photo() { //permite sacar fotos que se muestra en el sitio web
 
     // const DataURI = myCanvas
     var context = canvas.getContext('2d');
@@ -351,31 +354,9 @@ function take_photo() {
 
 
 
-    var conn = new rtcbot.RTCConnection();
-
-    async function connect() {
-        let offer = await conn.getLocalDescription();
-
-        // POST the information to /connect
-        let response = await fetch("/connect", {
-            method: "POST",
-            cache: "no-cache",
-            body: JSON.stringify(offer)
-        });
-
-        await conn.setRemoteDescription(await response.json());
-
-        console.log("Ready!");
-    }
-    connect();
 
 
-    var mybutton = document.querySelector("#mybutton");
-    mybutton.onclick = function() {
-        conn.put_nowait("Button Clicked!");
-    };
 
-    
     // if(window.navigator.msSaveBlob)
     // {
     //     window.navigator.msSaveBlob(canvas.msToBlob(),"ImageProcessing.png");
