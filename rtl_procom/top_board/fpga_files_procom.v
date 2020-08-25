@@ -8,5 +8,5 @@
 -- Autor         : Ariel Pola
 -------------------------------------------------------------------------------*/
 
-`include "C:\Users\miner\Documents\JIME\4toAnio\procom\vivado_stuff\rtl_procom\include\artyc_include.v"
+`include "C:\Users\asus\PROCOM2020\TAREA7\PROCOMfinal\rtl_procom\include\artyc_include.v"
 

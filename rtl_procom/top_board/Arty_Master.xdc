@@ -9,10 +9,9 @@ set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { clk100
 create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports { clk100 }];
 
 ##Switches
-set_property -dict { PACKAGE_PIN A8    IOSTANDARD LVCMOS33 } [get_ports { i_sw[0] }]; #IO_L12N_T1_MRCC_16 Sch=sw[0]
-set_property -dict { PACKAGE_PIN C11   IOSTANDARD LVCMOS33 } [get_ports { i_sw[1] }]; #IO_L13P_T2_MRCC_16 Sch=sw[1]
-set_property -dict { PACKAGE_PIN C10   IOSTANDARD LVCMOS33 } [get_ports { i_sw[2] }]; #IO_L13N_T2_MRCC_16 Sch=sw[2]
-set_property -dict { PACKAGE_PIN A10   IOSTANDARD LVCMOS33 } [get_ports { i_sw[3] }]; #IO_L14P_T2_SRCC_16 Sch=sw[3]
+#set_property -dict { PACKAGE_PIN C11   IOSTANDARD LVCMOS33 } [get_ports { i_sw[1] }]; #IO_L13P_T2_MRCC_16 Sch=sw[1]
+#set_property -dict { PACKAGE_PIN C10   IOSTANDARD LVCMOS33 } [get_ports { i_sw[2] }]; #IO_L13N_T2_MRCC_16 Sch=sw[2]
+#set_property -dict { PACKAGE_PIN A10   IOSTANDARD LVCMOS33 } [get_ports { i_sw[3] }]; #IO_L14P_T2_SRCC_16 Sch=sw[3]
 
 ##RGB LEDs
 set_property -dict { PACKAGE_PIN G6    IOSTANDARD LVCMOS33 } [get_ports { out_leds_rgb0[0] }]; #IO_L18N_T2_35 Sch=led0_b
@@ -26,7 +25,7 @@ set_property -dict { PACKAGE_PIN J2    IOSTANDARD LVCMOS33 } [get_ports { out_le
 set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 } [get_ports { out_leds_rgb2[2] }]; #IO_L22P_T3_35 Sch=led2_r
 set_property -dict { PACKAGE_PIN K1    IOSTANDARD LVCMOS33 } [get_ports { out_leds_rgb3[0] }]; #IO_L23P_T3_35 Sch=led3_b
 set_property -dict { PACKAGE_PIN H6    IOSTANDARD LVCMOS33 } [get_ports { out_leds_rgb3[1] }]; #IO_L24P_T3_35 Sch=led3_g
-set_property -dict { PACKAGE_PIN K2    IOSTANDARD LVCMOS33 } [get_ports { out_leds_rgb3[2] }]; #IO_L23N_T3_35 Sch=led3_r
+set_property -dict { PACKAGE_PIN K2    IOSTANDARD LVCMOS33 } [get_ports { out_leds_rgb3[2] }]; #IO_L23N_T3_35 Sch=led3_r3
 
 ##LEDs
 
