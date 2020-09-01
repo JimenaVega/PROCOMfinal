@@ -175,8 +175,8 @@ kernel = np.array((
 #Convert image to gray scale
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 #cv2.imshow("Gray scale image", gray)
-[rowImage,colImage] = gray.shape
-print("filas gray = {0} \tcolumnas en gray = {1}".format(rowImage,colImage))
+[ROWIM,COLIM] = gray.shape
+print("filas gray = {0} \tcolumnas en gray = {1}".format(ROWIM,COLIM))
 #----Image normalization----
 MaxIm     = 255.0
 MinIm     = 0.0
@@ -212,38 +212,58 @@ quantKernel = quantize(kernelLNorm,8,6)
 ser.flushInput()
 ser.flushOutput()
 
-#test = (ord(quantImage[0]))
-row  = 0
+def sendCol(imageCol):
+    rec_count = 0
+    
+    while(rec_count<ROWIM):
+        print('-'*7+"UART writing "+'-'*7)
+        ser.write(imageCol)
+        print("valor num ascii = {0} \t tamaño en byte = {1}\n".format(imageCol[rec_count],sys.getsizeof(imageCol[rec_count])))
+        time.sleep(0.001)
+        out1 = []
+        
+        while (ser.inWaiting() > 0):
+            out1.append(ser.read(1))
+            #print(count)
+            # count+=1
+            
+        print('-'*7+"UART reading o1"+'-'*7)
+        print("rec_count = {0}  received = {1}".format(rec_count,int.from_bytes( out1[rec_count], "big")))
+        rec_count+=1
+        ser.flushInput()
+        ser.flushOutput()
+        #return out1
 
-print(quantImage[0])
-idk = bytearray()
-#for i in range(len(quantImage)):
-idk.append(quantImage[0])
-idk.append(quantImage[256])
-idk.append(quantImage[10680])
+
+byteImage = bytearray()
+
+for i in range(ROWIM):
+    byteImage.append(quantImage[i])
+
+sendCol(byteImage)
+# byteImage.append(quantImage[0])  
+# byteImage.append(quantImage[1])  
+# byteImage.append(quantImage[2])  
+
+
+print("valor num ascii = {0} \t tamaño en byte = {1}".format(byteImage[0],sys.getsizeof(byteImage[0])))
+print("valor num ascii = {0} \t tamaño en byte = {1}".format(byteImage[1],sys.getsizeof(byteImage[1])))
+print("valor num ascii = {0} \t tamaño en byte = {1}\n".format(byteImage[2],sys.getsizeof(byteImage[2])))
 
 
 
-print("valor num ascii = {0} \t tamaño en byte = {1}".format(idk[0],sys.getsizeof(idk[0])))
-print("valor num ascii = {0} \t tamaño en byte = {1}".format(idk[1],sys.getsizeof(idk[1])))
-print("valor num ascii = {0} \t tamaño en byte = {1}".format(idk[2],sys.getsizeof(idk[2])))
-ser.write(idk)
-time.sleep(0.001)
 
-out1 = []
-count = 0
-while (ser.inWaiting() > 0):
-    print(count)
-    out1.append(ser.read(1))
-    count+=1
-
-print('-'*7+"UART reading o1"+'-'*7)
-print(sys.getsizeof(out1[0]))
-print(int.from_bytes( out1[0], "big"))
-print(int.from_bytes( out1[1], "big"))
-print(int.from_bytes( out1[2], "big"))
-ser.flushInput()
-ser.flushOutput()
+    
+byteImage.clear()
+'''
+    print('-'*7+"UART reading o1"+'-'*7)
+    print(sys.getsizeof(out1[0]))
+    print(int.from_bytes( out1[0], "big"))
+    print(int.from_bytes( out1[1], "big"))
+    print(int.from_bytes( out1[2], "big"))
+    ser.flushInput()
+    ser.flushOutput()
+    '''
 #-------------op2----------------------------------
 
 # print('-'*7+"UART writing"+'-'*7)
