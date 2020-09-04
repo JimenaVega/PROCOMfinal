@@ -214,31 +214,35 @@ ser.flushOutput()
 
 def sendCol(imageCol):
     rec_count = 0
+    #te quedste aca, tipo por que carajos anda el envio si mandaste toda la col de una vez
+    #tipooo why usar un while y eso si anda? que carajos
+    #while(rec_count<5):
+   # print('-'*7+"UART writing "+'-'*7)
+    ser.write(imageCol)
+    #print("valor num ascii = {0} \t tamaño en byte = {1}\t".format(imageCol[rec_count],sys.getsizeof(imageCol[rec_count])))
+    time.sleep(0.001)
+    out1 = []
     
-    while(rec_count<ROWIM):
-        print('-'*7+"UART writing "+'-'*7)
-        ser.write(imageCol)
-        print("valor num ascii = {0} \t tamaño en byte = {1}\n".format(imageCol[rec_count],sys.getsizeof(imageCol[rec_count])))
-        time.sleep(0.001)
-        out1 = []
+    while (ser.inWaiting() > 0):
+        out1.append(ser.read(1))
+        #print(out1)
         
-        while (ser.inWaiting() > 0):
-            out1.append(ser.read(1))
-            #print(count)
-            # count+=1
-            
-        print('-'*7+"UART reading o1"+'-'*7)
-        print("rec_count = {0}  received = {1}".format(rec_count,int.from_bytes( out1[rec_count], "big")))
+        
+    print('-'*7+"UART reading o1"+'-'*7)
+    for i in range(len(out1)):
+        print("sended = {0}  received = {1}".format(imageCol[rec_count],int.from_bytes( out1[rec_count], "big")))
         rec_count+=1
-        ser.flushInput()
-        ser.flushOutput()
-        #return out1
-
+    ser.flushInput()
+    ser.flushOutput()
+    #return out1
 
 byteImage = bytearray()
-
+#agregar loop para cambiar de columnda
+delta = 0              #delta para enviar cada columna 
 for i in range(ROWIM):
-    byteImage.append(quantImage[i])
+    byteImage.append(quantImage[i+(delta*ROWIM)])
+    
+delta+=1
 
 sendCol(byteImage)
 # byteImage.append(quantImage[0])  
@@ -249,17 +253,13 @@ sendCol(byteImage)
 print("valor num ascii = {0} \t tamaño en byte = {1}".format(byteImage[0],sys.getsizeof(byteImage[0])))
 print("valor num ascii = {0} \t tamaño en byte = {1}".format(byteImage[1],sys.getsizeof(byteImage[1])))
 print("valor num ascii = {0} \t tamaño en byte = {1}\n".format(byteImage[2],sys.getsizeof(byteImage[2])))
-
-
-
-
     
 byteImage.clear()
 '''
     print('-'*7+"UART reading o1"+'-'*7)
     print(sys.getsizeof(out1[0]))
-    print(int.from_bytes( out1[0], "big"))
-    print(int.from_bytes( out1[1], "big"))
+    print(int.( out1[0], "big"))
+    print(int.from_bytfrom_byteses( out1[1], "big"))
     print(int.from_bytes( out1[2], "big"))
     ser.flushInput()
     ser.flushOutput()
