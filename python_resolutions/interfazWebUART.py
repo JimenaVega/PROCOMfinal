@@ -212,116 +212,30 @@ quantKernel = quantize(kernelLNorm,8,6)
 ser.flushInput()
 ser.flushOutput()
 
-def sendCol(imageCol):
-    rec_count = 0
-    #te quedste aca, tipo por que carajos anda el envio si mandaste toda la col de una vez
-    #tipooo why usar un while y eso si anda? que carajos
-    #while(rec_count<5):
-   # print('-'*7+"UART writing "+'-'*7)
+def sendCol(imageCol,i):
+   
     ser.write(imageCol)
-    #print("valor num ascii = {0} \t tamaño en byte = {1}\t".format(imageCol[rec_count],sys.getsizeof(imageCol[rec_count])))
     time.sleep(0.001)
-    out1 = []
-    
+    out = []
     while (ser.inWaiting() > 0):
-        out1.append(ser.read(1))
+        out.append(ser.read(1))
         #print(out1)
-        
-        
-    print('-'*7+"UART reading o1"+'-'*7)
-    for i in range(len(out1)):
-        print("sended = {0}  received = {1}".format(imageCol[rec_count],int.from_bytes( out1[rec_count], "big")))
-        rec_count+=1
+
+    print('-'*7+"UART reading col #{}".format(i))
+    for i in range(len(out)):
+        print("sended = {0}  received = {1}".format(imageCol[i],int.from_bytes( out[i], "big")))
+    print("amount of data received = {}".format(len(out)))
+    
     ser.flushInput()
     ser.flushOutput()
-    #return out1
 
 byteImage = bytearray()
-#agregar loop para cambiar de columnda
-delta = 0              #delta para enviar cada columna 
-for i in range(ROWIM):
-    byteImage.append(quantImage[i+(delta*ROWIM)])
-    
-delta+=1
-
-sendCol(byteImage)
-# byteImage.append(quantImage[0])  
-# byteImage.append(quantImage[1])  
-# byteImage.append(quantImage[2])  
 
 
-print("valor num ascii = {0} \t tamaño en byte = {1}".format(byteImage[0],sys.getsizeof(byteImage[0])))
-print("valor num ascii = {0} \t tamaño en byte = {1}".format(byteImage[1],sys.getsizeof(byteImage[1])))
-print("valor num ascii = {0} \t tamaño en byte = {1}\n".format(byteImage[2],sys.getsizeof(byteImage[2])))
-    
-byteImage.clear()
-'''
-    print('-'*7+"UART reading o1"+'-'*7)
-    print(sys.getsizeof(out1[0]))
-    print(int.( out1[0], "big"))
-    print(int.from_bytfrom_byteses( out1[1], "big"))
-    print(int.from_bytes( out1[2], "big"))
-    ser.flushInput()
-    ser.flushOutput()
-    '''
-#-------------op2----------------------------------
+for delta in range (COLIM):
+    for i in range(ROWIM):
+        byteImage.append(quantImage[i+(delta*ROWIM)])
+    sendCol(byteImage,delta)
+    byteImage.clear() 
 
-# print('-'*7+"UART writing"+'-'*7)
-# toSend = chr(quantImage[10680]).encode()
-# print(sys.getsizeof(toSend))
-# print(toSend)
-
-# ser.write(toSend)
-# time.sleep(0.05)
-
-# while (ser.inWaiting() > 0):
-#     out = (ser.read(1))
-#     print(out)
-# print('-'*7+"UART reading"+'-'*7)
-# print(sys.getsizeof(out))
-# print(int.from_bytes( out, "big"))
-
-
-
-# for j in range(colImage):
-#         trama = bytearray(colImage)
-#         for c in range(colImage):
-#             aaa = quantImage[c+row]
-#             trama.insert(c,aaa)
-#         row += rowImage    
-#         for i in range(colImage):
-#             print()
-            
-                
-                #time.sleep(1)
-       # ser.write(trama)
-        # out = ''
-
-        # while ser.inWaiting() > 0:
-        #     out += ser.read(1)
-
-        # if out != '':
-        #     print (">> " + out)
-
-
-
-#if close project / receive data
-# inp = input("Close Port?\t[y/n]:\n>>")
-# if (inp == 'y'):
 ser.close()
-    #exit()
-
-
-
-#////////////////////////BORRAR//////////////////////////////
-
-#----Handmade convolution output LINEAR NORM----
-
-imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
-maxVal, minVal                = search(imMatrix, imHeight, imWidth) 
-conv2DOutput                  = scale(imMatrix,maxVal, minVal, 'linear').astype('uint8')
-
-#cv2.imshow("2- escalada ", conv2DOutput)
-
-
-#////////////////////////BORRAR////////////////////////////"""
