@@ -111,26 +111,13 @@ def quantize(matrix,NB,NBF):
     for i in range(len(quantMatrix)):
         packedMatrix[i] = chr(quantMatrix[i].intvalue)"""
 
-def sendData(image,command,rowImage,colst):
-    
-    while 1 :
-   
-        if(command == 'exit'):
-             ser.close()
-             exit()
-        else:
-    
-            for ptr in range(rowImage):
-                ser.write(image[ptr])
-                #time.sleep(1)
-    
-            out = ''
-    
-            while ser.inWaiting() > 0:
-                out += ser.read(1)
-    
-            if out != '':
-                print (">> " + out)
+def fixedToFloat(NB,NBF,signedMode,num):
+	if  (signedMode=='S'):
+		return (((num+2**(NB-1))&((2**NB)-1))-2**(NB-1))/(2**NBF)
+	elif(signedMode=='U'):
+		return num/(2**NBF)
+
+
     
 # In[0]: configuracion puerto serie
 
@@ -222,20 +209,30 @@ def sendCol(imageCol,i):
         #print(out1)
 
     print('-'*7+"UART reading col #{}".format(i))
+    outInteger = []
     for i in range(len(out)):
         print("sended = {0}  received = {1}".format(imageCol[i],int.from_bytes( out[i], "big")))
+        outInteger.append(int.from_bytes( out[i], "big"))
     print("amount of data received = {}".format(len(out)))
     
     ser.flushInput()
     ser.flushOutput()
+    
+    return outInteger
 
 byteImage = bytearray()
 
-
+imRecons = []
 for delta in range (COLIM):
     for i in range(ROWIM):
         byteImage.append(quantImage[i+(delta*ROWIM)])
-    sendCol(byteImage,delta)
+    imRecons.append(sendCol(byteImage,delta))
     byteImage.clear() 
 
 ser.close()
+
+
+
+
+
+

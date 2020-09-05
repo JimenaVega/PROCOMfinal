@@ -86,7 +86,11 @@ Por último exiten comparadores entre objetos que devulven True o False:
 EJEMPLO
 a=DeFixedInt(roundMode='trunc',signedMode = 'S',intWidth=4,fractWidth=2,saturateMode='saturate') # Definicion completa de un objeto de la clase con la posicion de los parametros cambiada
 """
-
+def fixedToFloat(NB,NBF,signedMode,num):
+	if  (signedMode=='S'):
+		return (((num+2**(NB-1))&((2**NB)-1))-2**(NB-1))/(2**NBF)
+	elif(signedMode=='U'):
+		return num/(2**NBF)
 
 a=DeFixedInt(roundMode='trunc',signedMode = 'S',intWidth=7,fractWidth=6,saturateMode='saturate')
 a.value=0.156863 #Cargo el valor flotante a fixear al objeto a
@@ -96,9 +100,14 @@ print ("\nEntero Equivalente")
 print ('Int: %d|'%a.intvalue,'Bin: ',bin(a.intvalue))
 print ("\n----> Rango de a: ",a.showRange())
 
-idk =chr( a.intvalue)   #entero equivalente transformado en ASCII
-print('hola |'+idk +'|')
+print('-'*70)
+idk = a.intvalue
+#idk =chr( a.intvalue)   #entero equivalente transformado en ASCII
+print('original value = {0}       entero equiv->{1}'.format(0.156863,idk))
+transidk= fixedToFloat(7,6,'S',idk)
+print('value->{}'.format(transidk))
 
+print('-'*70)
 """
 PRINT DEL OBJETO a
 
