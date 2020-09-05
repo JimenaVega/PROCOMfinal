@@ -77,6 +77,17 @@ def hist (image):
     unique, counts = np.unique(image, return_counts=True)
     return unique, counts
 
+def plotHist(conv_image,name,pos):
+    [x  ,y]   = np.unique(conv_image,return_counts=True)
+    #[xcv,ycv] = np.unique(convCV,return_counts=True)
+    
+    plt.subplot(2,1,pos)
+    plt.stem(x,y,'ko',label='image with {} '.format(name),use_line_collection=True)
+    plt.legend()
+    plt.grid()
+    
+    plt.show()
+
 #----Rescale the processed image----
 def scale (imMatrix,maxVal, minVal, norm):   
     if norm=='linear': 
@@ -211,9 +222,9 @@ def sendCol(imageCol,i):
     print('-'*7+"UART reading col #{}".format(i))
     outInteger = []
     for i in range(len(out)):
-        print("sended = {0}  received = {1}".format(imageCol[i],int.from_bytes( out[i], "big")))
+       # print("sended = {0}  received = {1}".format(imageCol[i],int.from_bytes( out[i], "big")))
         outInteger.append(int.from_bytes( out[i], "big"))
-    print("amount of data received = {}".format(len(out)))
+    #print("amount of data received = {}".format(len(out)))
     
     ser.flushInput()
     ser.flushOutput()
@@ -229,10 +240,28 @@ for delta in range (COLIM):
     imRecons.append(sendCol(byteImage,delta))
     byteImage.clear() 
 
+
 ser.close()
 
+for i in range(COLIM):
+    for j in range(ROWIM):
+       imRecons[i][j]= fixedToFloat(7,6,'S',imRecons[i][j])
 
+arrFloat = (np.asarray(imRecons,'float64').T) #imagen recontruida
 
+#imagen original escalada imageNormLin
+imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
+maxVal, minVal                = search(imMatrix, imHeight, imWidth) 
+conv2DOutput                  = scale(imMatrix,maxVal, minVal, 'linear').astype('uint8')
+#xConv,yConv                   = hist(conv2DOutput)
+plotHist(conv2DOutput,'original',1)
+cv2.imshow("1- original ", conv2DOutput)
 
+imMatrix, imHeight, imWidth   = conv2D(arrFloat, kernelLNorm)
+maxVal, minVal                = search(imMatrix, imHeight, imWidth) 
+conv2DOutput                  = scale(imMatrix,maxVal, minVal, 'linear').astype('uint8')
+xConv,yConv                   = hist(conv2DOutput)
+plotHist(conv2DOutput,'reconst',2)
+cv2.imshow("2- reconstruida ", conv2DOutput)
 
 
