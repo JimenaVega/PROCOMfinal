@@ -79,7 +79,9 @@ class VideoTransformTrack(MediaStreamTrack):
         img  = frame.to_ndarray(format="bgr24")
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
+
         global imagen_gris
+        
         imagen_gris=gray #copia a gray
 
 
@@ -206,7 +208,23 @@ async def onMessage(msg):  # Called when each message is sent
     
 
 
-    
+def kill_process(): #si el puerto esta ocupado, lo libera para ejecutar el server
+    PID = os.popen("netstat -ano|findstr 8080").read() #busca el process ID para ese puerto
+    PID=PID[::-1]
+    trim=[]
+    for i, chrt in enumerate(PID):#recorre la respuesta desde el final y guarda el process ID
+        if (' ' == chrt):
+            break
+        trim.append(chrt)
+
+    try: 
+        trim.remove('\n')
+        PID=''.join(trim)[::-1]
+        
+        os.system("taskkill /f /PID {}".format(PID)) #libera el puerto para iniciar el server
+
+    except: #en caso que el puerto no este siendo usado, no hace nada
+        pass   
 
 
 
@@ -243,6 +261,8 @@ if __name__ == "__main__":
     else:
         ssl_context = None
 
+
+    kill_process()
     app = web.Application()
     app.on_shutdown.append(on_shutdown)
     app.router.add_get("/", index)
