@@ -157,9 +157,12 @@ def SNRcalc(error, origArray):
 #------------------------------------------------------------------------------
 #-----------------------------Start--------------------------------------------          
 #------------------------------------------------------------------------------
-           
+path = "descarga.jpg"
+#path = "foto1.jpg"
+
+
 ap = argparse.ArgumentParser( description="Convolution 2D: This function compares opencv and interative method.")
-ap.add_argument("-i", "--image", required=True, help="Path to the input image")
+ap.add_argument("-i", "--image", required=False, help="Path to the input image",default=path)
 ap.add_argument("-k", "--kernel", help="Path to the kernel")
 args = ap.parse_args()
 
