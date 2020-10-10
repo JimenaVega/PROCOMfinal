@@ -12,6 +12,7 @@ import cv2
 # import sysv_ipc
 import time
 
+
 from aiohttp import web
 
 
@@ -76,6 +77,7 @@ class VideoTransformTrack(MediaStreamTrack):
     async def recv(self):
         frame = await self.track.recv()
         
+
         img  = frame.to_ndarray(format="bgr24")
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
@@ -84,7 +86,7 @@ class VideoTransformTrack(MediaStreamTrack):
         
         imagen_gris=gray #copia a gray
 
-
+        
         
         if(self.kernel == 1):   
             gauss = cv2.GaussianBlur(gray, (5,5), 0)
@@ -195,13 +197,19 @@ async def on_shutdown(app):
  #Cuando se presione el boton de enviar foto, se entra al condicional
 @conn.subscribe
 async def onMessage(msg):  # Called when each message is sent
-    if(msg=='send_photo'):
+
+
+    if(msg=='take_photo'):
         global imagen_gris # es la imagen del frame actual, NO es la imagen de Take_Photo, eso lo tengo que corregir
-        cv2.imshow('imagen_gris',imagen_gris)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-        flag=1
-    
+        
+        cv2.imwrite("photo.jpg",imagen_gris)
+
+    if(msg=='send_photo'):
+        
+        
+        
+       
+        # os.system('python interfazWebUART.py --image photo.jpg')
         print("EXITO")
 
        

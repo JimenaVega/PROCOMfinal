@@ -335,13 +335,10 @@ connect();
 var mybutton = document.querySelector("#mybutton");
 mybutton.onclick = function() {
     conn.put_nowait("send_photo");
-    trace("Capturando Foto")
+    trace("Enviando")
+    
 };
 
-var mybutton = document.querySelector("#mybutton2"); //este no hace nada esta puesto a modo de dejmeplo
-mybutton.onclick = function() {
-    conn.put_nowait("Button Clicked!asdassadasd");
-};
 
 
 
@@ -350,6 +347,8 @@ function take_photo() { //permite sacar fotos que se muestra en el sitio web
     // const DataURI = myCanvas
     var context = canvas.getContext('2d');
     context.drawImage(prueba, 0, 0, 640, 480);
+    conn.put_nowait("take_photo");
+    trace("Capturando Foto")
     };
 
 
@@ -357,17 +356,4 @@ function take_photo() { //permite sacar fotos que se muestra en el sitio web
 
 
 
-    // if(window.navigator.msSaveBlob)
-    // {
-    //     window.navigator.msSaveBlob(canvas.msToBlob(),"ImageProcessing.png");
-    // }
-    // else 
-    // {
-    //     const a = document.createElement("a");
-
-    //     document.body.appendChild(a);
-    //     a.href = canvas.toDataURL();
-    //     a.download = "ImageProcessing.png";
-    //     a.click();
-    //     document.body.removeChild(a);
-    // }
+    

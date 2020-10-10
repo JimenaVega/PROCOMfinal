@@ -18,8 +18,8 @@ ser.flushOutput()
 
 print(ser.timeout)
 
-print 'Ingrese una serie de numeros (Ej. 1234) y presione Enter\n'
-print 'Escriba "exit" para salir y presione Enter\n\n'
+print ('Ingrese una serie de numeros (Ej. 1234) y presione Enter\n')
+print ('Escriba "exit" para salir y presione Enter\n\n')
 
 while 1 :
     ser.flushInput()
@@ -36,4 +36,4 @@ while 1 :
         while ser.inWaiting() > 0:
             out += ser.read(1)
         if out != '':
-            print ">> " + out
+            print (">> " + out)
