@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module Convolution
-  #(parameter IMG_HEIGHT  = 480,
+  #(parameter IMG_HEIGHT  = 120,
     parameter IMG_NB      = 7,
     parameter KERNEL_SIZE = 3,
     parameter KERNEL_NB   = 8
@@ -74,83 +74,7 @@ always@(posedge clock)begin
         kernel_c2[0] <= i_kernel[ 7 -: 8];
         
     end
-//    else if(control == 5)begin:filling_columns_0_1_2                             // Se realiza la carga de las columnas
-//                                                                                // 0, 1 y 2
-//        for(ptr=0;ptr<IMG_HEIGHT;ptr=ptr+1)begin
-//            if(counter == 0)
-//                column0[IMG_HEIGHT-ptr] <= i_col[(IMG_HEIGHT*IMG_NB-ptr*IMG_NB)-1 -: IMG_NB];
-//            else if(counter == 1)
-//                column1[IMG_HEIGHT-ptr] <= i_col[(IMG_HEIGHT*IMG_NB-ptr*IMG_NB)-1 -: IMG_NB];
-//            else if(counter == 2)
-//                column2[IMG_HEIGHT-ptr] <= i_col[(IMG_HEIGHT*IMG_NB-ptr*IMG_NB)-1 -: IMG_NB];
-//        end
-//        if(counter == 2)begin
-//            counter <= 2'd0;
-//            control <= 3'd0;
-//        end
-//        else begin
-//            counter <= counter+1;
-//            control <= 3'd6;
-//        end
-//    end
-//    else if(control == 1 && ready_for_conv)begin:conv0
-        
-        
-//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 0, 1 y 2
-//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column0[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column1[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column2[IMG_HEIGHT+1-ptr1] +
-//                                               kernel_c0[1]*column0[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column1[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column2[IMG_HEIGHT-ptr1]   +
-//                                               kernel_c0[0]*column0[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column1[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column2[IMG_HEIGHT-1-ptr1];
-//        end
-        
-//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                 // Se realiza la carga de la
-//            column3[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];     // columna 3
-        
-//        ready_for_conv <= 1'd0;
-//    end
-//    else if(control == 2 && ready_for_conv)begin:conv1
-        
-//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 1, 2 y 3
-//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column1[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column2[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column3[IMG_HEIGHT+1-ptr1] +
-//                                               kernel_c0[1]*column1[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column2[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column3[IMG_HEIGHT-ptr1]   +
-//                                               kernel_c0[0]*column1[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column2[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column3[IMG_HEIGHT-1-ptr1];
-//        end
-        
-//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                 // Se realiza la carga de la
-//            column0[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];     // columna 0
-        
-//        ready_for_conv <= 1'd0;
-//    end
-//    else if(control == 3 && ready_for_conv)begin:conv2
-        
-//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 2, 3 y 0
-//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column2[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column3[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column0[IMG_HEIGHT+1-ptr1] +
-//                                               kernel_c0[1]*column2[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column3[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column0[IMG_HEIGHT-ptr1]   +
-//                                               kernel_c0[0]*column2[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column3[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column0[IMG_HEIGHT-1-ptr1];
-//        end
-        
-//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                 // Se realiza la carga de la
-//            column1[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];     // columna 1
-        
-//        ready_for_conv <= 1'd0;
-//    end
-//    else if(control == 4 && ready_for_conv)begin:conv3
-        
-//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 3, 0 y 1
-//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column3[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column0[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column1[IMG_HEIGHT+1-ptr1] +
-//                                               kernel_c0[1]*column3[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column0[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column1[IMG_HEIGHT-ptr1]   +
-//                                               kernel_c0[0]*column3[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column0[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column1[IMG_HEIGHT-1-ptr1];
-//        end
-        
-//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                  // Se realiza la carga de la
-//            column2[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];      // columna 2
-        
-//        ready_for_conv <= 1'd0;
-//        control        <= 3'd0;
-//    end
-end
-
-always@(posedge clock)begin
-    if(control == 5)begin:filling_columns_0_1_2                                // Se realiza la carga de las columnas
+    else if(control == 5)begin:filling_columns_0_1_2                             // Se realiza la carga de las columnas
                                                                                 // 0, 1 y 2
         for(ptr=0;ptr<IMG_HEIGHT;ptr=ptr+1)begin
             if(counter == 0)
@@ -169,10 +93,7 @@ always@(posedge clock)begin
             control <= 3'd6;
         end
     end
-end
-
-always@(posedge clock)begin
-    if(control == 1 && ready_for_conv)begin:conv0
+    else if(control == 1 && ready_for_conv)begin:conv0
         
         
         for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 0, 1 y 2
@@ -186,10 +107,7 @@ always@(posedge clock)begin
         
         ready_for_conv <= 1'd0;
     end
-end
-
-always@(posedge clock)begin
-    if(control == 2 && ready_for_conv)begin:conv1
+    else if(control == 2 && ready_for_conv)begin:conv1
         
         for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 1, 2 y 3
             new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column1[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column2[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column3[IMG_HEIGHT+1-ptr1] +
@@ -202,10 +120,7 @@ always@(posedge clock)begin
         
         ready_for_conv <= 1'd0;
     end
-end
-
-always@(posedge clock)begin
-    if(control == 3 && ready_for_conv)begin:conv2
+    else if(control == 3 && ready_for_conv)begin:conv2
         
         for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 2, 3 y 0
             new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column2[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column3[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column0[IMG_HEIGHT+1-ptr1] +
@@ -218,10 +133,7 @@ always@(posedge clock)begin
         
         ready_for_conv <= 1'd0;
     end
-end
-
-always@(posedge clock)begin
-    if(control == 4 && ready_for_conv)begin:conv3
+    else if(control == 4 && ready_for_conv)begin:conv3
         
         for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 3, 0 y 1
             new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column3[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column0[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column1[IMG_HEIGHT+1-ptr1] +
@@ -237,13 +149,101 @@ always@(posedge clock)begin
     end
 end
 
-always@(posedge i_control)begin
-    ready_for_conv <= 1'd1;
-    if(control == 6)
-        control <= 3'd5;
-    else begin
-        control <= control+1;
-    end
-end
+//always@(posedge clock)begin
+//    if(control == 5)begin:filling_columns_0_1_2                                // Se realiza la carga de las columnas
+//                                                                                // 0, 1 y 2
+//        for(ptr=0;ptr<IMG_HEIGHT;ptr=ptr+1)begin
+//            if(counter == 0)
+//                column0[IMG_HEIGHT-ptr] <= i_col[(IMG_HEIGHT*IMG_NB-ptr*IMG_NB)-1 -: IMG_NB];
+//            else if(counter == 1)
+//                column1[IMG_HEIGHT-ptr] <= i_col[(IMG_HEIGHT*IMG_NB-ptr*IMG_NB)-1 -: IMG_NB];
+//            else if(counter == 2)
+//                column2[IMG_HEIGHT-ptr] <= i_col[(IMG_HEIGHT*IMG_NB-ptr*IMG_NB)-1 -: IMG_NB];
+//        end
+//        if(counter == 2)begin
+//            counter <= 2'd0;
+//            control <= 3'd0;
+//        end
+//        else begin
+//            counter <= counter+1;
+//            control <= 3'd6;
+//        end
+//    end
+//end
+
+//always@(posedge clock)begin
+//    if(control == 1 && ready_for_conv)begin:conv0
+        
+        
+//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 0, 1 y 2
+//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column0[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column1[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column2[IMG_HEIGHT+1-ptr1] +
+//                                               kernel_c0[1]*column0[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column1[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column2[IMG_HEIGHT-ptr1]   +
+//                                               kernel_c0[0]*column0[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column1[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column2[IMG_HEIGHT-1-ptr1];
+//        end
+        
+//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                 // Se realiza la carga de la
+//            column3[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];     // columna 3
+        
+//        ready_for_conv <= 1'd0;
+//    end
+//end
+
+//always@(posedge clock)begin
+//    if(control == 2 && ready_for_conv)begin:conv1
+        
+//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 1, 2 y 3
+//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column1[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column2[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column3[IMG_HEIGHT+1-ptr1] +
+//                                               kernel_c0[1]*column1[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column2[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column3[IMG_HEIGHT-ptr1]   +
+//                                               kernel_c0[0]*column1[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column2[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column3[IMG_HEIGHT-1-ptr1];
+//        end
+        
+//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                 // Se realiza la carga de la
+//            column0[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];     // columna 0
+        
+//        ready_for_conv <= 1'd0;
+//    end
+//end
+
+//always@(posedge clock)begin
+//    if(control == 3 && ready_for_conv)begin:conv2
+        
+//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 2, 3 y 0
+//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column2[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column3[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column0[IMG_HEIGHT+1-ptr1] +
+//                                               kernel_c0[1]*column2[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column3[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column0[IMG_HEIGHT-ptr1]   +
+//                                               kernel_c0[0]*column2[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column3[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column0[IMG_HEIGHT-1-ptr1];
+//        end
+        
+//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                 // Se realiza la carga de la
+//            column1[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];     // columna 1
+        
+//        ready_for_conv <= 1'd0;
+//    end
+//end
+
+//always@(posedge clock)begin
+//    if(control == 4 && ready_for_conv)begin:conv3
+        
+//        for(ptr1=0;ptr1<IMG_HEIGHT;ptr1=ptr1+1)begin    // Se hace la convolucion del kernel con las columnas 3, 0 y 1
+//            new_column[(IMG_HEIGHT-1)-ptr1] <= kernel_c0[2]*column3[IMG_HEIGHT+1-ptr1] + kernel_c1[2]*column0[IMG_HEIGHT+1-ptr1] + kernel_c2[2]*column1[IMG_HEIGHT+1-ptr1] +
+//                                               kernel_c0[1]*column3[IMG_HEIGHT-ptr1]   + kernel_c1[1]*column0[IMG_HEIGHT-ptr1]   + kernel_c2[1]*column1[IMG_HEIGHT-ptr1]   +
+//                                               kernel_c0[0]*column3[IMG_HEIGHT-1-ptr1] + kernel_c1[0]*column0[IMG_HEIGHT-1-ptr1] + kernel_c2[0]*column1[IMG_HEIGHT-1-ptr1];
+//        end
+        
+//        for(ptr2=0;ptr2<IMG_HEIGHT;ptr2=ptr2+1)                                                  // Se realiza la carga de la
+//            column2[IMG_HEIGHT-ptr2] <= i_col[(IMG_HEIGHT*IMG_NB-ptr2*IMG_NB)-1 -: IMG_NB];      // columna 2
+        
+//        ready_for_conv <= 1'd0;
+//        control        <= 3'd0;
+//    end
+//end
+
+//always@(posedge i_control)begin
+//    ready_for_conv <= 1'd1;
+//    if(control == 6)
+//        control <= 3'd5;
+//    else begin
+//        control <= control+1;
+//    end
+//end
 
 endmodule
