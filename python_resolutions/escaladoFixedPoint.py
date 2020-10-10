@@ -65,6 +65,17 @@ def hist (image):
     unique, counts = np.unique(image, return_counts=True)
     return unique, counts
 
+def plotHist(conv_image,name,pos):
+    [x  ,y]   = np.unique(conv_image,return_counts=True)
+    #[xcv,ycv] = np.unique(convCV,return_counts=True)
+    
+    plt.subplot(3,1,pos)
+    plt.stem(x,y,'ko',label='image with {} '.format(name),use_line_collection=True)
+    plt.legend()
+    plt.grid()
+    
+    plt.show()
+
 #----Rescale the processed image----
 def scale (imMatrix,maxVal, minVal, norm):   
     if norm=='linear': 
@@ -183,7 +194,9 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 kernelF         = flipKernel (kernel)
 opencvOutput    = cv2.filter2D(gray, -1, kernelF)
 xOpenCv,yOpenCv = hist(opencvOutput)
-#cv2.imshow("Filtro 2D - opencv", opencvOutput)
+plotHist(opencvOutput,'openCV',1)
+cv2.imshow("Filtro 2D - opencv", opencvOutput)
+
 
 #----Image normalization----
 MaxIm     = 255.0
@@ -212,17 +225,19 @@ kernelSNorm                   = flipKernel (kernelS)
 
 imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
 maxVal, minVal                = search(imMatrix, imHeight, imWidth) 
-conv2DOutput                  = scale(imMatrix,maxVal, minVal, 'linear')
+conv2DOutput                  = scale(imMatrix,maxVal, minVal, 'linear').astype('uint8')
+plotHist(conv2DOutput,'lineal convoltion',2)
 xConv,yConv                   = hist(conv2DOutput)
 
-#cv2.imshow("Filtro 2D - Handmade convolution linear norm", conv2DOutput)
+cv2.imshow("lineal convolution", conv2DOutput)
 
 #----Handmade convolution output STANDARIZATION----
 imMatrix2, imHeight, imWidth  = conv2D(imageStandarization, kernelSNorm)
 maxVal, minVal                = search(imMatrix, imHeight, imWidth) 
-conv2DOutput2                 = scale(imMatrix2,maxVal, minVal,'standar')
+conv2DOutput2                 = scale(imMatrix2,maxVal, minVal,'standar').astype('uint8')
 xConv2,yConv2                 = hist(conv2DOutput2)
-#cv2.imshow("Filtro 2D - Handmade convolution standarization norm", conv2DOutput2)
+plotHist(conv2DOutput2,'standard convolution',3)
+cv2.imshow("standard convolution", conv2DOutput2)
 
 #------------------------------------------------------------------------------
 #-----------------------------Error--------------------------------------------          
@@ -247,7 +262,7 @@ print('*'*70)
 #------------------------------------------------------------------------------
      
 #----Number of bits selection----
-n_bitsVar    = 5       #Se incrementan hasta 10 bits fraccionarios 
+n_bitsVar    = 7       #Se incrementan hasta 10 bits fraccionarios 
 
     #--Kernel--
 kernelLArray = kernelLNorm.ravel()
@@ -340,15 +355,17 @@ print('*'*70)
 #------------------------------------------------------------------------------
 plt.figure("Error segun cantidad de bits")
 plt.subplot(2,1,1)
-plt.plot(xAxis,SNRk1,'rx', label='Handmade convolution linear')
-plt.plot(xAxis,SNRk2,'co', label='Handmade convolution standar')
-plt.xlabel('Error')
+plt.plot(xAxis,SNRk1,'rx', label='linear convolution kernel')
+plt.plot(xAxis,SNRk2,'co', label='standar convolution kernel')
+plt.xlabel('NBF')
+plt.ylabel('SNRdB')
 plt.legend()
 plt.grid()
 plt.subplot(2,1,2)
-plt.plot(xAxis,SNRorigIm1,'rx', label='Handmade convolution linear')
-plt.plot(xAxis,SNRorigIm2,'co', label='Handmade convolution standar')
-plt.xlabel('Error')
+plt.plot(xAxis,SNRorigIm1,'rx', label='linear convolution image')
+plt.plot(xAxis,SNRorigIm2,'co', label='standar convolution image')
+plt.xlabel('NBF')
+plt.ylabel('SNRdB')
 plt.legend()
 plt.grid()
 plt.show()
