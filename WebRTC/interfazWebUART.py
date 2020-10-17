@@ -67,10 +67,10 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
 
-def quantize (matrix,NB,NBF):
+def quantize (matrix,NB,NBF,signedMode_):
     
     flattenMatrix = np.ravel(matrix.T) #se aplasta por columnas
-    quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
+    quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode=signedMode_ , roundMode='trunc', saturateMode='saturate')
     packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
     
     for i in range(len(quantMatrix)):
@@ -129,7 +129,127 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
 
 
     
+
+
+
 # In[0]: serial port configuration
+def run(gray):
+   
+
+
+    # In[1]: Main
+
+    #---------------------- imagen reading-------------------------------------------
+
+    # path = "descarga.jpg"
+    # #path = "foto1.jpg"
+
+    # ap = argparse.ArgumentParser( description="Convolution 2D")
+    # ap.add_argument("-i", "--image", required=False, help="Path to the input image",default=path)
+    # ap.add_argument("-k", "--kernel", help="Path to the kernel")
+    # args = ap.parse_args()
+
+    #Load input image 
+    # gray   = cv2.imread(args.image,0)
+    # endFlag = 0                                          """A pedido de Mateo"""
+
+
+    #Kernel to use momentaneamente 
+    kernel = np.array((
+            [-1, -1, -1],
+            [-1,  8, -1],
+            [-1, -1, -1]), dtype="float")
+
+    #Convert image to gray scale
+    # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    [ROWIM,COLIM] = gray.shape
+    # print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
+
+    #-----------------------Image normalization-----------------------------------
+    MaxIm     = 255.0
+    MinIm     = 0.0
+    newMaxIm  = 1.0
+    newMinIm  = 0.0
+        #--Linear--
+    imageNormLin = linearNorm(gray, MaxIm, MinIm, newMaxIm, newMinIm)
+
+    #----Kernel normalization----
+    maxKernel  = 8.0
+
+    kernelL    = kernelNorm(kernel, maxKernel, 'linear')
+    kernelS    = kernelNorm(kernel, maxKernel, 'standar')
+    #----Kernel flip----
+    kernelLNorm  = flipKernel (kernelL)
+    kernelSNorm  = flipKernel (kernelS)
+
+
+    #------------------------------------------------------------------------------
+    #----------------------------Fixed Point---------------------------------------          
+    #------------------------------------------------------------------------------
+
+
+    #kernel cuantizado con S(8,6)
+    #imagen cuantizada con S(7,6)
+
+    quantImage  = quantize(imageNormLin,7,6,'S')
+    quantKernel = quantize(kernelLNorm,8,6,'S')
+
+
+    #------------------------------------------------------------------------------
+    #----------------------------------UART---------------------------------------          
+    #------------------------------------------------------------------------------
+    ser.flushInput()
+    ser.flushOutput()
+
+    byteImage   = bytearray()
+    byteImageStr = bytearray()
+
+    imRecons    = []
+
+
+    #envio de imagen escalada linealmente
+    for delta in range (COLIM):
+        for i in range(ROWIM):
+            byteImage.append(quantImage[i+(delta*ROWIM)]) 
+        imRecons.append(sendCol(byteImage,delta))
+        byteImage.clear() 
+    
+
+    ser.close()
+
+    for i in range(COLIM):
+        for j in range(ROWIM):
+            imRecons[i][j]    = fixedToFloat(7,6,'S',imRecons[i][j])
+        
+
+    imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
+    endFlag = 1
+
+    #------------------------------------------------------------------------------
+    #---------------------------------output image--------------------------------         
+    #------------------------------------------------------------------------------
+
+    #imagen original escalada linealmente
+
+    plt.figure(1)
+
+    imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
+    maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
+    imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
+    #xConv,yConv                   = hist(imBeforeUART)
+    # plotHist(imBeforeUART,'original image with lineal scalling',1)
+    # cv2.imshow("1- image before UART ", imBeforeUART)
+
+    imMatrix, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
+    maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
+    imAfterUART                   = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
+    #xConv,yConv                   = hist (imAfterUART)
+    # plotHist(imAfterUART,'lineal reconstructed',2)
+    # cv2.imshow("2- image after UART ", imAfterUART)
+
+    return imageLinRec
+
 
 ser = serial.serial_for_url('loop://', timeout=1)
 
@@ -146,118 +266,4 @@ ser.isOpen()
 ser.timeout=None
 ser.flushInput()
 ser.flushOutput()
-print(ser.timeout)
-
-
-# In[1]: Main
-
-#---------------------- imagen reading-------------------------------------------
-
-path = "descarga.jpg"
-#path = "foto1.jpg"
-
-ap = argparse.ArgumentParser( description="Convolution 2D")
-ap.add_argument("-i", "--image", required=False, help="Path to the input image",default=path)
-ap.add_argument("-k", "--kernel", help="Path to the kernel")
-args = ap.parse_args()
-
-#Load input image 
-image   = cv2.imread(args.image,1)
-endFlag = 0                                          """A pedido de Mateo"""
-
-
-#Kernel to use momentaneamente 
-kernel = np.array((
-    	[-1, -1, -1],
-    	[-1,  8, -1],
-    	[-1, -1, -1]), dtype="float")
-
-#Convert image to gray scale
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-[ROWIM,COLIM] = gray.shape
-print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
-
-#-----------------------Image normalization-----------------------------------
-MaxIm     = 255.0
-MinIm     = 0.0
-newMaxIm  = 1.0
-newMinIm  = 0.0
-    #--Linear--
-imageNormLin = linearNorm(gray, MaxIm, MinIm, newMaxIm, newMinIm)
-
-#----Kernel normalization----
-maxKernel  = 8.0
-
-kernelL    = kernelNorm(kernel, maxKernel, 'linear')
-kernelS    = kernelNorm(kernel, maxKernel, 'standar')
-#----Kernel flip----
-kernelLNorm  = flipKernel (kernelL)
-kernelSNorm  = flipKernel (kernelS)
-
-
-#------------------------------------------------------------------------------
-#----------------------------Fixed Point---------------------------------------          
-#------------------------------------------------------------------------------
-
-
-#kernel cuantizado con S(8,6)
-#imagen cuantizada con S(7,6)
-
-quantImage  = quantize(imageNormLin,7,6)
-quantKernel = quantize(kernelLNorm,8,6)
-
-
-#------------------------------------------------------------------------------
-#----------------------------------UART---------------------------------------          
-#------------------------------------------------------------------------------
-ser.flushInput()
-ser.flushOutput()
-
-byteImage   = bytearray()
-byteImageStr = bytearray()
-
-imRecons    = []
-
-
-#envio de imagen escalada linealmente
-for delta in range (COLIM):
-    for i in range(ROWIM):
-        byteImage.append(quantImage[i+(delta*ROWIM)]) 
-    imRecons.append(sendCol(byteImage,delta))
-    byteImage.clear() 
-   
-
-ser.close()
-
-for i in range(COLIM):
-    for j in range(ROWIM):
-       imRecons[i][j]    = fixedToFloat(7,6,'S',imRecons[i][j])
-    
-
-imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
-endFlag = 1
-
-#------------------------------------------------------------------------------
-#---------------------------------output image--------------------------------         
-#------------------------------------------------------------------------------
-
-#imagen original escalada linealmente
-
-plt.figure(1)
-
-imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
-maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
-imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
-#xConv,yConv                   = hist(imBeforeUART)
-plotHist(imBeforeUART,'original image with lineal scalling',1)
-cv2.imshow("1- image before UART ", imBeforeUART)
-
-imMatrix, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
-maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
-imAfterUART                   = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
-#xConv,yConv                   = hist (imAfterUART)
-plotHist(imAfterUART,'lineal reconstructed',2)
-cv2.imshow("2- image after UART ", imAfterUART)
-
-
+# print(ser.timeout)

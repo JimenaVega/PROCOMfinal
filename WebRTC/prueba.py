@@ -1,9 +1,12 @@
 import argparse
 import cv2
 import numpy as np
+import time
 
 
 
-
-image = cv2.imread("photo.jpg",0)
-print(image.shape)
+def run(imagen):
+    time.sleep(1)
+    cv2.imshow("sadasd",imagen)
+    
+    

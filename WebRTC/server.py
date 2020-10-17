@@ -11,7 +11,7 @@ import os
 import cv2
 # import sysv_ipc
 import time
-
+import interfazWebUART
 
 from aiohttp import web
 
@@ -65,7 +65,8 @@ class VideoTransformTrack(MediaStreamTrack):
         row=rows
         global col
         col=cols
-        imagen_gris = np.ndarray(shape=(row,col)) #se hace una variable global para accederla luego
+        imagen_gris = np.ndarray(shape=(row,col),dtype='uint8') #se hace una variable global para accederla luego
+        pic = np.ndarray(shape=(row,col),dtype='uint8')
         self.edgeMatrix = np.array((
 	    [-1, -1, -1],
 	    [-1,  8, -1],
@@ -198,15 +199,28 @@ async def on_shutdown(app):
 @conn.subscribe
 async def onMessage(msg):  # Called when each message is sent
 
+    global pic
 
     if(msg=='take_photo'):
+        
         global imagen_gris # es la imagen del frame actual, NO es la imagen de Take_Photo, eso lo tengo que corregir
         
-        cv2.imwrite("photo.jpg",imagen_gris)
+        pic = imagen_gris #congela el frame del stream, para que se iguale con la foto que se muestra
+       
+        
+        
+
+
+        # cv2.imwrite("photo.jpg",imagen_gris) #es otra opcion para hacerlo pero requiere guardar la foto
 
     if(msg=='send_photo'):
         
+        imageLinRec = interfazWebUART.run(pic)
+        time.sleep(0.5)
         
+        cv2.imshow("asd",imageLinRec)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
         
        
         # os.system('python interfazWebUART.py --image photo.jpg')
