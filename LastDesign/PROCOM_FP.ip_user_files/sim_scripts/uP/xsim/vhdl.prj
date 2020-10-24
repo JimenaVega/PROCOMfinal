@@ -1,0 +1,13 @@
+vhdl xil_defaultlib  \
+"../../../bd/uP/ip/uP_microblaze_0_0/sim/uP_microblaze_0_0.vhd" \
+"../../../bd/uP/ip/uP_dlmb_v10_1/sim/uP_dlmb_v10_1.vhd" \
+"../../../bd/uP/ip/uP_ilmb_v10_1/sim/uP_ilmb_v10_1.vhd" \
+"../../../bd/uP/ip/uP_dlmb_bram_if_cntlr_1/sim/uP_dlmb_bram_if_cntlr_1.vhd" \
+"../../../bd/uP/ip/uP_ilmb_bram_if_cntlr_1/sim/uP_ilmb_bram_if_cntlr_1.vhd" \
+"../../../bd/uP/ip/uP_microblaze_0_axi_intc_1/sim/uP_microblaze_0_axi_intc_1.vhd" \
+"../../../bd/uP/ip/uP_mdm_1_1/sim/uP_mdm_1_1.vhd" \
+"../../../bd/uP/ip/uP_rst_mig_7series_0_83M_1/sim/uP_rst_mig_7series_0_83M_1.vhd" \
+"../../../bd/uP/ip/uP_axi_uartlite_0_0/sim/uP_axi_uartlite_0_0.vhd" \
+"../../../bd/uP/ip/uP_axi_dma_0_0/sim/uP_axi_dma_0_0.vhd" \
+
+nosort
