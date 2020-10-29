@@ -207,7 +207,8 @@ async def onMessage(msg):  # Called when each message is sent
         
         pic = imagen_gris #congela el frame del stream, para que se iguale con la foto que se muestra
        
-        
+        print("Got message:")
+        conn.put_nowait(imagen_gris)
         
 
 
