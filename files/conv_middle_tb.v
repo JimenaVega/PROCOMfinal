@@ -36,8 +36,8 @@ parameter KERNEL_NB   = `KERNEL_NB;
       kernel[(KERNEL_SIZE*KERNEL_SIZE*KERNEL_NB-1)-KERNEL_NB*7 -: KERNEL_NB] = 8'd1;
       kernel[(KERNEL_SIZE*KERNEL_SIZE*KERNEL_NB-1)-KERNEL_NB*8 -: KERNEL_NB] = 8'd1;
       
-      for(ptr=0;ptr<3360;ptr=ptr+1)
-        col[(IMG_HEIGHT*IMG_NB-1)-(IMG_NB*ptr) -: 7] <= 7'd1;
+      for(ptr=0;ptr<480;ptr=ptr+1)
+        col[(IMG_HEIGHT*IMG_NB-1)-(IMG_NB*ptr) -: 7] <= ptr;
       
       i_reset      = 1'b0;
       #100 i_reset = 1'b1;
