@@ -3,7 +3,7 @@
 
 import cgi, cgitb, os, sys
 
-
+##
 UPLOAD_DIR = './upload'
 
 def save_uploaded_file():
