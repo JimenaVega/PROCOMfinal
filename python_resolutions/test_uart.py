@@ -236,10 +236,12 @@ byteHeader.append(0xb0) #10110000
 byteHeader.append(lsb)
 byteHeader.append(msb)
   
+#comentar recepcion de header en caso de uso de FPGA***
 ser.write(byteHeader)  
 
 while (ser.inWaiting() > 0):
     print(ser.read(1))
+#comentar hasta aca********
 
 ser.flushInput()
 ser.flushOutput()
