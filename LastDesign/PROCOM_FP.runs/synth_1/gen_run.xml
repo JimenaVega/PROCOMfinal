@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1603509465">
+<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1604016337">
   <File Type="PA-TCL" Name="uP_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="uP_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="uP_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="uP_wrapper.vds"/>
   <File Type="RDS-UTIL" Name="uP_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="uP_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="uP_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="uP_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="uP_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/uP/uP.bd">
@@ -66,16 +69,16 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="vio_vio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="uP_xbar_1"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_axis_data_fifo_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_axi_dma_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_dlmb_v10_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="uP_xbar_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="uP_ilmb_v10_1"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_microblaze_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_dlmb_bram_if_cntlr_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="uP_ilmb_bram_if_cntlr_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="uP_ilmb_v10_1"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_microblaze_0_axi_intc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="uP_ilmb_bram_if_cntlr_1"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_lmb_bram_1"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_mdm_1_1"/>
   <BlockFileSet Type="BlockSrcs" Name="uP_rst_mig_7series_0_83M_1"/>

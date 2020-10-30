@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=C:/Xilinx/Vitis/2019.2/bin;C:/Xilinx/Vivado/2019.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2019.2/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2019.2/bin
+  PATH=C:/xilinx/Vitis/2019.2/bin;C:/xilinx/Vivado/2019.2/ids_lite/ISE/bin/nt64;C:/xilinx/Vivado/2019.2/ids_lite/ISE/lib/nt64:C:/xilinx/Vivado/2019.2/bin
 else
-  PATH=C:/Xilinx/Vitis/2019.2/bin;C:/Xilinx/Vivado/2019.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2019.2/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2019.2/bin:$PATH
+  PATH=C:/xilinx/Vitis/2019.2/bin;C:/xilinx/Vivado/2019.2/ids_lite/ISE/bin/nt64;C:/xilinx/Vivado/2019.2/ids_lite/ISE/lib/nt64:C:/xilinx/Vivado/2019.2/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/PROCOM_FP/PROCOM_FP.runs/impl_1'
+HD_PWD='C:/Users/miner/Documents/JIME/4toAnio/procom/trabajo_final/PROCOMfinal/LastDesign/PROCOM_FP.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log uP_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source uP_wrapper.tcl -notrace
 
 

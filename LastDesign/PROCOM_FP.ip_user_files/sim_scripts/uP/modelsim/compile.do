@@ -64,12 +64,12 @@ vmap axi_clock_converter_v2_1_19 modelsim_lib/msim/axi_clock_converter_v2_1_19
 vmap axi_dwidth_converter_v2_1_20 modelsim_lib/msim/axi_dwidth_converter_v2_1_20
 
 vlog -work xpm -64 -incr -sv "+incdir+../../../../PROCOM_FP.srcs/sources_1/bd/uP/ipshared/4fba" "+incdir+../../../../PROCOM_FP.srcs/sources_1/bd/uP/ipshared/ec67/hdl" "+incdir+../../../../PROCOM_FP.srcs/sources_1/bd/uP/ipshared/8713/hdl" \
-"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"C:/xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"C:/xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+"C:/xilinx/Vivado/2019.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -64 -93 \
-"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
+"C:/xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../../PROCOM_FP.srcs/sources_1/bd/uP/ipshared/4fba" "+incdir+../../../../PROCOM_FP.srcs/sources_1/bd/uP/ipshared/ec67/hdl" "+incdir+../../../../PROCOM_FP.srcs/sources_1/bd/uP/ipshared/8713/hdl" \
 "../../../bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0_clk_wiz.v" \
