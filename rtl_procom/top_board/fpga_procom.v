@@ -68,16 +68,18 @@ module fpga
    // MicroBlaze
    ///////////////////////////////////////////
    //design_1
-   MicroGPIO
+   MicroGPIO2
      u_micro
-       (.clock100         (clockdsp    ),  // Clock aplicacion
-        .gpio_rtl_tri_o   (gpo0        ),  // GPIO
-        .gpio_rtl_tri_i   (gpi0        ),  // GPIO
-        .reset            (in_reset    ),  // Hard Reset
+       (.reset            (in_reset    ),  // Hard Reset
         .sys_clock        (clk100      ),  // Clock de FPGA
-        .o_lock_clock     (locked      ),  // Senal Lock Clock
+        .clock100         (clockdsp    ),
+        .o_lock_clock     (locked      ),  // Clock aplicacion
         .usb_uart_rxd     (in_rx_uart  ),  // UART
-        .usb_uart_txd     (out_tx_uart )   // UART
+        .usb_uart_txd     (out_tx_uart ),  // UART
+        .gpio_rtl_tri_o   (gpo0        ),  // GPIO
+        .gpio_rtl_tri_i   (gpi0        ),  // GPIO        
+        .o_lock_clock     (locked      )   // Senal Lock Clock
+        
         );
 
    ///////////////////////////////////////////
