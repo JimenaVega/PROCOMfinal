@@ -255,7 +255,11 @@ for delta in range (COLIM):
         byteImage.append(quantImage[i+(delta*ROWIM)]) 
     imRecons.append(sendCol(byteImage,delta))
     byteImage.clear() 
-   
+
+#fin de trama
+ser.write(0x50)
+
+
 
 ser.close()
 
