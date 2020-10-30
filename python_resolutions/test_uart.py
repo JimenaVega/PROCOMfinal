@@ -29,6 +29,7 @@ def kernelNorm(kernel, maxValAbs, norm):
         kernel = (kernel - np.mean(kernel)) / np.std(kernel)
         return kernel
 
+
 def flipKernel (kernel):               
     kernel = np.flipud(kernel)
     kernel = np.fliplr(kernel)
@@ -55,17 +56,20 @@ def conv2D (image, kernel):
     return imConv2D,imHeight,imWidth
 
 
-#Image processing
 
-def linearScalling (imMatrix,maxVal, minVal):   
+def linearScalling (imMatrix,maxVal, minVal):  
+    
     imMatrix = (imMatrix-minVal)
     imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(0.0,255.0))
 
     return imMatrix
 
+
 def linearNorm (matrix, Max, Min, newMax, newMin):
+    
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
+
 
 def quantize (matrix,NB,NBF):
     
@@ -80,44 +84,36 @@ def quantize (matrix,NB,NBF):
 
 
 def fixedToFloat(NB,NBF,signedMode,num):
+    
 	if  (signedMode=='S'):
 		return (((num+2**(NB-1))&((2**NB)-1))-2**(NB-1))/(2**NBF)
 	elif(signedMode=='U'):
 		return num/(2**NBF)
+    
      
 def sendCol(imageCol,i):
-   
-    
    
     ser.write(imageCol)
     time.sleep(0.001)
     out = []
     while (ser.inWaiting() > 0):
         out.append(ser.read(1))
+        #print("aca ta el out {}".format(out))
         
     outInteger = []
+  
     for i in range(len(out)):
+      
         outInteger.append(int.from_bytes( out[i], "big"))
     
     ser.flushInput()
     ser.flushOutput()
     
     return outInteger
-
-def header(byteImage, sizeOfImage):
-    
-    LSB = (sizeOfImage & 0xff).intvalue
-    MSB = ((sizeOfImage & 0xff00) >> 8).intvalue
-    
-    byteImage.append(160)
-    byteImage.append(LSB)
-    byteImage.append(MSB)
-    
-    return byteImage
-    
-    
+  
 #Histograms
 def hist (image):
+    
     unique, counts = np.unique(image, return_counts=True)
     return unique, counts
 
@@ -150,7 +146,7 @@ ser = serial.serial_for_url('loop://', timeout=1)
 ##Descomentar en caso de enviar a FPGA
 # ser = serial.Serial(
 #     port     = '/dev/ttyUSB1',
-#     baudrate = 9600,
+#     baudrate = 115200,
 #     parity   = serial.PARITY_NONE,
 #     stopbits = serial.STOPBITS_ONE,
 #     bytesize = serial.EIGHTBITS
@@ -229,14 +225,29 @@ ser.flushInput()
 ser.flushOutput()
 
 byteImage   = bytearray()
-byteImageStr = bytearray()
+byteHeader = bytearray()
 
-byteImage = header(byteImage,(ROWIM*COLIM))
+#envio y recepcion de header
+sizeOfImage = ROWIM*COLIM
+lsb = (sizeOfImage & 0xff)
+msb = ((sizeOfImage & 0xff00) >> 8)
 
-imRecons    = []
+byteHeader.append(0xb0) #10110000
+byteHeader.append(lsb)
+byteHeader.append(msb)
+  
+ser.write(byteHeader)  
+
+while (ser.inWaiting() > 0):
+    print(ser.read(1))
+
+ser.flushInput()
+ser.flushOutput()
 
 
 #envio de imagen escalada linealmente
+imRecons    = []
+
 for delta in range (COLIM):
     for i in range(ROWIM):
         byteImage.append(quantImage[i+(delta*ROWIM)]) 
