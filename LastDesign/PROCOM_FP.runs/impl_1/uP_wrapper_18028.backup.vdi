@@ -1,0 +1,729 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Oct 24 00:31:39 2020
+# Process ID: 18028
+# Current directory: C:/PROCOM_FP/PROCOM_FP.runs/impl_1
+# Command line: vivado.exe -log uP_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source uP_wrapper.tcl -notrace
+# Log file: C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper.vdi
+# Journal file: C:/PROCOM_FP/PROCOM_FP.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source uP_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 448.930 ; gain = 166.770
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+add_files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 533.137 ; gain = 79.098
+Command: link_design -top uP_wrapper -part xc7a35ticsg324-1L
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_dma_0_0/uP_axi_dma_0_0.dcp' for cell 'uP_i/axi_dma_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_uartlite_0_0/uP_axi_uartlite_0_0.dcp' for cell 'uP_i/axi_uartlite_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axis_data_fifo_0_0/uP_axis_data_fifo_0_0.dcp' for cell 'uP_i/axis_data_fifo_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0.dcp' for cell 'uP_i/clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_mdm_1_1/uP_mdm_1_1.dcp' for cell 'uP_i/mdm_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_0/uP_microblaze_0_0.dcp' for cell 'uP_i/microblaze_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_axi_intc_1/uP_microblaze_0_axi_intc_1.dcp' for cell 'uP_i/microblaze_0_axi_intc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_mig_7series_0_2/uP_mig_7series_0_2.dcp' for cell 'uP_i/mig_7series_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_rst_mig_7series_0_83M_1/uP_rst_mig_7series_0_83M_1.dcp' for cell 'uP_i/rst_mig_7series_0_83M'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_xbar_1/uP_xbar_1.dcp' for cell 'uP_i/microblaze_0_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_0/uP_auto_ds_0.dcp' for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_pc_0/uP_auto_pc_0.dcp' for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_1/uP_auto_ds_1.dcp' for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_pc_1/uP_auto_pc_1.dcp' for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_2/uP_auto_ds_2.dcp' for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_pc_2/uP_auto_pc_2.dcp' for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_pc_3/uP_auto_pc_3.dcp' for cell 'uP_i/microblaze_0_axi_periph/s00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_0/uP_auto_us_0.dcp' for cell 'uP_i/microblaze_0_axi_periph/s00_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_1/uP_auto_us_1.dcp' for cell 'uP_i/microblaze_0_axi_periph/s01_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_2/uP_auto_us_2.dcp' for cell 'uP_i/microblaze_0_axi_periph/s02_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_3/uP_auto_us_3.dcp' for cell 'uP_i/microblaze_0_axi_periph/s03_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_dlmb_bram_if_cntlr_1/uP_dlmb_bram_if_cntlr_1.dcp' for cell 'uP_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_dlmb_v10_1/uP_dlmb_v10_1.dcp' for cell 'uP_i/microblaze_0_local_memory/dlmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_ilmb_bram_if_cntlr_1/uP_ilmb_bram_if_cntlr_1.dcp' for cell 'uP_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_ilmb_v10_1/uP_ilmb_v10_1.dcp' for cell 'uP_i/microblaze_0_local_memory/ilmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_lmb_bram_1/uP_lmb_bram_1.dcp' for cell 'uP_i/microblaze_0_local_memory/lmb_bram'
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 914.855 ; gain = 8.227
+INFO: [Netlist 29-17] Analyzing 1352 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0_board.xdc] for cell 'uP_i/clk_wiz_0/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0_board.xdc] for cell 'uP_i/clk_wiz_0/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0.xdc] for cell 'uP_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1692.336 ; gain = 586.801
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_clk_wiz_0_0/uP_clk_wiz_0_0.xdc] for cell 'uP_i/clk_wiz_0/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_0/uP_microblaze_0_0.xdc] for cell 'uP_i/microblaze_0/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_0/uP_microblaze_0_0.xdc] for cell 'uP_i/microblaze_0/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_dlmb_v10_1/uP_dlmb_v10_1.xdc] for cell 'uP_i/microblaze_0_local_memory/dlmb_v10/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_dlmb_v10_1/uP_dlmb_v10_1.xdc] for cell 'uP_i/microblaze_0_local_memory/dlmb_v10/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_ilmb_v10_1/uP_ilmb_v10_1.xdc] for cell 'uP_i/microblaze_0_local_memory/ilmb_v10/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_ilmb_v10_1/uP_ilmb_v10_1.xdc] for cell 'uP_i/microblaze_0_local_memory/ilmb_v10/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_axi_intc_1/uP_microblaze_0_axi_intc_1.xdc] for cell 'uP_i/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_axi_intc_1/uP_microblaze_0_axi_intc_1.xdc] for cell 'uP_i/microblaze_0_axi_intc/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_mdm_1_1/uP_mdm_1_1.xdc] for cell 'uP_i/mdm_1/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_mdm_1_1/uP_mdm_1_1.xdc] for cell 'uP_i/mdm_1/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_rst_mig_7series_0_83M_1/uP_rst_mig_7series_0_83M_1_board.xdc] for cell 'uP_i/rst_mig_7series_0_83M/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_rst_mig_7series_0_83M_1/uP_rst_mig_7series_0_83M_1_board.xdc] for cell 'uP_i/rst_mig_7series_0_83M/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_rst_mig_7series_0_83M_1/uP_rst_mig_7series_0_83M_1.xdc] for cell 'uP_i/rst_mig_7series_0_83M/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_rst_mig_7series_0_83M_1/uP_rst_mig_7series_0_83M_1.xdc] for cell 'uP_i/rst_mig_7series_0_83M/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_uartlite_0_0/uP_axi_uartlite_0_0_board.xdc] for cell 'uP_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_uartlite_0_0/uP_axi_uartlite_0_0_board.xdc] for cell 'uP_i/axi_uartlite_0/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_uartlite_0_0/uP_axi_uartlite_0_0.xdc] for cell 'uP_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_uartlite_0_0/uP_axi_uartlite_0_0.xdc] for cell 'uP_i/axi_uartlite_0/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_dma_0_0/uP_axi_dma_0_0.xdc] for cell 'uP_i/axi_dma_0/U0'
+WARNING: [Vivado_Tcl 4-919] Waiver ID 'CDC-1' -from list should not be empty. [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_dma_0_0/uP_axi_dma_0_0.xdc:61]
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_dma_0_0/uP_axi_dma_0_0.xdc] for cell 'uP_i/axi_dma_0/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_mig_7series_0_2/uP_mig_7series_0_2/user_design/constraints/uP_mig_7series_0_2.xdc] for cell 'uP_i/mig_7series_0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_mig_7series_0_2/uP_mig_7series_0_2/user_design/constraints/uP_mig_7series_0_2.xdc] for cell 'uP_i/mig_7series_0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_axi_intc_1/uP_microblaze_0_axi_intc_1_clocks.xdc] for cell 'uP_i/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_axi_intc_1/uP_microblaze_0_axi_intc_1_clocks.xdc] for cell 'uP_i/microblaze_0_axi_intc/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_dma_0_0/uP_axi_dma_0_0_clocks.xdc] for cell 'uP_i/axi_dma_0/U0'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_axi_dma_0_0/uP_axi_dma_0_0_clocks.xdc] for cell 'uP_i/axi_dma_0/U0'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_0/uP_auto_us_0_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s00_couplers/auto_us/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_0/uP_auto_us_0_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s00_couplers/auto_us/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_1/uP_auto_us_1_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s01_couplers/auto_us/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_1/uP_auto_us_1_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s01_couplers/auto_us/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_2/uP_auto_us_2_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s02_couplers/auto_us/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_2/uP_auto_us_2_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s02_couplers/auto_us/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_3/uP_auto_us_3_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s03_couplers/auto_us/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_us_3/uP_auto_us_3_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/s03_couplers/auto_us/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_0/uP_auto_ds_0_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_0/uP_auto_ds_0_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_1/uP_auto_ds_1_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_1/uP_auto_ds_1_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst'
+Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_2/uP_auto_ds_2_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst'
+Finished Parsing XDC File [c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_auto_ds_2/uP_auto_ds_2_clocks.xdc] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m02_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'uP_i/microblaze_0_axi_periph/m03_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'uP_i/axis_data_fifo_0/inst/gen_fifo.xpm_fifo_axis_inst/gaxis_rst_sync.xpm_cdc_sync_rst_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'uP_i/axis_data_fifo_0/inst/gen_fifo.xpm_fifo_axis_inst/gaxis_rst_sync.xpm_cdc_sync_rst_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst_axis.tcl] for cell 'uP_i/axis_data_fifo_0/inst/gen_fifo.xpm_fifo_axis_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst_axis.tcl] for cell 'uP_i/axis_data_fifo_0/inst/gen_fifo.xpm_fifo_axis_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'uP_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'uP_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'uP_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'uP_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'uP_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'uP_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'uP_wrapper'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: c:/PROCOM_FP/PROCOM_FP.srcs/sources_1/bd/uP/ip/uP_microblaze_0_0/data/mb_bootloop_le.elf 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1721.176 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 314 instances were transformed.
+  IOBUFDS_INTERMDISABLE => IOBUFDS_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2), INV, OBUFTDS(x2)): 2 instances
+  IOBUF_INTERMDISABLE => IOBUF_INTERMDISABLE (IBUF_INTERMDISABLE, OBUFT): 16 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 80 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 32 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 183 instances
+
+39 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:39 . Memory (MB): peak = 1721.176 ; gain = 1188.039
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35ti'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1721.176 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1971a140b
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1739.199 ; gain = 18.023
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 5 inverter(s) to 15 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 10b6c45d4
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1921.781 ; gain = 0.129
+INFO: [Opt 31-389] Phase Retarget created 351 cells and removed 553 cells
+INFO: [Opt 31-1021] In phase Retarget, 95 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 33 inverter(s) to 40 load pin(s).
+Phase 2 Constant propagation | Checksum: 15f8d2f57
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1921.781 ; gain = 0.129
+INFO: [Opt 31-389] Phase Constant propagation created 2363 cells and removed 5307 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 73 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 178dc0550
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1921.781 ; gain = 0.129
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 3799 cells
+INFO: [Opt 31-1021] In phase Sweep, 289 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-194] Inserted BUFG uP_i/mdm_1/U0/Use_E2.BSCAN_I/Ext_JTAG_UPDATE_BUFG_inst to drive 40 load(s) on clock net uP_i/mdm_1/U0/Use_E2.BSCAN_I/Ext_JTAG_UPDATE_BUFG
+INFO: [Opt 31-193] Inserted 2 BUFG(s) on clock nets
+INFO: [Opt 31-1112] Starts optimizing BUFG(s) with a common MMCM/DPLL/XPLL driver.
+INFO: [Opt 31-1112] Starts optimizing BUFG(s) with a common driver.
+INFO: [Opt 31-1092] Phase BUFG optimization transformed 0 BUFG(s) to MBUFG(s).
+Phase 4 BUFG optimization | Checksum: fa0480bc
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1921.781 ; gain = 0.129
+INFO: [Opt 31-662] Phase BUFG optimization created 1 cells of which 1 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: fa0480bc
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1921.781 ; gain = 0.129
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 10dd0ae96
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1921.781 ; gain = 0.129
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 2 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 100 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |             351  |             553  |                                             95  |
+|  Constant propagation         |            2363  |            5307  |                                             73  |
+|  Sweep                        |               0  |            3799  |                                            289  |
+|  BUFG optimization            |               1  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               2  |                                            100  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 1921.781 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: f7313cc1
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.781 ; gain = 0.129
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=1.028 | TNS=0.000 |
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 20 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 4 newly gated: 0 Total Ports: 40
+Ending PowerOpt Patch Enables Task | Checksum: dbe186ae
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.527 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Ending Power Optimization Task | Checksum: dbe186ae
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:31 . Memory (MB): peak = 2228.785 ; gain = 307.004
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: dbe186ae
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.099 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 10d7a85d1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+71 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 2228.785 ; gain = 507.609
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:20 ; elapsed = 00:00:18 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_drc -file uP_wrapper_drc_opted.rpt -pb uP_wrapper_drc_opted.pb -rpx uP_wrapper_drc_opted.rpx
+Command: report_drc -file uP_wrapper_drc_opted.rpt -pb uP_wrapper_drc_opted.pb -rpx uP_wrapper_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_drc_opted.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35ti'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 75513471
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.727 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 189c55c99
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1c029f9f4
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1c029f9f4
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1c029f9f4
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 246df3292
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 2.2 Global Placement Core
+
+Phase 2.2.1 Physical Synthesis In Placer
+INFO: [Physopt 32-1018] Found 2216 candidate LUT instances to create LUTNM shape
+INFO: [Physopt 32-775] End 1 Pass. Optimized 955 nets or cells. Created 0 new cell, deleted 955 existing cells and moved 0 existing cell
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for HD net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            955  |                   955  |           0  |           1  |  00:00:02  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            955  |                   955  |           0  |           7  |  00:00:03  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.2.1 Physical Synthesis In Placer | Checksum: 1e3e4c502
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:01:05 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 2.2 Global Placement Core | Checksum: 1bf0fdb58
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:07 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 1bf0fdb58
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:07 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1e98f38e5
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:01:10 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 15a82733c
+
+Time (s): cpu = 00:01:42 ; elapsed = 00:01:17 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 1951fb36f
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:17 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1cc2cfce1
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:17 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 15fe92314
+
+Time (s): cpu = 00:01:53 ; elapsed = 00:01:25 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 179a786d8
+
+Time (s): cpu = 00:02:10 ; elapsed = 00:01:42 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 1669b203e
+
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:45 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 1f62a2940
+
+Time (s): cpu = 00:02:13 ; elapsed = 00:01:45 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 1f62a2940
+
+Time (s): cpu = 00:02:13 ; elapsed = 00:01:45 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 1d0482ef5
+
+Phase 4.1.1.1 BUFG Insertion
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1d0482ef5
+
+Time (s): cpu = 00:02:29 ; elapsed = 00:01:57 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.502. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1da26f872
+
+Time (s): cpu = 00:02:39 ; elapsed = 00:02:07 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 1da26f872
+
+Time (s): cpu = 00:02:40 ; elapsed = 00:02:08 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1da26f872
+
+Time (s): cpu = 00:02:40 ; elapsed = 00:02:08 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+Phase 4.3 Placer Reporting | Checksum: 1da26f872
+
+Time (s): cpu = 00:02:40 ; elapsed = 00:02:08 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 4.4 Final Placement Cleanup | Checksum: 1eac3a791
+
+Time (s): cpu = 00:02:41 ; elapsed = 00:02:09 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1eac3a791
+
+Time (s): cpu = 00:02:41 ; elapsed = 00:02:09 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Ending Placer Task | Checksum: 12f4cdd7b
+
+Time (s): cpu = 00:02:41 ; elapsed = 00:02:09 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+104 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:02:48 ; elapsed = 00:02:14 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:15 ; elapsed = 00:00:05 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:23 ; elapsed = 00:00:13 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_io -file uP_wrapper_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.482 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file uP_wrapper_utilization_placed.rpt -pb uP_wrapper_utilization_placed.pb
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file uP_wrapper_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.197 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35ti'
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.250 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+113 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:15 ; elapsed = 00:00:05 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_physopt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:23 ; elapsed = 00:00:12 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35ti'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+Checksum: PlaceDB: 9ab71415 ConstDB: 0 ShapeSum: 9495c966 RouteDB: 0
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: 133fe6cf0
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Post Restoration Checksum: NetGraph: 49f4f8fb NumContArr: ea0973f5 Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 133fe6cf0
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: 133fe6cf0
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: 133fe6cf0
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 2228.785 ; gain = 0.000
+ Number of Nodes with overlaps = 0
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 238cd7941
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:54 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.788  | TNS=0.000  | WHS=-1.367 | THS=-476.353|
+
+Phase 2 Router Initialization | Checksum: 201d2a3ad
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:59 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 24489
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 24488
+  Number of Partially Routed Nets     = 1
+  Number of Node Overlaps             = 0
+
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: 18d59e698
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:07 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 2465
+ Number of Nodes with overlaps = 252
+ Number of Nodes with overlaps = 79
+ Number of Nodes with overlaps = 18
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.935  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 10c436181
+
+Time (s): cpu = 00:01:53 ; elapsed = 00:01:30 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 16
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.759  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 1b2fd9274
+
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:35 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 4 Rip-up And Reroute | Checksum: 1b2fd9274
+
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:35 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 1b2fd9274
+
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:35 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 1b2fd9274
+
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:35 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 5 Delay and Skew Optimization | Checksum: 1b2fd9274
+
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:35 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1ff2914b1
+
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:38 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.766  | TNS=0.000  | WHS=0.013  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 190de8619
+
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:38 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Phase 6 Post Hold Fix | Checksum: 190de8619
+
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:39 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 8.06809 %
+  Global Horizontal Routing Utilization  = 8.8735 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 15301c813
+
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:39 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 15301c813
+
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:39 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: dd34eeaa
+
+Time (s): cpu = 00:02:07 ; elapsed = 00:01:44 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.766  | TNS=0.000  | WHS=0.013  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: dd34eeaa
+
+Time (s): cpu = 00:02:08 ; elapsed = 00:01:44 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:02:08 ; elapsed = 00:01:44 . Memory (MB): peak = 2228.785 ; gain = 0.000
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+128 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:02:16 ; elapsed = 00:01:50 . Memory (MB): peak = 2228.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:17 ; elapsed = 00:00:06 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:13 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_drc -file uP_wrapper_drc_routed.rpt -pb uP_wrapper_drc_routed.pb -rpx uP_wrapper_drc_routed.rpx
+Command: report_drc -file uP_wrapper_drc_routed.rpt -pb uP_wrapper_drc_routed.pb -rpx uP_wrapper_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_drc_routed.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 2228.785 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_methodology -file uP_wrapper_methodology_drc_routed.rpt -pb uP_wrapper_methodology_drc_routed.pb -rpx uP_wrapper_methodology_drc_routed.rpx
+Command: report_methodology -file uP_wrapper_methodology_drc_routed.rpt -pb uP_wrapper_methodology_drc_routed.pb -rpx uP_wrapper_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file C:/PROCOM_FP/PROCOM_FP.runs/impl_1/uP_wrapper_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:36 ; elapsed = 00:00:21 . Memory (MB): peak = 2327.887 ; gain = 99.102
+INFO: [runtcl-4] Executing : report_power -file uP_wrapper_power_routed.rpt -pb uP_wrapper_power_summary_routed.pb -rpx uP_wrapper_power_routed.rpx
+Command: report_power -file uP_wrapper_power_routed.rpt -pb uP_wrapper_power_summary_routed.pb -rpx uP_wrapper_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+140 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:32 ; elapsed = 00:00:21 . Memory (MB): peak = 2345.395 ; gain = 17.508
+INFO: [runtcl-4] Executing : report_route_status -file uP_wrapper_route_status.rpt -pb uP_wrapper_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file uP_wrapper_timing_summary_routed.rpt -pb uP_wrapper_timing_summary_routed.pb -rpx uP_wrapper_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [runtcl-4] Executing : report_incremental_reuse -file uP_wrapper_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file uP_wrapper_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file uP_wrapper_bus_skew_routed.rpt -pb uP_wrapper_bus_skew_routed.pb -rpx uP_wrapper_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 24 00:41:20 2020...

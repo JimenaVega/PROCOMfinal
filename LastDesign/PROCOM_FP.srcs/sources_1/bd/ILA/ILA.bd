@@ -1,0 +1,137 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xDF179B67842B6EB0",
+      "device": "xc7a35ticsg324-1L",
+      "name": "ila",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "ila_0": ""
+    },
+    "ports": {
+      "clk_0": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "ila_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "probe0_0": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "probe1_0": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "probe2_0": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "probe3_0": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "probe4_0": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      }
+    },
+    "components": {
+      "ila_0": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "ila_ila_0_0",
+        "parameters": {
+          "C_ADV_TRIGGER": {
+            "value": "true"
+          },
+          "C_ENABLE_ILA_AXI_MON": {
+            "value": "false"
+          },
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "5"
+          },
+          "C_PROBE0_WIDTH": {
+            "value": "3"
+          },
+          "C_PROBE1_WIDTH": {
+            "value": "3"
+          },
+          "C_PROBE2_WIDTH": {
+            "value": "3"
+          },
+          "C_PROBE3_WIDTH": {
+            "value": "3"
+          },
+          "C_PROBE4_WIDTH": {
+            "value": "4"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_0_1": {
+        "ports": [
+          "clk_0",
+          "ila_0/clk"
+        ]
+      },
+      "probe0_0_1": {
+        "ports": [
+          "probe0_0",
+          "ila_0/probe0"
+        ]
+      },
+      "probe1_0_1": {
+        "ports": [
+          "probe1_0",
+          "ila_0/probe1"
+        ]
+      },
+      "probe2_0_1": {
+        "ports": [
+          "probe2_0",
+          "ila_0/probe2"
+        ]
+      },
+      "probe3_0_1": {
+        "ports": [
+          "probe3_0",
+          "ila_0/probe3"
+        ]
+      },
+      "probe4_0_1": {
+        "ports": [
+          "probe4_0",
+          "ila_0/probe4"
+        ]
+      }
+    }
+  }
+}
