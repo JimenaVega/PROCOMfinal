@@ -224,6 +224,8 @@ def run(gray):
         
 
     imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
+  
+    
     endFlag = 1
 
     #------------------------------------------------------------------------------
@@ -248,7 +250,7 @@ def run(gray):
     # plotHist(imAfterUART,'lineal reconstructed',2)
     # cv2.imshow("2- image after UART ", imAfterUART)
 
-    return imageLinRec
+    return imAfterUART
 
 
 ser = serial.serial_for_url('loop://', timeout=1)
@@ -256,7 +258,7 @@ ser = serial.serial_for_url('loop://', timeout=1)
 ##Descomentar en caso de enviar a FPGA
 # ser = serial.Serial(
 #     port     = '/dev/ttyUSB1',
-#     baudrate = 9600,
+#     baudrate = 115200,
 #     parity   = serial.PARITY_NONE,
 #     stopbits = serial.STOPBITS_ONE,
 #     bytesize = serial.EIGHTBITS

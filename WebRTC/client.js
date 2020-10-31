@@ -11,6 +11,7 @@ var dataChannelLog = document.getElementById('data-channel'),
     const send_b = document.getElementById("send_b")
     const canvas = document.querySelector("#canvas");
     
+    
  
 // peer connection
 var pc = null;
@@ -307,10 +308,28 @@ function escapeRegExp(string) {
 }
 
 
-
-
-
 var conn = new rtcbot.RTCConnection();
+// conn.subscribe(m => console.log("Received from python:", m));
+
+
+
+
+conn.subscribe(m => recepcion(m));
+// console.log(contenido)
+
+function recepcion(mensaje)
+{
+    
+    console.log(mensaje);
+    console.log(JSON.parse(mensaje).im_url);
+
+    imAfterUART = document.getElementById("imAfterUART");
+    // var link='';
+    // link=(JSON.parse(mensaje)).im_url;
+    imAfterUART.src=(JSON.parse(mensaje)).im_url;
+    trace("Imagen Procesada Recibida");
+
+}
 
 async function connect() { //establece la conexion para mandar mensajes
     let offer = await conn.getLocalDescription();
