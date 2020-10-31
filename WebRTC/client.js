@@ -353,6 +353,9 @@ connect();
 //estas funciones reciben un mensaje apretado
 var mybutton = document.querySelector("#mybutton");
 mybutton.onclick = function() {
+
+    imAfterUART=document.getElementById("imAfterUART");
+    imAfterUART.src="https://static.wixstatic.com/media/c6abac_72b300c91c794879a85fc3f8fd46ed63~mv2.gif"
     conn.put_nowait("send_photo");
     trace("Enviando")
     
@@ -361,18 +364,25 @@ mybutton.onclick = function() {
 
 
 
-function take_photo() { //permite sacar fotos que se muestra en el sitio web
+function take_photo() 
+{ //permite sacar fotos que se muestra en el sitio web
 
     // const DataURI = myCanvas
     var context = canvas.getContext('2d');
     context.drawImage(prueba, 0, 0, 640, 480);
     conn.put_nowait("take_photo");
-    trace("Capturando Foto")
-    };
+    trace("Capturando Foto");
+}
 
 
 
-
-
-
+ctx = canvas.getContext('2d');
+const image = new Image();
+image.src = 'https://wallpaperaccess.com/full/481675.jpg';
+image.onload = () => {
+    ctx.imageSmoothingEnabled = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(image, 0, 0,640,480);
+};
     
+   
