@@ -11,6 +11,7 @@ var dataChannelLog = document.getElementById('data-channel'),
     const send_b = document.getElementById("send_b")
     const canvas = document.querySelector("#canvas");
     
+    
  
 // peer connection
 var pc = null;
@@ -307,10 +308,28 @@ function escapeRegExp(string) {
 }
 
 
-
-
-
 var conn = new rtcbot.RTCConnection();
+// conn.subscribe(m => console.log("Received from python:", m));
+
+
+
+
+conn.subscribe(m => recepcion(m));
+// console.log(contenido)
+
+function recepcion(mensaje)
+{
+    
+    console.log(mensaje);
+    console.log(JSON.parse(mensaje).im_url);
+
+    imAfterUART = document.getElementById("imAfterUART");
+    // var link='';
+    // link=(JSON.parse(mensaje)).im_url;
+    imAfterUART.src=(JSON.parse(mensaje)).im_url;
+    trace("Imagen Procesada Recibida");
+
+}
 
 async function connect() { //establece la conexion para mandar mensajes
     let offer = await conn.getLocalDescription();
@@ -334,40 +353,36 @@ connect();
 //estas funciones reciben un mensaje apretado
 var mybutton = document.querySelector("#mybutton");
 mybutton.onclick = function() {
+
+    imAfterUART=document.getElementById("imAfterUART");
+    imAfterUART.src="https://static.wixstatic.com/media/c6abac_72b300c91c794879a85fc3f8fd46ed63~mv2.gif"
     conn.put_nowait("send_photo");
-    trace("Capturando Foto")
-};
-
-var mybutton = document.querySelector("#mybutton2"); //este no hace nada esta puesto a modo de dejmeplo
-mybutton.onclick = function() {
-    conn.put_nowait("Button Clicked!asdassadasd");
+    trace("Enviando")
+    
 };
 
 
 
-function take_photo() { //permite sacar fotos que se muestra en el sitio web
+
+function take_photo() 
+{ //permite sacar fotos que se muestra en el sitio web
 
     // const DataURI = myCanvas
     var context = canvas.getContext('2d');
     context.drawImage(prueba, 0, 0, 640, 480);
-    };
+    conn.put_nowait("take_photo");
+    trace("Capturando Foto");
+}
 
 
 
-
-
-
-    // if(window.navigator.msSaveBlob)
-    // {
-    //     window.navigator.msSaveBlob(canvas.msToBlob(),"ImageProcessing.png");
-    // }
-    // else 
-    // {
-    //     const a = document.createElement("a");
-
-    //     document.body.appendChild(a);
-    //     a.href = canvas.toDataURL();
-    //     a.download = "ImageProcessing.png";
-    //     a.click();
-    //     document.body.removeChild(a);
-    // }
+ctx = canvas.getContext('2d');
+const image = new Image();
+image.src = 'https://wallpaperaccess.com/full/481675.jpg';
+image.onload = () => {
+    ctx.imageSmoothingEnabled = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(image, 0, 0,640,480);
+};
+    
+   

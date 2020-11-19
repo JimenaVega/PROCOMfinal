@@ -11,19 +11,18 @@ import os
 import cv2
 # import sysv_ipc
 import time
-
+import interfazWebUART
 from aiohttp import web
-
-
-
+from base64 import b64encode
+import requests
+import pyimgur
 from av import VideoFrame
-
-
-
 from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
 from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRecorder
+from rtcbot import RTCConnection, getRTCBotJS, CVCamera, CVDisplay
 
-from rtcbot import RTCConnection, getRTCBotJS
+
+
 
 conn = RTCConnection()
 
@@ -42,6 +41,9 @@ imagen  = cv2.imread('foto1.jpg')
 
 conn = RTCConnection()
 routes = web.RouteTableDef()
+
+
+
 
 class VideoTransformTrack(MediaStreamTrack):
     """
@@ -64,7 +66,8 @@ class VideoTransformTrack(MediaStreamTrack):
         row=rows
         global col
         col=cols
-        imagen_gris = np.ndarray(shape=(row,col)) #se hace una variable global para accederla luego
+        imagen_gris = np.ndarray(shape=(row,col),dtype='uint8') #se hace una variable global para accederla luego
+        pic = np.ndarray(shape=(row,col),dtype='uint8')
         self.edgeMatrix = np.array((
 	    [-1, -1, -1],
 	    [-1,  8, -1],
@@ -76,6 +79,7 @@ class VideoTransformTrack(MediaStreamTrack):
     async def recv(self):
         frame = await self.track.recv()
         
+
         img  = frame.to_ndarray(format="bgr24")
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
@@ -84,7 +88,7 @@ class VideoTransformTrack(MediaStreamTrack):
         
         imagen_gris=gray #copia a gray
 
-
+        
         
         if(self.kernel == 1):   
             gauss = cv2.GaussianBlur(gray, (5,5), 0)
@@ -195,18 +199,67 @@ async def on_shutdown(app):
  #Cuando se presione el boton de enviar foto, se entra al condicional
 @conn.subscribe
 async def onMessage(msg):  # Called when each message is sent
-    if(msg=='send_photo'):
+
+    global pic
+    PATH="C:\\Educacion\\Procom2020\\PROCOMfinal\\WebRTC\\"
+    photo_name = 'photo.jpg'
+
+    if(msg=='take_photo'):
+        
         global imagen_gris # es la imagen del frame actual, NO es la imagen de Take_Photo, eso lo tengo que corregir
-        cv2.imshow('imagen_gris',imagen_gris)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-        flag=1
-    
+        
+        pic = imagen_gris #congela el frame del stream, para que se iguale con la foto que se muestra
+       
+        # print("Got message:" + msg)
+        # conn.put_nowait({"data": "pong"})
+
+        # print(b64encode(pic))
+        # cv2.imwrite("photo.jpg",imagen_gris) #es otra opcion para hacerlo pero requiere guardar la foto
+
+    if(msg=='send_photo'):
+        
+        imAfterUART = interfazWebUART.run(pic)
+        time.sleep(0.25)
+        
+        
+        cv2.imwrite("photo.jpg", imAfterUART)
+        
+        link="" #para que me lo tome como STRING
+        link= await upload_image(imAfterUART,PATH,photo_name) #modificar el path a gusto
+        time.sleep(0.25)
+
+        print(link)
+        conn.put_nowait({"im_url": link})
+       
+       
+        # cv2.imshow("asd",imAfterUART)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+        
+        
+        # # os.system('python interfazWebUART.py --image photo.jpg')
         print("EXITO")
 
        
     
+async def upload_image(image,path,photo_name):
 
+    #Datos de acceso IMGUR:
+    #Usuario:  AJEMProcom
+    #Password: quesadilla123
+    
+   
+    PATH = path +  photo_name
+    
+    CLIENT_ID = "fdecbab9c6d3bc0" #proporcionado por la pagina IMGUR
+    CLIENT_SECRET= "9c7ebc0e24263b9a1f1a7cd6c11815ef734aec8a" #por ahora no se usa , la dejo guardada
+
+    im = pyimgur.Imgur(CLIENT_ID)
+    uploaded_image = im.upload_image(PATH, title="foto_post_process")
+
+   
+    return uploaded_image.link
+    
 
 def kill_process(): #si el puerto esta ocupado, lo libera para ejecutar el server
     PID = os.popen("netstat -ano|findstr 8080").read() #busca el process ID para ese puerto
@@ -272,6 +325,3 @@ if __name__ == "__main__":
     app.router.add_post("/connect",connect)
     web.run_app(app, access_log=None, port=args.port, ssl_context=ssl_context)
     
-
-
-
