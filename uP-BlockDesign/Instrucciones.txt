@@ -1,0 +1,12 @@
+Para generar el proyecto a partir del .bd:
+1- Crear un nuevo proyecto (recortar seleccionar placa arty)
+2- Importar el archivo .bd como "design source"
+3- En el menú de Flow Navigator->Project Manager->IP INTEGRATOR, seleccionar Open Block Design y verificar que esten los bloques usados.
+4- En el diseño de bloques abierto hacer click en "Validate Design"
+5- Si se valida correctamente, click en  Flow Navigator->Project Manager->IP INTEGRATOR->Generate Block Design y esperar que se sinteticen todas las IP. NOTA: Si en este punto comienzan a aparecer errores, significa que la computadora ya no tiene memoria. Matar el proceso y abrir Vivado nuevamente.
+6- Click derecho en Sources->Design Sources sobre el icono del diseño de bloques (cuadraditos amarillos). Seleccionar Create HDL wrapper.
+7- Sintetizar.
+8- Implementar.
+9- Generar Bitstream.
+10- En el menú desplegable File seleccionar Export->Export Hardware y hacer click en la casilla para incluir el bitstream. Se genera un archivo .xsa
+11- Abrir Vitis y crear un nuevo proyecto agregando como nueva plataforma el archivo .xsa creado.
