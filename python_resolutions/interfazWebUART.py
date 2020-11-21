@@ -29,6 +29,7 @@ def kernelNorm(kernel, maxValAbs, norm):
         kernel = (kernel - np.mean(kernel)) / np.std(kernel)
         return kernel
 
+
 def flipKernel (kernel):               
     kernel = np.flipud(kernel)
     kernel = np.fliplr(kernel)
@@ -55,17 +56,20 @@ def conv2D (image, kernel):
     return imConv2D,imHeight,imWidth
 
 
-#Image processing
 
-def linearScalling (imMatrix,maxVal, minVal):   
+def linearScalling (imMatrix,maxVal, minVal):  
+    
     imMatrix = (imMatrix-minVal)
     imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(0.0,255.0))
 
     return imMatrix
 
+
 def linearNorm (matrix, Max, Min, newMax, newMin):
+    
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
+
 
 def quantize (matrix,NB,NBF):
     
@@ -80,10 +84,12 @@ def quantize (matrix,NB,NBF):
 
 
 def fixedToFloat(NB,NBF,signedMode,num):
+    
 	if  (signedMode=='S'):
 		return (((num+2**(NB-1))&((2**NB)-1))-2**(NB-1))/(2**NBF)
 	elif(signedMode=='U'):
 		return num/(2**NBF)
+    
      
 def sendCol(imageCol,i):
    
@@ -92,18 +98,22 @@ def sendCol(imageCol,i):
     out = []
     while (ser.inWaiting() > 0):
         out.append(ser.read(1))
+        #print("aca ta el out {}".format(out))
         
     outInteger = []
+  
     for i in range(len(out)):
+      
         outInteger.append(int.from_bytes( out[i], "big"))
     
     ser.flushInput()
     ser.flushOutput()
     
     return outInteger
-
+  
 #Histograms
 def hist (image):
+    
     unique, counts = np.unique(image, return_counts=True)
     return unique, counts
 
@@ -136,7 +146,7 @@ ser = serial.serial_for_url('loop://', timeout=1)
 ##Descomentar en caso de enviar a FPGA
 # ser = serial.Serial(
 #     port     = '/dev/ttyUSB1',
-#     baudrate = 9600,
+#     baudrate = 115200,
 #     parity   = serial.PARITY_NONE,
 #     stopbits = serial.STOPBITS_ONE,
 #     bytesize = serial.EIGHTBITS
@@ -163,7 +173,7 @@ args = ap.parse_args()
 
 #Load input image 
 image   = cv2.imread(args.image,1)
-endFlag = 0                                          """A pedido de Mateo"""
+endFlag = 0                                        
 
 
 #Kernel to use momentaneamente 
@@ -215,26 +225,54 @@ ser.flushInput()
 ser.flushOutput()
 
 byteImage   = bytearray()
-byteImageStr = bytearray()
+byteHeader  = bytearray()
 
-imRecons    = []
+#envio y recepcion de header
+sizeOfImage = ROWIM*COLIM
+rowImLSB = (ROWIM  & 0xff)
+rowImMSB = ((ROWIM & 0xff00) >> 8)
+colImLSB = (COLIM  & 0xff)
+colImMSB = ((COLIM & 0xff00) >> 8)
+
+byteHeader.append(0xb0)     #10110000
+byteHeader.append(rowImLSB)
+byteHeader.append(rowImMSB)
+byteHeader.append(colImLSB)
+byteHeader.append(colImMSB)
+  
+#comentar recepcion de header en caso de uso de FPGA**********************
+ser.write(byteHeader)  
+
+while (ser.inWaiting() > 0):
+    print(ser.read(1))
+
+#comentar hasta aca*******************************************************
+
+ser.flushInput()
+ser.flushOutput()
 
 
 #envio de imagen escalada linealmente
+imRecons    = []
+
 for delta in range (COLIM):
-    for i in range(ROWIM):
+    for i in range (ROWIM):
         byteImage.append(quantImage[i+(delta*ROWIM)]) 
+        
     imRecons.append(sendCol(byteImage,delta))
     byteImage.clear() 
-   
+
+#fin de trama
+ser.write(0x50)
+
+
 
 ser.close()
 
 for i in range(COLIM):
     for j in range(ROWIM):
-       imRecons[i][j]    = fixedToFloat(7,6,'S',imRecons[i][j])
+       imRecons[i][j] = fixedToFloat(7,6,'S',imRecons[i][j])
     
-
 imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
 endFlag = 1
 
@@ -259,5 +297,4 @@ imAfterUART                   = linearScalling (imMatrix,maxVal, minVal).astype(
 #xConv,yConv                   = hist (imAfterUART)
 plotHist(imAfterUART,'lineal reconstructed',2)
 cv2.imshow("2- image after UART ", imAfterUART)
-
 
