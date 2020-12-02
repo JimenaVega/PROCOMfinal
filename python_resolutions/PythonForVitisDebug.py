@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 24 17:14:51 2020
-
-@author: Jimena
-
-NOTA: el kernel no es necesario en el programa final. Solo se encuentra en el codigo a modo
-de facil debuggeo.
-"""
-
 ## Import Packages
 from   skimage.exposure import rescale_intensity
 import numpy as np
@@ -34,27 +24,6 @@ def flipKernel (kernel):
     kernel = np.flipud(kernel)
     kernel = np.fliplr(kernel)
     return kernel
-
-
-def conv2D (image, kernel):
-
-    imHeight, imWidth = image.shape
-    kHeight , kWidth  = kernel.shape
-    center    = int(kHeight-(kHeight+1)/2)
-    imConv2D  = np.zeros((int(imHeight),int(imWidth)))    
-    
-    for n in range (int(imHeight)):
-        for m in range (int(imWidth)):
-            row     = n-center
-            col     = m-center
-            element = 0        
-            for i in range(int(kHeight)):
-                for j in range(int(kWidth)):
-                   if (row+i)>= 0 and (col+j)>=0 and (row+i)<imHeight and (col+j)<imWidth:
-                      element += image[row+i,m-center+j]*kernel[i,j]            
-            imConv2D[n,m]=element 
-    return imConv2D,imHeight,imWidth
-
 
 
 def linearScalling (imMatrix,maxVal, minVal):  
@@ -110,21 +79,6 @@ def sendCol(imageCol,i):
     ser.flushOutput()
     
     return outInteger
-  
-#Histograms
-def hist (image):
-    
-    unique, counts = np.unique(image, return_counts=True)
-    return unique, counts
-
-def plotHist(conv_image,name,pos):
-    [x  ,y]   = np.unique(conv_image,return_counts=True)
-    plt.subplot(2,1,pos)
-    plt.stem(x,y,'ko',label=name,use_line_collection=True)
-    plt.legend()
-    plt.grid()
-    
-    plt.show()
 
 def searchXtremeValues (imMatrix, imHeight, imWidth):
     maxVal = imMatrix[0,0]
@@ -141,16 +95,16 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
     
 # In[0]: serial port configuration
 
-ser = serial.serial_for_url('loop://', timeout=1)
+#ser = serial.serial_for_url('loop://', timeout=1)
 
-##Descomentar en caso de enviar a FPGA
-# ser = serial.Serial(
-#     port     = '/dev/ttyUSB1',
-#     baudrate = 115200,
-#     parity   = serial.PARITY_NONE,
-#     stopbits = serial.STOPBITS_ONE,
-#     bytesize = serial.EIGHTBITS
-# )
+
+ ser = serial.Serial(
+     port     = '/dev/ttyUSB7',
+     baudrate = 115200,
+     parity   = serial.PARITY_NONE,
+     stopbits = serial.STOPBITS_ONE,
+     bytesize = serial.EIGHTBITS
+ )
 
 ser.isOpen()
 ser.timeout=None
@@ -264,6 +218,10 @@ for delta in range (COLIM):
 
 #fin de trama
 ser.write(0x50)
+
+
+
+ser.close()
 
 for i in range(COLIM):
     for j in range(ROWIM):
