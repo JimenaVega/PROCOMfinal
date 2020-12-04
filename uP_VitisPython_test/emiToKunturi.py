@@ -56,6 +56,24 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
                 minVal=imMatrix[i,j]
     return maxVal, minVal
 
+def rebuildIm ():
+	outInteger = []
+	n = 0
+	while (n<ROWIM):
+		value=ord(ser.read(1))
+		outInteger.append(fixedToFloat(7,6,'S',value))
+		n=n+1
+	
+	return outInteger
+
+"""
+				while(n<COLIM):
+					while(m<ROWIM):
+
+					imReconsArray.append(ord(ser.read(1)))
+					n=n+1
+				n=0	
+"""
 
 #------------------ serial port configuration -------------------------------------------
 
@@ -73,7 +91,6 @@ print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-#path = "descarga.jpg"
 path = "foto1.jpg"
 
 ap = argparse.ArgumentParser( description="Convolution 2D")
@@ -88,8 +105,13 @@ endFlag = 0
 #Convert image to gray scale
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-[ROWIM,COLIM] = gray.shape
-print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
+[ROWIM,ORIG_COLIM] = gray.shape
+print("rows image= {0} \tcolumns image= {1}".format(ROWIM,ORIG_COLIM))
+
+#Resize image to have a minor flow of data 
+COLIM = 30
+dsize         = (COLIM,ROWIM)
+resizedIm     = cv2.resize(gray, dsize, interpolation=cv2.INTER_AREA)
 
 #-----------------------Image normalization-----------------------------------
 MaxIm     = 255.0
@@ -97,7 +119,7 @@ MinIm     = 0.0
 newMaxIm  = 1.0
 newMinIm  = 0.0
     #--Linear--
-imageNormLin = linearNorm(gray, MaxIm, MinIm, newMaxIm, newMinIm)
+imageNormLin = linearNorm(resizedIm, MaxIm, MinIm, newMaxIm, newMinIm)
 
 #----------------------------Fixed Point-------------------------------------
 quantImage  = quantize(imageNormLin,7,6)
@@ -121,10 +143,13 @@ byteHeader.append(rowImMSB)
 byteHeader.append(colImLSB)
 byteHeader.append(colImMSB)
 
-imRecons    = []
-imSend      = []
-n           = 0
-sentCol		= COLIM/3
+imReconsArray    = []
+imReconsMatrix   = []
+Result			 = []
+imSendArray    	 = []
+imSendMatrix	 = []
+n           	 = 0
+m				 = 0
 
 while(1):
 	if(ser.inWaiting()>0):
@@ -134,39 +159,63 @@ while(1):
 				ser.write(byteHeader)
 				print("Sent header\r\n")
 		elif(a==(b"Send Image\r\n")):
-				for delta in range (3):
+				for delta in range (COLIM):
 					for i in range (ROWIM):
 						byteImage.append(quantImage[i+(delta*ROWIM)]) 
-						imSend.append(quantImage[i+(delta*ROWIM)])
+						#imSendArray.append(quantImage[i+(delta*ROWIM)])
 					sendCol(byteImage)
 					byteImage.clear() 
+				#fin de la trama 
+				#ser.write(0x50)
 				print("Sent Image\r\n")
+
 		elif(a==(b"Return data\r\n")):
-				while(n<900):
-					imRecons.append(ord(ser.read(1)))
-					n=n+1
-				print(imSend)
-				print(imRecons)
-				print("done/r/n")
-				n=0		
-"""				
-		elif(a==(b"Send Image\r\n")):
-				while(sentCol>0):
-					for delta in range (3):
-						for i in range (ROWIM):
-							byteImage.append(quantImage[i+(delta*ROWIM)]) 
-							#imSend.append(quantImage[i+(delta*ROWIM)])
-						sendCol(byteImage)
-						byteImage.clear() 
-						while(ser.inWaiting()>0):
-							print(ser.readline())
-					print(sentCol)
-					sentCol=sentCol-1
-				print("Sent Image\r\n")
-		elif(a==(b"Return data\r\n")):
-				while(n<900):
-					imRecons.append(ord(ser.read(1)))
-					n=n+1
-				print("done/r/n")
-				n=0
+			while(m<COLIM):
+				imReconsMatrix.append(rebuildIm()) 
+				m=m+1
+			m=0
+			imReconsMatrix=(np.asarray(imReconsMatrix,'float64').T)
+			
+			#Resize the resize
+			rsize         = (ORIG_COLIM,ROWIM)     
+			backIm        = cv2.resize(imReconsMatrix, rsize, interpolation=cv2.INTER_AREA)
+			print("Final size1:")
+			print(backIm.shape) 
+			print(backIm)
+			
+			#Rescalling
+			maxVal, minVal                = searchXtremeValues (backIm, ROWIM, ORIG_COLIM) 
+			imAfterUART                   = linearScalling (backIm,maxVal, minVal).astype('uint8')
+			
+			#Print images to compare 
+			print("Returned image:")
+			print(imAfterUART)
+			print("Original image:")
+			print(gray)
+
+			print("Finished processing/r/n")
+
+"""				#Verificacion de el arreglo recibido y el enviado 
+				Result        = (np.asarray(imSendArray))-(np.asarray(imReconsArray))
+				SumElements   = sum(Result)
+				print("Sum element (si es 0, los bytes enviados son los mismos que los recibidos):")
+				print(SumElements)
+
+				#Reconstruccion de la matriz de la imagen enviada
+				imSendMatrix=((np.reshape(imSendArray,(COLIM,ROWIM))).T)
+				print("Rearranged send matrix size:")
+				print(imSendMatrix.shape)
+
+				#Reconstruccion de la matriz de la imagen recibida
+				imReconsMatrix=((np.reshape(imReconsArray,(COLIM,ROWIM))).T)
+				print("Rearranged received matrix size:")
+				print(imReconsMatrix.shape)
+
+				#Comparacion de matrices
+				print("Matriz enviada:")
+				print(imSendMatrix)
+
+				print("Matriz recibida:")
+				print(imReconsMatrix)
 """
+					
