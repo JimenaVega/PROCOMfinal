@@ -10,7 +10,7 @@ import serial
 
 def linearScalling (imMatrix,maxVal, minVal):  
     
-    imMatrix = (imMatrix-minVal)
+    imMatrix = (imMatrix-minVal) 
     imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(0.0,255.0))
 
     return imMatrix
@@ -192,6 +192,14 @@ while(1):
 			print(imAfterUART)
 			print("Original image:")
 			print(gray)
+
+			#Guardar las imagenes resultantes
+			filename1 = 'sentImage.jpg'
+			filename2 = 'receivedImage.jpg'
+
+			cv2.imwrite(filename1,gray)
+			cv2.imwrite(filename2,imAfterUART)
+
 
 			print("Finished processing/r/n")
 
