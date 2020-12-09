@@ -71,15 +71,11 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     return matrix
 
 
-def quantize (matrix,NB,NBF,sign):
+def quantize (matrix,NB,NBF):
+    
     flattenMatrix = np.ravel(matrix.T) #se aplasta por columnas
-   
-    if (sign == 'S'):
-        quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
-        packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
-    elif (sign == 'U'):
-        quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='U', roundMode='trunc', saturateMode='saturate')
-        packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
+    quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
+    packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
     
     for i in range(len(quantMatrix)):
         packedMatrix[i] = quantMatrix[i].intvalue
@@ -218,8 +214,8 @@ kernelSNorm  = flipKernel (kernelS)
 #kernel cuantizado con S(8,6)
 #imagen cuantizada con S(7,6)
 
-quantImage  = quantize(imageNormLin,7,6,'U')
-quantKernel = quantize(kernelLNorm,8,6, 'S')
+quantImage  = quantize(imageNormLin,7,6)
+quantKernel = quantize(kernelLNorm,8,6)
 
 
 #------------------------------------------------------------------------------
@@ -229,28 +225,23 @@ ser.flushInput()
 ser.flushOutput()
 
 byteImage   = bytearray()
-byteHeader  = bytearray()
+byteHeader = bytearray()
 
 #envio y recepcion de header
 sizeOfImage = ROWIM*COLIM
-rowImLSB = (ROWIM  & 0xff)
-rowImMSB = ((ROWIM & 0xff00) >> 8)
-colImLSB = (COLIM  & 0xff)
-colImMSB = ((COLIM & 0xff00) >> 8)
+lsb = (sizeOfImage & 0xff)
+msb = ((sizeOfImage & 0xff00) >> 8)
 
-byteHeader.append(0xb0)     #10110000
-byteHeader.append(rowImLSB)
-byteHeader.append(rowImMSB)
-byteHeader.append(colImLSB)
-byteHeader.append(colImMSB)
+byteHeader.append(0xb0) #10110000
+byteHeader.append(lsb)
+byteHeader.append(msb)
   
-#comentar recepcion de header en caso de uso de FPGA**********************
+#comentar recepcion de header en caso de uso de FPGA***
 ser.write(byteHeader)  
 
 while (ser.inWaiting() > 0):
     print(ser.read(1))
-
-#comentar hasta aca*******************************************************
+#comentar hasta aca********
 
 ser.flushInput()
 ser.flushOutput()
@@ -260,9 +251,8 @@ ser.flushOutput()
 imRecons    = []
 
 for delta in range (COLIM):
-    for i in range (ROWIM):
+    for i in range(ROWIM):
         byteImage.append(quantImage[i+(delta*ROWIM)]) 
-        
     imRecons.append(sendCol(byteImage,delta))
     byteImage.clear() 
 
@@ -275,8 +265,9 @@ ser.close()
 
 for i in range(COLIM):
     for j in range(ROWIM):
-       imRecons[i][j] = fixedToFloat(7,6,'U',imRecons[i][j])
+       imRecons[i][j]    = fixedToFloat(7,6,'S',imRecons[i][j])
     
+
 imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
 endFlag = 1
 
@@ -286,27 +277,18 @@ endFlag = 1
 
 #imagen original escalada linealmente
 
-plt.figure(2)
+plt.figure(1)
 
 imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
 maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
 imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
 #xConv,yConv                   = hist(imBeforeUART)
-# file = open("convValues.txt", "a")
-
-# for i in range (len(imMatrix)):
-#     for j in range (len(imMatrix[0])):
-#        file.write("{0}\n".format(imMatrix[i][j]))
-    
-# file.close()
-
-   
 plotHist(imBeforeUART,'original image with lineal scalling',1)
 cv2.imshow("1- image before UART ", imBeforeUART)
 
-imMatrix2, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
-maxVal, minVal                = searchXtremeValues (imMatrix2, imHeight, imWidth) 
-imAfterUART                   = linearScalling (imMatrix2,maxVal, minVal).astype('uint8')
+imMatrix, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
+maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
+imAfterUART                   = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
 #xConv,yConv                   = hist (imAfterUART)
 plotHist(imAfterUART,'lineal reconstructed',2)
 cv2.imshow("2- image after UART ", imAfterUART)
