@@ -1,13 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 24 17:14:51 2020
-
-@author: Jimena
-
-NOTA: el kernel no es necesario en el programa final. Solo se encuentra en el codigo a modo
-de facil debuggeo.
-"""
-
+##Merge código python 
 ## Import Packages
 from   skimage.exposure import rescale_intensity
 import numpy as np
@@ -71,15 +62,11 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     return matrix
 
 
-def quantize (matrix,NB,NBF,sign):
+def quantize (matrix,NB,NBF):
+    
     flattenMatrix = np.ravel(matrix.T) #se aplasta por columnas
-   
-    if (sign == 'S'):
-        quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
-        packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
-    elif (sign == 'U'):
-        quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='U', roundMode='trunc', saturateMode='saturate')
-        packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
+    quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
+    packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
     
     for i in range(len(quantMatrix)):
         packedMatrix[i] = quantMatrix[i].intvalue
@@ -93,27 +80,13 @@ def fixedToFloat(NB,NBF,signedMode,num):
 		return (((num+2**(NB-1))&((2**NB)-1))-2**(NB-1))/(2**NBF)
 	elif(signedMode=='U'):
 		return num/(2**NBF)
-    
-     
-def sendCol(imageCol,i):
+
+def sendCol(imageCol):
    
     ser.write(imageCol)
     time.sleep(0.001)
-    out = []
-    while (ser.inWaiting() > 0):
-        out.append(ser.read(1))
-        #print("aca ta el out {}".format(out))
-        
-    outInteger = []
-  
-    for i in range(len(out)):
-      
-        outInteger.append(int.from_bytes( out[i], "big"))
-    
-    ser.flushInput()
-    ser.flushOutput()
-    
-    return outInteger
+
+    return 
   
 #Histograms
 def hist (image):
@@ -141,34 +114,37 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
                 minVal=imMatrix[i,j]
     return maxVal, minVal
 
+def rebuildIm ():
+	outInteger = []
+	i = 0
+	while (i<ROWIM):
+		value=ord(ser.read(1))
+		outInteger.append(fixedToFloat(7,6,'S',value))
+		i=i+1
+	
+	return outInteger
 
-    
+
 # In[0]: serial port configuration
 
-ser = serial.serial_for_url('loop://', timeout=1)
 
-##Descomentar en caso de enviar a FPGA
-# ser = serial.Serial(
-#     port     = '/dev/ttyUSB1',
-#     baudrate = 115200,
-#     parity   = serial.PARITY_NONE,
-#     stopbits = serial.STOPBITS_ONE,
-#     bytesize = serial.EIGHTBITS
-# )
+ser = serial.Serial(
+    port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
+    baudrate=115200,
+    parity=serial.PARITY_NONE,
+    stopbits=serial.STOPBITS_ONE,
+    bytesize=serial.EIGHTBITS
+)
 
 ser.isOpen()
 ser.timeout=None
-ser.flushInput()
-ser.flushOutput()
 print(ser.timeout)
 
 
 # In[1]: Main
 
 #---------------------- imagen reading-------------------------------------------
-
-path = "descarga.jpg"
-#path = "foto1.jpg"
+path = "foto1.jpg"
 
 ap = argparse.ArgumentParser( description="Convolution 2D")
 ap.add_argument("-i", "--image", required=False, help="Path to the input image",default=path)
@@ -179,8 +155,7 @@ args = ap.parse_args()
 image   = cv2.imread(args.image,1)
 endFlag = 0                                        
 
-
-#Kernel to use momentaneamente 
+#Kernel to use whithout conv IP
 kernel = np.array((
     	[-1, -1, -1],
     	[-1,  8, -1],
@@ -218,8 +193,8 @@ kernelSNorm  = flipKernel (kernelS)
 #kernel cuantizado con S(8,6)
 #imagen cuantizada con S(7,6)
 
-quantImage  = quantize(imageNormLin,7,6,'U')
-quantKernel = quantize(kernelLNorm,8,6, 'S')
+quantImage  = quantize(imageNormLin,7,6)
+quantKernel = quantize(kernelLNorm,8,6)
 
 
 #------------------------------------------------------------------------------
@@ -243,38 +218,74 @@ byteHeader.append(rowImLSB)
 byteHeader.append(rowImMSB)
 byteHeader.append(colImLSB)
 byteHeader.append(colImMSB)
-  
-#comentar recepcion de header en caso de uso de FPGA**********************
-ser.write(byteHeader)  
 
-while (ser.inWaiting() > 0):
-    print(ser.read(1))
+imReconsArray    = []
+imReconsMatrix   = []
+imSendArray    	 = []
+imSendMatrix	 = []
+n           	 = 0
+m				 = 0
 
-#comentar hasta aca*******************************************************
-
-ser.flushInput()
-ser.flushOutput()
-
+PCKTS_TO_SEND	 = 0
+COLS_TO_SEND     = 30
 
 #envio de imagen escalada linealmente
-imRecons    = []
 
-for delta in range (COLIM):
-    for i in range (ROWIM):
-        byteImage.append(quantImage[i+(delta*ROWIM)]) 
-        
-    imRecons.append(sendCol(byteImage,delta))
-    byteImage.clear() 
+while(1):
+	if(ser.inWaiting()>0):
+		a=ser.readline()
+		print(a)
+		if(a==(b"Send header\r\n")):
+				ser.write(byteHeader)
+				print("Sent header\r\n")
+		elif(a==(b"Send Image\r\n") and (PCKTS_TO_SEND<15)):
+				print(PCKTS_TO_SEND)
+				for delta in range (COLS_TO_SEND):
+					for i in range (ROWIM):
+						byteImage.append(quantImage[(PCKTS_TO_SEND*(COLS_TO_SEND*ROWIM))+(i+delta*ROWIM)]) 
+					sendCol(byteImage)
+					byteImage.clear() 
+				#fin de la trama 
+				#ser.write(0x50)
+				print("Sent Image\r\n")
 
-#fin de trama
-ser.write(0x50)
+		elif(a==(b"Return data\r\n") and (PCKTS_TO_SEND<15)):
+			print(PCKTS_TO_SEND)
+			while(m<COLS_TO_SEND):
+				imReconsMatrix.append(rebuildIm()) 
+				m=m+1
+			PCKTS_TO_SEND=PCKTS_TO_SEND+1
+			m=0
+	
+	if(PCKTS_TO_SEND==15):
+		PCKTS_TO_SEND=0
+		imReconsMatrix=(np.asarray(imReconsMatrix,'float64').T)
+			
+		#Check size
+		print("Final size1:")
+		print(imReconsMatrix.shape) 
+		print(imReconsMatrix)
+			
+		#Rescalling
+		maxVal, minVal                = searchXtremeValues (imReconsMatrix, ROWIM, COLIM) 
+		imAfterUART                   = linearScalling (imReconsMatrix,maxVal, minVal).astype('uint8')
 
-for i in range(COLIM):
-    for j in range(ROWIM):
-       imRecons[i][j] = fixedToFloat(7,6,'U',imRecons[i][j])
-    
-imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
-endFlag = 1
+		print("COMPARACION DE MATRICES")
+		print("Returned image:")
+		print(imAfterUART)
+		print("Original image:")
+		print(gray)
+
+		#Guardar las imagenes resultantes
+		filename1 = 'sentImage.jpg'
+		filename2 = 'receivedImage.jpg'
+
+		cv2.imwrite(filename1,gray)
+		cv2.imwrite(filename2,imAfterUART)
+
+		print("Finished processing/r/n")
+
+        endFlag = 1
 
 #------------------------------------------------------------------------------
 #---------------------------------output image--------------------------------         
@@ -282,27 +293,16 @@ endFlag = 1
 
 #imagen original escalada linealmente
 
-plt.figure(2)
+plt.figure(1)
 
 imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
 maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
 imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
 #xConv,yConv                   = hist(imBeforeUART)
-# file = open("convValues.txt", "a")
-
-# for i in range (len(imMatrix)):
-#     for j in range (len(imMatrix[0])):
-#        file.write("{0}\n".format(imMatrix[i][j]))
-    
-# file.close()
-
-   
 plotHist(imBeforeUART,'original image with lineal scalling',1)
 cv2.imshow("1- image before UART ", imBeforeUART)
 
-imMatrix2, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
-maxVal, minVal                = searchXtremeValues (imMatrix2, imHeight, imWidth) 
-imAfterUART                   = linearScalling (imMatrix2,maxVal, minVal).astype('uint8')
+imMatrix, imHeight, imWidth   = conv2D (imAfterUART , kernelLNorm)
 #xConv,yConv                   = hist (imAfterUART)
 plotHist(imAfterUART,'lineal reconstructed',2)
 cv2.imshow("2- image after UART ", imAfterUART)

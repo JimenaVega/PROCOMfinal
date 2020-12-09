@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 24 17:14:51 2020
-
-@author: Jimena
-
-NOTA: el kernel no es necesario en el programa final. Solo se encuentra en el codigo a modo
-de facil debuggeo.
-"""
-
 ## Import Packages
 from   skimage.exposure import rescale_intensity
 import numpy as np
@@ -36,27 +26,6 @@ def flipKernel (kernel):
     return kernel
 
 
-def conv2D (image, kernel):
-
-    imHeight, imWidth = image.shape
-    kHeight , kWidth  = kernel.shape
-    center    = int(kHeight-(kHeight+1)/2)
-    imConv2D  = np.zeros((int(imHeight),int(imWidth)))    
-    
-    for n in range (int(imHeight)):
-        for m in range (int(imWidth)):
-            row     = n-center
-            col     = m-center
-            element = 0        
-            for i in range(int(kHeight)):
-                for j in range(int(kWidth)):
-                   if (row+i)>= 0 and (col+j)>=0 and (row+i)<imHeight and (col+j)<imWidth:
-                      element += image[row+i,m-center+j]*kernel[i,j]            
-            imConv2D[n,m]=element 
-    return imConv2D,imHeight,imWidth
-
-
-
 def linearScalling (imMatrix,maxVal, minVal):  
     
     imMatrix = (imMatrix-minVal)
@@ -71,15 +40,11 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     return matrix
 
 
-def quantize (matrix,NB,NBF,sign):
+def quantize (matrix,NB,NBF):
+    
     flattenMatrix = np.ravel(matrix.T) #se aplasta por columnas
-   
-    if (sign == 'S'):
-        quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
-        packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
-    elif (sign == 'U'):
-        quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='U', roundMode='trunc', saturateMode='saturate')
-        packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
+    quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
+    packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
     
     for i in range(len(quantMatrix)):
         packedMatrix[i] = quantMatrix[i].intvalue
@@ -114,21 +79,6 @@ def sendCol(imageCol,i):
     ser.flushOutput()
     
     return outInteger
-  
-#Histograms
-def hist (image):
-    
-    unique, counts = np.unique(image, return_counts=True)
-    return unique, counts
-
-def plotHist(conv_image,name,pos):
-    [x  ,y]   = np.unique(conv_image,return_counts=True)
-    plt.subplot(2,1,pos)
-    plt.stem(x,y,'ko',label=name,use_line_collection=True)
-    plt.legend()
-    plt.grid()
-    
-    plt.show()
 
 def searchXtremeValues (imMatrix, imHeight, imWidth):
     maxVal = imMatrix[0,0]
@@ -145,16 +95,16 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
     
 # In[0]: serial port configuration
 
-ser = serial.serial_for_url('loop://', timeout=1)
+#ser = serial.serial_for_url('loop://', timeout=1)
 
-##Descomentar en caso de enviar a FPGA
-# ser = serial.Serial(
-#     port     = '/dev/ttyUSB1',
-#     baudrate = 115200,
-#     parity   = serial.PARITY_NONE,
-#     stopbits = serial.STOPBITS_ONE,
-#     bytesize = serial.EIGHTBITS
-# )
+
+ ser = serial.Serial(
+     port     = '/dev/ttyUSB7',
+     baudrate = 115200,
+     parity   = serial.PARITY_NONE,
+     stopbits = serial.STOPBITS_ONE,
+     bytesize = serial.EIGHTBITS
+ )
 
 ser.isOpen()
 ser.timeout=None
@@ -218,8 +168,8 @@ kernelSNorm  = flipKernel (kernelS)
 #kernel cuantizado con S(8,6)
 #imagen cuantizada con S(7,6)
 
-quantImage  = quantize(imageNormLin,7,6,'U')
-quantKernel = quantize(kernelLNorm,8,6, 'S')
+quantImage  = quantize(imageNormLin,7,6)
+quantKernel = quantize(kernelLNorm,8,6)
 
 
 #------------------------------------------------------------------------------
@@ -269,9 +219,13 @@ for delta in range (COLIM):
 #fin de trama
 ser.write(0x50)
 
+
+
+ser.close()
+
 for i in range(COLIM):
     for j in range(ROWIM):
-       imRecons[i][j] = fixedToFloat(7,6,'U',imRecons[i][j])
+       imRecons[i][j] = fixedToFloat(7,6,'S',imRecons[i][j])
     
 imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
 endFlag = 1
@@ -282,27 +236,18 @@ endFlag = 1
 
 #imagen original escalada linealmente
 
-plt.figure(2)
+plt.figure(1)
 
 imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
 maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
 imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
 #xConv,yConv                   = hist(imBeforeUART)
-# file = open("convValues.txt", "a")
-
-# for i in range (len(imMatrix)):
-#     for j in range (len(imMatrix[0])):
-#        file.write("{0}\n".format(imMatrix[i][j]))
-    
-# file.close()
-
-   
 plotHist(imBeforeUART,'original image with lineal scalling',1)
 cv2.imshow("1- image before UART ", imBeforeUART)
 
-imMatrix2, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
-maxVal, minVal                = searchXtremeValues (imMatrix2, imHeight, imWidth) 
-imAfterUART                   = linearScalling (imMatrix2,maxVal, minVal).astype('uint8')
+imMatrix, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
+maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
+imAfterUART                   = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
 #xConv,yConv                   = hist (imAfterUART)
 plotHist(imAfterUART,'lineal reconstructed',2)
 cv2.imshow("2- image after UART ", imAfterUART)
