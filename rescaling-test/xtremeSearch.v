@@ -29,8 +29,7 @@ module xtremeSearch
     input  signed [NB_PIXEL - 1 : 0]i_convValue, //pixel resultado de la convolucion
     output signed [NB_PIXEL - 1 : 0]o_maxValue,
     output signed [NB_PIXEL - 1 : 0]o_minValue,
-    output o_endSignal,
-    output o_entre
+    output o_endSignal
    
     );
    
@@ -38,7 +37,7 @@ reg signed [NB_PIXEL - 1 : 0]maxPixelReg;
 reg signed [NB_PIXEL - 1 : 0]minPixelReg;
 reg signed [NB_COUNT - 1 : 0]imSizeReg;
 reg signed [NB_COUNT - 1 : 0]counter;
-reg imin;
+
 
 always@ (posedge clock) begin
     if (reset)begin
@@ -46,7 +45,7 @@ always@ (posedge clock) begin
         minPixelReg <= {(NB_PIXEL - 1){1'b1}}; //Numero mas grande del rango +2^(NB_PIXEL-1) - 1
         counter     <= {NB_COUNT{1'b0}};
         imSizeReg   <= i_imageSize;
-        imin <= 1'b0;
+   
     end
     else begin
         if (i_convValue > maxPixelReg) begin
@@ -54,7 +53,7 @@ always@ (posedge clock) begin
         end
         if (minPixelReg > i_convValue) begin
             minPixelReg <= i_convValue;
-            imin <= 1'b1;
+         
         end
     end
     if ( counter < imSizeReg) begin 
@@ -68,6 +67,5 @@ end //always
 assign o_endSignal = ( counter < (imSizeReg-1) ) ? 0 : 1;
 assign o_maxValue = ( i_valid ) ? maxPixelReg : {NB_PIXEL{1'b0}};
 assign o_minValue = ( i_valid ) ? minPixelReg : {NB_PIXEL{1'b0}};
-assign o_entre  = (imin)? 1 : 0;
 
 endmodule

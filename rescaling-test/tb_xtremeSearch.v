@@ -25,8 +25,6 @@ module tb_xtremeSearch();
 parameter NB_PIXEL = 19;
 parameter NB_COUNT = 32; 
 
-
-
 reg clock;
 reg reset;
 reg valid;
@@ -35,7 +33,7 @@ reg  [NB_PIXEL - 1 : 0]convValue;
 wire [NB_PIXEL - 1 : 0]maxValue;
 wire [NB_PIXEL - 1 : 0]minValue;
 wire endSignal;
-wire o_entre;
+
 
 initial begin
     reset = 1'b1;
@@ -166,7 +164,6 @@ xtremeSearch
      .o_maxValue     (maxValue),
      .o_minValue     (minValue),
      .o_endSignal    (endSignal),
-     .o_entre        (o_entre),
      .clock          (clock),
      .reset          (reset),
      .i_valid        (valid),
