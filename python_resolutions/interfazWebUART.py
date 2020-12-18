@@ -57,10 +57,10 @@ def conv2D (image, kernel):
 
 
 
-def linearScalling (imMatrix,maxVal, minVal):  
+def linearScalling (imMatrix,maxVal, minVal, newMax, newMin):  
     
     imMatrix = (imMatrix-minVal)
-    imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(0.0,255.0))
+    imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(newMin,newMax))
 
     return imMatrix
 
@@ -72,6 +72,7 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
 
 
 def quantize (matrix,NB,NBF,sign):
+    
     flattenMatrix = np.ravel(matrix.T) #se aplasta por columnas
    
     if (sign == 'S'):
@@ -141,7 +142,12 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
                 minVal=imMatrix[i,j]
     return maxVal, minVal
 
-
+def saveTofileMatrix(matrix, fileName):
+    file = open(fileName, "w")
+    for i in range(ROWIM): 
+        for j in range(COLIM):
+            file.write("{0}\n".format(matrix[i][j]))
+    file.close()
     
 # In[0]: serial port configuration
 
@@ -198,7 +204,8 @@ MinIm     = 0.0
 newMaxIm  = 1.0
 newMinIm  = 0.0
     #--Linear--
-imageNormLin = linearNorm(gray, MaxIm, MinIm, newMaxIm, newMinIm)
+#imageNormLin = linearNorm(gray, MaxIm, MinIm, newMaxIm, newMinIm)
+imageNormLin = linearScalling (gray ,MaxIm, MinIm,newMaxIm,newMinIm)
 
 #----Kernel normalization----
 maxKernel  = 8.0
@@ -218,9 +225,7 @@ kernelSNorm  = flipKernel (kernelS)
 #kernel cuantizado con S(8,6)
 #imagen cuantizada con S(7,6)
 
-quantImage  = quantize(imageNormLin,7,6,'U')
-
-
+quantImage  = quantize(imageNormLin,8,6,'U')
 
 
 #------------------------------------------------------------------------------
@@ -271,25 +276,30 @@ for delta in range (COLIM):
 ser.write(0x50)
 
 
+
 imFixedPoint = []
 for i in range(COLIM):
     aloha = []
     for j in range(ROWIM):
        aloha.append(imRecons[i][j])
-       imRecons[i][j] = fixedToFloat(7,6,'U',imRecons[i][j])
+       imRecons[i][j] = fixedToFloat(8, 6, 'S', imRecons[i][j])#imagen usada en outpu image
        
     imFixedPoint.append(aloha)
     
+
+
 imFixedPoint = np.asarray(imFixedPoint).T  
-imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
+imageLinRec = (np.asarray(imRecons, 'float64').T) #imagen reconstruida
 endFlag = 1
 #------------------------------------------------------------------------------
 #---------------------------------testing--------------------------------         
 #------------------------------------------------------------------------------
+
 imFixedPoint = np.asarray(imFixedPoint)
+saveTofileMatrix(imFixedPoint, "0-fixedPointImage.txt")
 
 #cuantizacion kernel
-quantKernel = quantize(kernelLNorm,8,6, 'S')
+quantKernel = quantize(kernelLNorm, 8, 6, 'S')
 kernToTrunc = []
 count = 0
 for i in range(3):
@@ -303,41 +313,54 @@ for i in range(3):
 kernToTrunc = np.asarray(kernToTrunc)
 
 #convolucion kernel en p.fijo con imagen en p.fijo
-imToTrunc, imH, imW = conv2D(imFixedPoint, kernToTrunc)
 
+imConv, imH, imW = conv2D(imFixedPoint, kernToTrunc)
+
+imToTrunc = imConv
 imToTruncCopy = imToTrunc.astype(np.int64)
+saveTofileMatrix(imToTruncCopy, "1-fixedPointConv2D.txt")
 
 
 imTrunked = []
 
-#truncado de la convolucion a 8 bits
+#truncado de la convolucion a 8 bits----------------------
 for i in range(183):
     aux = []
     for j in range(275):
-        aux.append((imToTruncCopy[i][j] & (0x03fc00))>>10)
+        aux.append((imToTruncCopy[i][j] & (0xff00))>>8)
         #aux.append((imToTruncCopy[i][j] & (0x01fe00))>>9)
     imTrunked.append(aux)
-        
+
         #imToTruncCopy[i][j] = (imToTruncCopy[i][j] & (0xff))
 
 imTrunked = np.asarray(imTrunked)
 
-#super contrastado
-#
+
+#----------------------------------------------------------------
 for i in range(ROWIM):
     for j in range(COLIM):
-        imToTruncCopy[i][j] = fixedToFloat(8, 6,'S', imTrunked[i][j])
+        imToTrunc[i][j] = fixedToFloat(7, 5,'S', imTrunked[i][j])
 
-maxV, minV = searchXtremeValues (imToTruncCopy, imH, imW) 
-#def linearNorm (matrix, Max, Min, newMax, newMin):
-imScaleToTrunc = linearNorm(imToTruncCopy, maxV, minV, 255, 0)
-#imScaleToTrunc = linearScalling (imToTruncCopy ,maxV, minV).astype('uint8')
+            
+#valores descuantzados
+saveTofileMatrix(imToTrunc, "2-floatConv2D.txt") 
 
+
+maxV = 0
+minV = 0
+maxV, minV = searchXtremeValues (imToTrunc, imH, imW) 
+#valores escalados
+#imScaleToTrunc = linearNorm(imToTrunc, maxV, minV, 255, 0)
+imScaleToTrunc = linearScalling (imToTrunc ,maxV, minV, 255, 0)
+imUint8   = imScaleToTrunc.astype('uint8')
+
+saveTofileMatrix(imScaleToTrunc, "3-rescalledValues.txt") 
+saveTofileMatrix(imUint8, "4-uint8Values.txt") 
 
 plt.figure(1)
-plotHist(imScaleToTrunc,'truncado desde LSB',1)
-cv2.imshow("im truncada LSB ", imScaleToTrunc)
-
+plotHist(imUint8,'truncado desde LSB',1)
+cv2.imshow("im truncada LSB ", imUint8)
+"""
 
 #Test2: clipeado
 imToClip = imToTrunc.astype(np.int64)
@@ -353,6 +376,7 @@ for i in range (ROWIM):
     imUnisgnedClip.append(v_aux)
 
 imUnisgnedClip = np.asarray(imUnisgnedClip)
+"""
 
 #------------------------------------------------------------------------------
 #---------------------------------output image--------------------------------         
@@ -360,32 +384,26 @@ imUnisgnedClip = np.asarray(imUnisgnedClip)
 
 #imagen original escalada linealmente
 
-'''plt.figure(2)
+plt.figure(2)
 
 imMatrix, imHeight, imWidth   = conv2D(imageNormLin, kernelLNorm)
 maxVal, minVal                = searchXtremeValues (imMatrix, imHeight, imWidth) 
-imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal).astype('uint8')
-#xConv,yConv                   = hist(imBeforeUART)
-# file = open("convValues.txt", "a")
-
-# for i in range (len(imMatrix)):
-#     for j in range (len(imMatrix[0])):
-#        file.write("{0}\n".format(imMatrix[i][j]))
-    
-# file.close()
+imBeforeUART                  = linearScalling (imMatrix,maxVal, minVal,255,0).astype('uint8')
 
    
 plotHist(imBeforeUART,'original image with lineal scalling',1)
-cv2.imshow("1- image before UART ", imBeforeUART)
+cv2.imshow("1 image before UART ", imBeforeUART)
 
 imMatrix2, imHeight, imWidth   = conv2D (imageLinRec, kernelLNorm)
 
 # for i in range(len(imMatrix2)):
 #     for j in range(len(imMatrix2[0])):
 #         imMatrix2[i][j] = (imMatrix2[i][j] & (0xff))
+maxVal = 0
+minVal = 0 
 maxVal, minVal                 = searchXtremeValues (imMatrix2, imHeight, imWidth) 
-imAfterUART                    = linearScalling (imMatrix2,maxVal, minVal).astype('uint8')
-#xConv,yConv                   = hist (imAfterUART)
+imAfterUART                    = linearScalling (imMatrix2,maxVal, minVal,255,0).astype('uint8')
+
 plotHist(imAfterUART,'lineal reconstructed',2)
-cv2.imshow("2- image after UART ", imAfterUART)
-'''
+cv2.imshow("2 image after UART ", imAfterUART)
+

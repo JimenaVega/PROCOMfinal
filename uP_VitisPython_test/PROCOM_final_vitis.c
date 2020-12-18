@@ -7,6 +7,7 @@
 #include "xdebug.h"
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include "xil_cache.h"
 #include "platform.h"
 #include "xuartlite.h"
@@ -803,6 +804,11 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 }
 
 
+int fixedToFloat(int NB, int NBF, int num){
+	//( ((num+2**(NB-1))&((2**NB)-1)) -2**(NB-1))/(2**NBF)
+	return (((num + pow(2, (NB-1))) & (pow(2, NB) - 1)) - pow(2, (NB - 1))) / (pow(2, NBF));
+}
+
 static int ReturnData(int Length)
 {
 	u8 *RxPacket;
@@ -810,9 +816,11 @@ static int ReturnData(int Length)
 
 	RxPacket = (u8 *) RX_BUFFER_BASE;
 
+
 	/* Invalidate the DestBuffer before receiving the data, in case the
 	 * Data Cache is enabled
 	 */
+
 	Xil_DCacheInvalidateRange((UINTPTR)RxPacket, Length);
 	delay();
 	print("Return data\r\n");
