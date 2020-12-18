@@ -4,7 +4,7 @@
 (
     parameter ADDR_WIDTH         = 12,
     parameter C_AXIS_TDATA_WIDTH = 32,
-    parameter PIXEL_NB           = 7,
+    parameter PIXEL_NB           = 9,
     parameter RESULT_NB          = 19,
     parameter COUNTER_NB         = 2,
     parameter COUNTER1_NB        = 4,
@@ -37,9 +37,6 @@
 
 localparam FULL       = 2'h2;           //full del counter general 
 localparam FULL1      = 4'h9;           //full del counter para la primera carga
-localparam MAX        = 2'h1;
-localparam MIN        = 2'h3;
-localparam ZERO       = 2'h0;
 
 //Reset sync registers
 reg s00_rst_sync1_reg = 1'b1;
@@ -61,6 +58,8 @@ reg          [COUNTER1_NB-1:0]  first_counter;
 reg   signed [RESULT_NB-1 :0]   o_pixel_reg;
 integer ptr;
 integer ptr1;
+
+wire         [(PIXEL_NB-1)-1 :0] final_o_pixel;
 
 //AXI registers
 reg  m00_axis_tvalid_reg  = 1'b0;
@@ -86,7 +85,11 @@ assign m00_axis_tlast  = m00_axis_tlast_reg;
 assign m00_axis_tdata  = read_data_reg;
 
 //Assigns de lor wire internos al módulo
-assign o_pixel_wire    = o_pixel_reg;
+assign o_pixel_wire    = o_pixel_reg; //VERIFICAR SI SE USA
+assign final_o_pixel   = (o_pixel_reg > 255) ? 8'd255 : 
+                         (o_pixel_reg < 0)   ? 8'd0   :
+                          o_pixel_reg;
+
 
 /***************************************** SINCRONIZAR RESET **************************************************/
 //Reset synchronization de master y slave 
@@ -180,7 +183,7 @@ always@(posedge s00_axis_aclk)begin
         counter       <= 2'd0; 
         first_counter <= 4'd0;       
         for(ptr = 0; ptr < KERNEL_SIZE*KERNEL_SIZE; ptr = ptr + 1)begin
-            shift[ptr] <= 7'd0;
+            shift[ptr] <= 9'd0;
         end    
     end
     else begin 
