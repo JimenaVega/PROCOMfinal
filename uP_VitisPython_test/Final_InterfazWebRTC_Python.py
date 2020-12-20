@@ -4,9 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 import cv2
-from   tool._fixedInt import *
+
 import time
 import serial
+
 
 def linearScalling (imMatrix,maxVal, minVal):  
     
@@ -20,23 +21,7 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
 
-def quantize (matrix,NB,NBF):
-    
-    flattenMatrix = np.ravel(matrix.T) #se aplasta por columnas
-    quantMatrix   = arrayFixedInt(NB,NBF,flattenMatrix, signedMode='S', roundMode='trunc', saturateMode='saturate')
-    packedMatrix  = np.zeros(len(quantMatrix), dtype='int')
-    
-    for i in range(len(quantMatrix)):
-        packedMatrix[i] = quantMatrix[i].intvalue
-    
-    return packedMatrix
 
-def fixedToFloat(NB,NBF,signedMode,num):
-    
-	if  (signedMode=='S'):
-		return (((num+2**(NB-1))&((2**NB)-1))-2**(NB-1))/(2**NBF)
-	elif(signedMode=='U'):
-		return num/(2**NBF)
 
 def sendCol(imageCol):
    
@@ -56,37 +41,54 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
                 minVal=imMatrix[i,j]
     return maxVal, minVal
 
+def plotHist(conv_image,name,pos):
+    [x  ,y]   = np.unique(conv_image,return_counts=True)
+    plt.subplot(2,1,pos)
+    plt.stem(x,y,'ko',label=name,use_line_collection=True)
+    plt.legend()
+    plt.grid()
+    
+    plt.show()
+
 def rebuildIm ():
-	outInteger = []
-	i = 0
-	while (i<ROWIM):
-		value=ord(ser.read(1))
-		outInteger.append(fixedToFloat(7,6,'S',value))
-		i=i+1
-	
-	return outInteger
+    #clipeado
+    clippedCol = []
+    i = 0
+    while (i < ROWIM):
+        
+        value = ord(ser.read(1))
+        if (value > 255):
+            clippedCol[i] = 255
+        elif (value < 0):
+            clippedCol[i] = 0 
+        else:
+            clippedCol[i] = value
+        i=i+1
+
+    return clippedCol.astype('uint8')
 
 #------------------ serial port configuration -------------------------------------------
 
-ser = serial.Serial(
-    port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
-    baudrate=115200,
-    parity=serial.PARITY_NONE,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.EIGHTBITS
-)
-
+ser = serial.serial_for_url('loop://', timeout=1) 
+# ser = serial.Serial(
+#     port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
+#     baudrate=115200,
+#     parity=serial.PARITY_NONE,
+#     stopbits=serial.STOPBITS_ONE,
+#     bytesize=serial.EIGHTBITS
+# )
+ 
 ser.isOpen()
 ser.timeout=None
 print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-path = "foto1.jpg"
+path = "foto2.jpg"
 
-ap = argparse.ArgumentParser( description="Convolution 2D")
-ap.add_argument("-i", "--image", required=False, help="Path to the input image",default=path)
-ap.add_argument("-k", "--kernel", help="Path to the kernel")
+ap = argparse.ArgumentParser( description = "Convolution 2D")
+ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
+ap.add_argument("-k", "--kernel", help = "Path to the kernel")
 args = ap.parse_args()
 
 #Load input image 
@@ -96,20 +98,13 @@ endFlag = 0
 #Convert image to gray scale
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
+#zero-padding
+np.pad(gray, ((1,1),(1,1)), 'constant')
+
 [ROWIM,COLIM] = gray.shape
-#COLIM = 300
 print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
 
-#-----------------------Image normalization-----------------------------------
-MaxIm     = 255.0
-MinIm     = 0.0
-newMaxIm  = 1.0
-newMinIm  = 0.0
-    #--Linear--
-imageNormLin = linearNorm(gray, MaxIm, MinIm, newMaxIm, newMinIm)
 
-#----------------------------Fixed Point-------------------------------------
-quantImage  = quantize(imageNormLin,7,6)
 #----------------------------------UART---------------------------------------
 
 ser.flushInput()
@@ -130,55 +125,56 @@ byteHeader.append(rowImMSB)
 byteHeader.append(colImLSB)
 byteHeader.append(colImMSB)
 
-imReconsArray    = []
-imReconsMatrix   = []
-imSendArray    	 = []
-imSendMatrix	 = []
-n           	 = 0
-m				 = 0
+imReconsArray  = []
+imReconsMatrix = []
+imSendArray    = []
+imSendMatrix   = []
+n = 0
+m = 0
 
 #envio de imagen escalada linealmente
 while(1):
-	if(ser.inWaiting()>0):
-		a=ser.readline()
+	
+	if(ser.inWaiting() > 0):
+		
+		a = ser.readline()
 		print(a)
-		if(a==(b"Send header\r\n")):
-				ser.write(byteHeader)
-				print("Sent header\r\n")
-		elif(a==(b"Send Image\r\n")):
-				for delta in range (COLIM):
-					for i in range (ROWIM):
-						byteImage.append(quantImage[(i+delta*ROWIM)]) 
-					sendCol(byteImage)
-					byteImage.clear() 
-				print("Sent Image\r\n")
+		
+		if (a == (b"Send header\r\n")):
+			ser.write(byteHeader)
+			print("Sent header\r\n")
+			
+		elif (a == (b"Send Image\r\n")):
+			for j in range (COLIM):
+				for i in range (ROWIM):
+					byteImage.append(gray[i][j]) 
+				sendCol(byteImage)
+				byteImage.clear() 
+			print("Sent Image\r\n")
 
-		elif(a==(b"Return data\r\n")):
-			while(m<COLIM):
+		elif (a == (b"Return data\r\n")):
+			while (m < COLIM):
 				imReconsMatrix.append(rebuildIm()) 
-				m=m+1
-			imReconsMatrix=(np.asarray(imReconsMatrix,'float64').T)
+				m = m+1
+			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
 				
 			#Check size
-			print("Final size1:")
-			print(imReconsMatrix.shape) 
-			print(imReconsMatrix)
-				
-			#Rescalling
-			maxVal, minVal                = searchXtremeValues (imReconsMatrix, ROWIM, COLIM) 
-			imAfterUART                   = linearScalling (imReconsMatrix,maxVal, minVal).astype('uint8')
+			#print("Final size1:")
+			#print(imReconsMatrix.shape) 
+			#print(imReconsMatrix)
+			
+			plotHist (imReconsMatrix, 'lineal reconstructed',1)
+			cv2.imshow ("1 image after UART ", imReconsMatrix)	#Rescalling
 
-			print("COMPARACION DE MATRICES")
-			print("Returned image:")
-			print(imAfterUART)
-			print("Original image:")
-			print(gray)
 
 			#Guardar las imagenes resultantes
 			filename1 = 'sentImage.jpg'
 			filename2 = 'receivedImage.jpg'
 
-			cv2.imwrite(filename1,gray)
-			cv2.imwrite(filename2,imAfterUART)
+			cv2.imwrite(filename1, gray)
+			cv2.imwrite(filename2, imReconsMatrix)
 
 			print("Finished processing/r/n")
+			
+			
+
