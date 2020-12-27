@@ -48,7 +48,7 @@ extern void xil_printf(const char *format, ...);
 #define RESET_TIMEOUT_COUNTER	10000
 
 //Buffer and Buffer Descriptor related constant definition
-#define MAX_PKT_LEN				300		 //requested transfer length (cantidad de filas)
+#define MAX_PKT_LEN				556		 //requested transfer length (cantidad de filas)
 #define MARK_UNCACHEABLE        0x701
 
 //Interrupt
@@ -56,11 +56,16 @@ extern void xil_printf(const char *format, ...);
 #define INTC_HANDLER			XIntc_InterruptHandler
 
 //Dma transmission
-#define NUMBER_OF_BDS_PER_PKT		150  //se transmiten 3 columnas por paquete
-#define NUMBER_OF_PKTS_TO_TRANSFER 	3 //se transmiten 10 paquetes
+#define BDS_DEPTH					302
+#define NUMBER_OF_BDS_PER_PKT		113
+#define NUMBER_OF_PKTS_TO_TRANSFER 	4
 #define NUMBER_OF_BDS_TO_TRANSFER	(NUMBER_OF_PKTS_TO_TRANSFER * NUMBER_OF_BDS_PER_PKT)
 #define COALESCING_COUNT			1
 #define DELAY_TIMER_COUNT			10
+
+//Mixeo
+#define rows     302//482
+#define columns  452//642
 
 /************************** Function Prototypes ******************************/
 //Initialize
@@ -107,7 +112,7 @@ u32				size;
 u32 			transferCounter;
 
 //Buffer for transmit packet. Must be 32-bit aligned to be used by DMA.
-u32 *Packet = (u32 *) TX_BUFFER_BASE;
+u32 *Packet =   (u32 *) TX_BUFFER_BASE;
 
 //Trama
 unsigned char 	recv_data;
@@ -697,6 +702,8 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	XAxiDma_Bd *BdPtr, *BdCurPtr;
 	int Status;
 	int Index, Pkts;
+	int column_counter = 0;
+	int element_counter = 0;
 	UINTPTR BufferAddr;
 
 	/*
@@ -704,12 +711,12 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	 *
 	 * This will not be the case if hardware has store and forward built in
 	 */
-	if (MAX_PKT_LEN * NUMBER_OF_BDS_PER_PKT >
+	if (BDS_DEPTH * NUMBER_OF_BDS_PER_PKT >
 			TxRingPtr->MaxTransferLen) {
 
 		xil_printf("Invalid total per packet transfer length for the "
 		    "packet %d/%d\r\n",
-		    MAX_PKT_LEN * NUMBER_OF_BDS_PER_PKT,
+			BDS_DEPTH * NUMBER_OF_BDS_PER_PKT,
 		    TxRingPtr->MaxTransferLen);
 
 		return XST_INVALID_PARAM;
@@ -717,10 +724,38 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 
 	TxPacket = (u8 *) Packet;
 
-	for(Index = 0; Index < MAX_PKT_LEN * NUMBER_OF_BDS_TO_TRANSFER;
-								Index ++) {
-		TxPacket[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
-	}
+	for(int i = 0; i< (NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
+		if(column_counter == 0){
+			TxPacket[element_counter*3] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			element_counter++;
+		}
+		else if(column_counter == 1){
+			TxPacket[(element_counter*3)+1] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			TxPacket[(element_counter*3)+rows*3] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			element_counter++;
+		}
+		else if(column_counter == columns-1){
+			TxPacket[(element_counter*3)+(3*rows*(columns-3)+2)] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			element_counter++;
+		}
+		else if(column_counter == columns-2){
+			TxPacket[(element_counter*3)+(3*rows*(columns-4))+2] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			TxPacket[(element_counter*3)+(3*rows*(columns-3))+1] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			element_counter++;
+		}
+		else{
+			TxPacket[(element_counter*3)+(3*rows*(column_counter-2))+2] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			TxPacket[(element_counter*3)+(3*rows*(column_counter-1))+1] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			TxPacket[(element_counter*3)+(3*rows*column_counter)] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+			element_counter++;
+		}
+
+		if(element_counter == rows){
+			column_counter++;
+			element_counter = 0;
+		}
+    }
+
 
 	/* Flush the buffers before the DMA transfer, in case the Data Cache
 	 * is enabled
@@ -803,12 +838,6 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	return XST_SUCCESS;
 }
 
-
-int fixedToFloat(int NB, int NBF, int num){
-	//( ((num+2**(NB-1))&((2**NB)-1)) -2**(NB-1))/(2**NBF)
-	return (((num + pow(2, (NB-1))) & (pow(2, NB) - 1)) - pow(2, (NB - 1))) / (pow(2, NBF));
-}
-
 static int ReturnData(int Length)
 {
 	u8 *RxPacket;
@@ -880,4 +909,3 @@ void ResetAxi(void){
 	}
 	return;
 }
-

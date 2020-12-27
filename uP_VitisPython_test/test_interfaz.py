@@ -91,13 +91,13 @@ def rebuildIm ():
 #------------------ serial port configuration -------------------------------------------
 
 ser = serial.serial_for_url('loop://', timeout=1) 
-# ser = serial.Serial(
-#     port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
-#     baudrate=115200,
-#     parity=serial.PARITY_NONE,
-#     stopbits=serial.STOPBITS_ONE,
-#     bytesize=serial.EIGHTBITS
-# )
+""" #ser = serial.Serial(
+	port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
+	baudrate=115200,
+	parity=serial.PARITY_NONE,
+	stopbits=serial.STOPBITS_ONE,
+	bytesize=serial.EIGHTBITS
+) """
  
 ser.isOpen()
 ser.timeout=None
@@ -106,7 +106,7 @@ print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-path = "foto2.jpg"
+path = "foto1.jpg"
 
 ap = argparse.ArgumentParser( description = "Convolution 2D")
 ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
@@ -121,8 +121,8 @@ endFlag = 0
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 #zero-padding
-np.pad(gray, ((1,1),(1,1)), 'constant')
-
+#np.pad(gray, ((1,1),(1,1)), 'constant')
+gray = np.pad(gray, pad_width=1, mode='constant', constant_values=0)
 [ROWIM,COLIM] = gray.shape
 #COLIM = 300
 print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
@@ -156,61 +156,52 @@ n = 0
 m = 0
 
 while(1):
-	a = input("Accion:")
-	print(a)
-	if (a == ("Send header")):
-		ser.write(byteHeader)
-		print("Sent header\r\n")
+	if(ser.inWaiting()>0):
+		a=ser.readline()
+		print(a)
+		if (a == (b"Send header\r\n")):
+			ser.write(byteHeader)
+			print("Sent header\r\n")
 		
-	elif (a == ("Send Image")):
-		imReconsList = []
-		for j in range (COLIM):
-			for i in range (ROWIM):
-				byteImage.append(gray[i][j]) 
-			imReconsList.append(sendCol(byteImage))
-			byteImage.clear()  
-		imReconsMatrix = (np.asarray(imReconsList, 'uint8').T)
-		print("Sent Image\r\n")
-	else:
-		break
-#Kernel to use momentaneamente 
-kernel = np.array((
-    	[-1, -1, -1],
-    	[-1,  8, -1],
-    	[-1, -1, -1]), dtype="float")
+		elif (a == (b"Send Image\r\n")):
+			imReconsList = []
+			for j in range (COLIM):
+				for i in range (ROWIM):
+					byteImage.append(gray[i][j]) 
+				imReconsList.append(sendCol(byteImage))
+				byteImage.clear()  
+			imReconsMatrix = (np.asarray(imReconsList, 'uint8').T)
+			print("Sent Image\r\n")
 
-#Convert image to gray scale
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-cv2.imshow("gray ", gray)
-[ROWIM,COLIM] = gray.shape
-print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
+		elif(a==(b"Return data\r\n")):
+			while(m<COLIM):
+				imReconsMatrix.append(rebuildIm()) 
+				m=m+1
+			imReconsMatrix=(np.asarray(imReconsMatrix,'float64').T)
+				
+			#Check size
+			print("Final size1:")
+			print(imReconsMatrix.shape) 
+			print(imReconsMatrix)
+				
+			#Rescalling
+			maxVal, minVal                = searchXtremeValues (imReconsMatrix, ROWIM, COLIM) 
+			imAfterUART                   = linearScalling (imReconsMatrix,maxVal, minVal).astype('uint8')
 
-#kernel flip
-kernelFlipped  = flipKernel (kernel)
+			print("COMPARACION DE MATRICES")
+			print("Returned image:")
+			print(imAfterUART)
+			print("Original image:")
+			print(gray)
 
-#convolucion
-[conv2Dout, imHeight, imWidth] = conv2D(imReconsMatrix, kernelFlipped)
+			#Guardar las imagenes resultantes
+			filename1 = 'sentImage.jpg'
+			filename2 = 'receivedImage.jpg'
 
-valMax = np.amax(conv2Dout)
-valMin = np.amin(conv2Dout)
+			cv2.imwrite(filename1,gray)
+			cv2.imwrite(filename2,imAfterUART)
 
-imClipped = conv2Dout
+			print("Finished processing/r/n")
 
-#clipeado
-for i in range(ROWIM):
-    for j in range(COLIM):
-        if (conv2Dout[i][j] > 255):
-            imClipped[i][j] = 255
-        elif (conv2Dout[i][j] < 0):
-            imClipped[i][j] = 0 
-        else:
-            imClipped[i][j] = conv2Dout[i][j]
-         
-#casteo uint8
-convFinal = imClipped.astype('uint8')
-
-# grafico e imagen
-plotHist(convFinal, 'lconvolution',2)
-cv2.imshow("2- convolution ", convFinal)
 
 

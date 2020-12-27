@@ -51,32 +51,25 @@ def plotHist(conv_image,name,pos):
     plt.show()
 
 def rebuildIm ():
-    #clipeado
-    clippedCol = []
+    outInteger = []
     i = 0
     while (i < ROWIM):
-        
-        value = ord(ser.read(1))
-        if (value > 255):
-            clippedCol[i] = 255
-        elif (value < 0):
-            clippedCol[i] = 0 
-        else:
-            clippedCol[i] = value
+        value=ord(ser.read(1))
+        outInteger.append(value)
         i=i+1
 
-    return clippedCol.astype('uint8')
+    return outInteger
 
 #------------------ serial port configuration -------------------------------------------
 
-ser = serial.serial_for_url('loop://', timeout=1) 
-# ser = serial.Serial(
-#     port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
-#     baudrate=115200,
-#     parity=serial.PARITY_NONE,
-#     stopbits=serial.STOPBITS_ONE,
-#     bytesize=serial.EIGHTBITS
-# )
+#ser = serial.serial_for_url('loop://', timeout=1) 
+ser = serial.Serial(
+	port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
+	baudrate=115200,
+	parity=serial.PARITY_NONE,
+	stopbits=serial.STOPBITS_ONE,
+	bytesize=serial.EIGHTBITS
+)
  
 ser.isOpen()
 ser.timeout=None
@@ -84,7 +77,7 @@ print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-path = "foto2.jpg"
+path = "foto1.jpg"
 
 ap = argparse.ArgumentParser( description = "Convolution 2D")
 ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
@@ -99,7 +92,7 @@ endFlag = 0
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 #zero-padding
-np.pad(gray, ((1,1),(1,1)), 'constant')
+gray = np.pad(gray, ((1,1),(1,1)), 'constant')
 
 [ROWIM,COLIM] = gray.shape
 print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
