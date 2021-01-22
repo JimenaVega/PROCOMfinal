@@ -121,10 +121,9 @@ endFlag = 0
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 #zero-padding
-#np.pad(gray, ((1,1),(1,1)), 'constant')
-gray = np.pad(gray, pad_width=1, mode='constant', constant_values=0)
+gray = np.pad(gray, ((1,1),(1,1)), 'constant')
 [ROWIM,COLIM] = gray.shape
-#COLIM = 300
+
 print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
 
 
@@ -173,7 +172,7 @@ while(1):
 			imReconsMatrix = (np.asarray(imReconsList, 'uint8').T)
 			print("Sent Image\r\n")
 
-		elif(a==(b"Return data\r\n")):
+		elif (a == (b"Return data\r\n")):
 			while(m<COLIM):
 				imReconsMatrix.append(rebuildIm()) 
 				m=m+1

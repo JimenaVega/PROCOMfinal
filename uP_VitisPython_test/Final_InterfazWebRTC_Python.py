@@ -21,8 +21,6 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
 
-
-
 def sendCol(imageCol):
    
     ser.write(imageCol)
@@ -64,7 +62,7 @@ def rebuildIm ():
 
 #ser = serial.serial_for_url('loop://', timeout=1) 
 ser = serial.Serial(
-	port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
+	port='/dev/ttyUSB9',		#Configurar con el puerto a usar 
 	baudrate=115200,
 	parity=serial.PARITY_NONE,
 	stopbits=serial.STOPBITS_ONE,
@@ -152,14 +150,22 @@ while(1):
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
 				
 			#Check size
-			#print("Final size1:")
-			#print(imReconsMatrix.shape) 
-			#print(imReconsMatrix)
+			print("Final size1:")
+			print(imReconsMatrix.shape) 
+			print(imReconsMatrix)
 			
-			plotHist (imReconsMatrix, 'lineal reconstructed',1)
-			cv2.imshow ("1 image after UART ", imReconsMatrix)	#Rescalling
+			print("COMPARACION DE MATRICES")
+			print("Returned image:")
+			print(imReconsMatrix)
+			print("Original image:")
+			print(gray)
 
+			for n in range (ROWIM):
+				print(imReconsMatrix[n])
 
+			#plotHist (imReconsMatrix, 'lineal reconstructed',1)
+			#cv2.imshow ("1 image after UART ", imReconsMatrix)	#Rescalling
+			
 			#Guardar las imagenes resultantes
 			filename1 = 'sentImage.jpg'
 			filename2 = 'receivedImage.jpg'
@@ -169,5 +175,3 @@ while(1):
 
 			print("Finished processing/r/n")
 			
-			
-
