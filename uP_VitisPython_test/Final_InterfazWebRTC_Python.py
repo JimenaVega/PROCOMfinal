@@ -21,8 +21,6 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
 
-
-
 def sendCol(imageCol):
    
     ser.write(imageCol)
@@ -51,32 +49,25 @@ def plotHist(conv_image,name,pos):
     plt.show()
 
 def rebuildIm ():
-    #clipeado
-    clippedCol = []
+    outInteger = []
     i = 0
     while (i < ROWIM):
-        
-        value = ord(ser.read(1))
-        if (value > 255):
-            clippedCol[i] = 255
-        elif (value < 0):
-            clippedCol[i] = 0 
-        else:
-            clippedCol[i] = value
+        value=ord(ser.read(1))
+        outInteger.append(value)
         i=i+1
 
-    return clippedCol.astype('uint8')
+    return outInteger
 
 #------------------ serial port configuration -------------------------------------------
 
-ser = serial.serial_for_url('loop://', timeout=1) 
-# ser = serial.Serial(
-#     port='/dev/ttyUSB7',		#Configurar con el puerto a usar 
-#     baudrate=115200,
-#     parity=serial.PARITY_NONE,
-#     stopbits=serial.STOPBITS_ONE,
-#     bytesize=serial.EIGHTBITS
-# )
+#ser = serial.serial_for_url('loop://', timeout=1) 
+ser = serial.Serial(
+	port='/dev/ttyUSB9',		#Configurar con el puerto a usar 
+	baudrate=115200,
+	parity=serial.PARITY_NONE,
+	stopbits=serial.STOPBITS_ONE,
+	bytesize=serial.EIGHTBITS
+)
  
 ser.isOpen()
 ser.timeout=None
@@ -84,7 +75,7 @@ print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-path = "foto2.jpg"
+path = "foto1.jpg"
 
 ap = argparse.ArgumentParser( description = "Convolution 2D")
 ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
@@ -99,7 +90,7 @@ endFlag = 0
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 #zero-padding
-np.pad(gray, ((1,1),(1,1)), 'constant')
+gray = np.pad(gray, ((1,1),(1,1)), 'constant')
 
 [ROWIM,COLIM] = gray.shape
 print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
@@ -159,14 +150,22 @@ while(1):
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
 				
 			#Check size
-			#print("Final size1:")
-			#print(imReconsMatrix.shape) 
-			#print(imReconsMatrix)
+			print("Final size1:")
+			print(imReconsMatrix.shape) 
+			print(imReconsMatrix)
 			
-			plotHist (imReconsMatrix, 'lineal reconstructed',1)
-			cv2.imshow ("1 image after UART ", imReconsMatrix)	#Rescalling
+			print("COMPARACION DE MATRICES")
+			print("Returned image:")
+			print(imReconsMatrix)
+			print("Original image:")
+			print(gray)
 
+			for n in range (ROWIM):
+				print(imReconsMatrix[n])
 
+			#plotHist (imReconsMatrix, 'lineal reconstructed',1)
+			#cv2.imshow ("1 image after UART ", imReconsMatrix)	#Rescalling
+			
 			#Guardar las imagenes resultantes
 			filename1 = 'sentImage.jpg'
 			filename2 = 'receivedImage.jpg'
@@ -176,5 +175,3 @@ while(1):
 
 			print("Finished processing/r/n")
 			
-			
-
