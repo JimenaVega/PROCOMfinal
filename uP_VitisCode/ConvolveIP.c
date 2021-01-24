@@ -7,11 +7,13 @@
 #include "xdebug.h"
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include "xil_cache.h"
 #include "platform.h"
 #include "xuartlite.h"
 #include "microblaze_sleep.h"
 #include "xuartlite_l.h"
+
 
 #ifndef DEBUG
 extern void xil_printf(const char *format, ...);
@@ -37,6 +39,7 @@ extern void xil_printf(const char *format, ...);
 #define INTC_DEVICE_ID      XPAR_INTC_0_DEVICE_ID
 
 //UART reception.
+#define TRANSMIT			0xEE
 #define TRAMA_MASK 			0xF0
 #define TRAMA_INIT			0xB0
 #define TRAMA_END			0x50
@@ -45,20 +48,25 @@ extern void xil_printf(const char *format, ...);
 #define RESET_TIMEOUT_COUNTER	10000
 
 //Buffer and Buffer Descriptor related constant definition
-#define MAX_PKT_LEN				0x100		//requested transfer length
+#define MAX_PKT_LEN				1068		 //requested transfer length (cantidad de filas)
+#define MAX_PKT_LEN_RX			556
 #define MARK_UNCACHEABLE        0x701
 
-// Number of BDs in the transfer example, multiple BDs for one transmit, the receive side gets one completion per transfer.
-#define NUMBER_OF_BDS_PER_PKT		12
-#define NUMBER_OF_PKTS_TO_TRANSFER 	11
-#define NUMBER_OF_BDS_TO_TRANSFER	(NUMBER_OF_PKTS_TO_TRANSFER * \
-						NUMBER_OF_BDS_PER_PKT)
-
-//Interrupts
-#define COALESCING_COUNT		NUMBER_OF_PKTS_TO_TRANSFER
-#define DELAY_TIMER_COUNT		100
+//Interrupt
 #define INTC					XIntc
 #define INTC_HANDLER			XIntc_InterruptHandler
+
+//Dma transmission
+#define BDS_DEPTH					302
+#define NUMBER_OF_BDS_PER_PKT		113
+#define NUMBER_OF_PKTS_TO_TRANSFER 	4
+#define NUMBER_OF_BDS_TO_TRANSFER	(NUMBER_OF_PKTS_TO_TRANSFER * NUMBER_OF_BDS_PER_PKT)
+#define COALESCING_COUNT			1
+#define DELAY_TIMER_COUNT			10
+
+//Mixeo
+#define rows     302//482
+#define columns  452//642
 
 /************************** Function Prototypes ******************************/
 //Initialize
@@ -74,11 +82,15 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr);
 static void TxIntrHandler(void *Callback);
 static void RxIntrHandler(void *Callback);
 static int  SetupIntrSystem(INTC * IntcInstancePtr, XAxiDma * AxiDmaPtr, u16 TxIntrId, u16 RxIntrId);
-	//Work
-static int SendPacket(XAxiDma * AxiDmaInstPtr);
+static void DisableIntrSystem(INTC * IntcInstancePtr, u16 TxIntrId, u16 RxIntrId);
 
-//static int CheckData(int Length, u8 StartValue);
-//static void DisableIntrSystem(INTC * IntcInstancePtr, u16 TxIntrId, u16 RxIntrId);
+	//Work
+static int GetTrama(void);
+static int SendPacket(XAxiDma * AxiDmaInstPtr);
+static int ReturnData(int Length);
+void delay (void);
+void delay2(void);
+void ResetAxi(void);
 
 
 /************************** Variable Definitions *****************************/
@@ -87,30 +99,72 @@ XUartLite		uart_module	;
 XAxiDma 		AxiDma;
 static 			INTC Intc;
 
-//Flags for UART
+//Flags
 volatile int 	TxDone;
 volatile int 	RxDone;
 volatile int 	Error;
+volatile int 	ValidTrama;
+
+//Image size
+u8 				transmission_init;
+u8 				transmission_end1;
+u8 				transmission_end2;
 
 //Buffer for transmit packet. Must be 32-bit aligned to be used by DMA.
-u32 *Packet = (u32 *) TX_BUFFER_BASE;
+u32 *Packet =   (u32 *) TX_BUFFER_BASE;
+
+//Trama
+unsigned char 	recv_data;
+unsigned char 	send_data;
+unsigned char 	init_transmission;
+
+//Contador
+int 			transm_processed = 0;
 
 /******************************* Main ****************************************/
 
 int main(void){
 
-	int Status1;
+	int Status;
+	int tramaFlag;
+	int returnLength;
 
 	init_platform();
 	initUART();
-	Status1 = initDMA();
-	if (Status1==XST_SUCCESS){
-		print("DMA correctly initialized\r\n");
+
+	returnLength	=NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH;
+
+	ResetAxi();
+	print("Entering main\r\n");
+	print("Send header\r\n");
+	tramaFlag = GetTrama();
+	Status 	  = initDMA();
+
+	if (Status==XST_SUCCESS){
+		xil_printf("Correct DMA configuration \r\n");
 	}
 
-
+	if (tramaFlag == XST_SUCCESS){
+		print("Send Image\r\n");
+		Status=SendPacket(&AxiDma);
+		if(Status==XST_SUCCESS){
+			//delay2();
+			Status=ReturnData(returnLength);
+			if(Status==XST_SUCCESS){
+				print("Returned data\r\n");
+			}
+			else{
+				print("Failed to send data\r\n");
+			}
+		}
+		else{
+			print("Failed to send Packet\r\n");
+		}
+		DisableIntrSystem(&Intc, TX_INTR_ID, RX_INTR_ID);
+	}
 	return 0;
 }
+
 
 /******************************* Functions ***********************************/
 //Initialize UART
@@ -160,9 +214,10 @@ static int initDMA(void){
 	}
 
 	//Initialize flags before start transfer
-	TxDone = 0;
-	RxDone = 0;
-	Error = 0;
+	TxDone    = 0;
+	RxDone    = 0;
+	Error     = 0;
+	ValidTrama= 0;
 
 	return XST_SUCCESS;
 }
@@ -182,10 +237,10 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 
 	RxRingPtr = XAxiDma_GetRxRing(&AxiDma);
 
-	//Disable all RX interrupts before RxBD space setup
+	/* Disable all RX interrupts before RxBD space setup */
 	XAxiDma_BdRingIntDisable(RxRingPtr, XAXIDMA_IRQ_ALL_MASK);
 
-	//Setup Rx BD space
+	/* Setup Rx BD space */
 	BdCount = XAxiDma_BdRingCntCalc(XAXIDMA_BD_MINIMUM_ALIGNMENT,
 				RX_BD_SPACE_HIGH - RX_BD_SPACE_BASE + 1);
 
@@ -197,7 +252,9 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 		return XST_FAILURE;
 	}
 
-	//Setup a BD template for the Rx channel. Then copy it to every RX BD.
+	/*
+	 * Setup a BD template for the Rx channel. Then copy it to every RX BD.
+	 */
 	XAxiDma_BdClear(&BdTemplate);
 	Status = XAxiDma_BdRingClone(RxRingPtr, &BdTemplate);
 	if (Status != XST_SUCCESS) {
@@ -205,7 +262,7 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 		return XST_FAILURE;
 	}
 
-	//Attach buffers to RxBD ring so we are ready to receive packets
+	/* Attach buffers to RxBD ring so we are ready to receive packets */
 	FreeBdCount = XAxiDma_BdRingGetFreeCnt(RxRingPtr);
 
 	Status = XAxiDma_BdRingAlloc(RxRingPtr, FreeBdCount, &BdPtr);
@@ -228,11 +285,11 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 			return XST_FAILURE;
 		}
 
-		Status = XAxiDma_BdSetLength(BdCurPtr, MAX_PKT_LEN,
+		Status = XAxiDma_BdSetLength(BdCurPtr, MAX_PKT_LEN_RX,
 					RxRingPtr->MaxTransferLen);
 		if (Status != XST_SUCCESS) {
 			xil_printf("Rx set length %d on BD %x failed %d\r\n",
-			    MAX_PKT_LEN, (UINTPTR)BdCurPtr, Status);
+					MAX_PKT_LEN_RX, (UINTPTR)BdCurPtr, Status);
 
 			return XST_FAILURE;
 		}
@@ -244,7 +301,7 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 
 		XAxiDma_BdSetId(BdCurPtr, RxBufferPtr);
 
-		RxBufferPtr += MAX_PKT_LEN;
+		RxBufferPtr += MAX_PKT_LEN_RX;
 		BdCurPtr = (XAxiDma_Bd *)XAxiDma_BdRingNext(RxRingPtr, BdCurPtr);
 	}
 
@@ -268,10 +325,10 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 		return XST_FAILURE;
 	}
 
-	//Enable all RX interrupts
+	/* Enable all RX interrupts */
 	XAxiDma_BdRingIntEnable(RxRingPtr, XAXIDMA_IRQ_ALL_MASK);
 
-	//Start RX DMA channel
+	/* Start RX DMA channel */
 	Status = XAxiDma_BdRingStart(RxRingPtr);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Rx start BD ring failed with %d\r\n", Status);
@@ -281,23 +338,27 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 	return XST_SUCCESS;
 }
 
+
 //Initialize Tx
 static int TxSetup(XAxiDma * AxiDmaInstPtr)
 {
-	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(&AxiDma); 				//Get Transmit (Tx) Ring ptr
-	XAxiDma_Bd BdTemplate;													//Buffer descriptor (BD) type
+	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(&AxiDma);
+	XAxiDma_Bd BdTemplate;
 	int Status;
 	u32 BdCount;
 
-	//Disable all TX interrupts before TxBD space setup
+	/* Disable all TX interrupts before TxBD space setup */
 	XAxiDma_BdRingIntDisable(TxRingPtr, XAXIDMA_IRQ_ALL_MASK);
 
-	//Setup TxBD space
-		//Determine how many BDs will fit within the given memory constraints
-	BdCount = XAxiDma_BdRingCntCalc(XAXIDMA_BD_MINIMUM_ALIGNMENT, (UINTPTR)TX_BD_SPACE_HIGH - (UINTPTR)TX_BD_SPACE_BASE + 1);
-		//Creates and setup the BD ring
-	Status = XAxiDma_BdRingCreate(TxRingPtr, TX_BD_SPACE_BASE, TX_BD_SPACE_BASE, XAXIDMA_BD_MINIMUM_ALIGNMENT, BdCount);
+	/* Setup TxBD space  */
+	BdCount = XAxiDma_BdRingCntCalc(XAXIDMA_BD_MINIMUM_ALIGNMENT,
+			(UINTPTR)TX_BD_SPACE_HIGH - (UINTPTR)TX_BD_SPACE_BASE + 1);
+
+	Status = XAxiDma_BdRingCreate(TxRingPtr, TX_BD_SPACE_BASE,
+				     TX_BD_SPACE_BASE,
+				     XAXIDMA_BD_MINIMUM_ALIGNMENT, BdCount);
 	if (Status != XST_SUCCESS) {
+
 		xil_printf("Failed create BD ring\r\n");
 		return XST_FAILURE;
 	}
@@ -309,6 +370,7 @@ static int TxSetup(XAxiDma * AxiDmaInstPtr)
 	XAxiDma_BdClear(&BdTemplate);
 	Status = XAxiDma_BdRingClone(TxRingPtr, &BdTemplate);
 	if (Status != XST_SUCCESS) {
+
 		xil_printf("Failed clone BDs\r\n");
 		return XST_FAILURE;
 	}
@@ -320,28 +382,29 @@ static int TxSetup(XAxiDma * AxiDmaInstPtr)
 	 * If you would like to have multiple interrupts to happen, change
 	 * the COALESCING_COUNT to be a smaller value
 	 */
-
-	//The coalescing threshold is the quantity of bytes to transmit
 	Status = XAxiDma_BdRingSetCoalesce(TxRingPtr, COALESCING_COUNT,
 			DELAY_TIMER_COUNT);
 	if (Status != XST_SUCCESS) {
+
 		xil_printf("Failed set coalescing"
 		" %d/%d\r\n",COALESCING_COUNT, DELAY_TIMER_COUNT);
 		return XST_FAILURE;
 	}
 
-	//Enable all TX interrupts
+	/* Enable all TX interrupts */
 	XAxiDma_BdRingIntEnable(TxRingPtr, XAXIDMA_IRQ_ALL_MASK);
 
-	//Start the TX channel
+	/* Start the TX channel */
 	Status = XAxiDma_BdRingStart(TxRingPtr);
 	if (Status != XST_SUCCESS) {
+
 		xil_printf("Failed bd start\r\n");
 		return XST_FAILURE;
 	}
 
 	return XST_SUCCESS;
 }
+
 
 //Set up interrupts
 static int SetupIntrSystem(INTC * IntcInstancePtr,
@@ -396,6 +459,7 @@ static int SetupIntrSystem(INTC * IntcInstancePtr,
 //HANDLERS DMA INTERRUPTIONS
 static void TxIntrHandler(void *Callback)
 {
+	print("In Tx handler\r\n");
 	XAxiDma_BdRing *TxRingPtr = (XAxiDma_BdRing *) Callback;
 	u32 IrqStatus;
 	int TimeOut;
@@ -421,7 +485,6 @@ static void TxIntrHandler(void *Callback)
 	if ((IrqStatus & XAXIDMA_IRQ_ERROR_MASK)) {
 
 		XAxiDma_BdRingDumpRegs(TxRingPtr);
-
 		Error = 1;
 
 		/*
@@ -453,6 +516,7 @@ static void TxIntrHandler(void *Callback)
 
 static void RxIntrHandler(void *Callback)
 {
+	print("In Rx handler\r\n");
 	XAxiDma_BdRing *RxRingPtr = (XAxiDma_BdRing *) Callback;
 	u32 IrqStatus;
 	int TimeOut;
@@ -478,7 +542,6 @@ static void RxIntrHandler(void *Callback)
 	if ((IrqStatus & XAXIDMA_IRQ_ERROR_MASK)) {
 
 		XAxiDma_BdRingDumpRegs(RxRingPtr);
-
 		Error = 1;
 
 		/* Reset could fail and hang
@@ -517,6 +580,9 @@ static void TxCallBack(XAxiDma_BdRing * TxRingPtr)
 	int Status;
 	int Index;
 
+	//Deshabilitar las interrupciones
+	//XIntc_Disconnect(IntcInstancePtr, TxIntrId);
+
 	/* Get all processed BDs from hardware */
 	BdCount = XAxiDma_BdRingFromHw(TxRingPtr, XAXIDMA_ALL_BDS, &BdPtr);
 
@@ -532,7 +598,6 @@ static void TxCallBack(XAxiDma_BdRing * TxRingPtr)
 		BdSts = XAxiDma_BdGetSts(BdCurPtr);
 		if ((BdSts & XAXIDMA_BD_STS_ALL_ERR_MASK) ||
 		    (!(BdSts & XAXIDMA_BD_STS_COMPLETE_MASK))) {
-
 			Error = 1;
 			break;
 		}
@@ -572,7 +637,6 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 
 	BdCurPtr = BdPtr;
 	for (Index = 0; Index < BdCount; Index++) {
-
 		/*
 		 * Check the flags set by the hardware for status
 		 * If error happens, processing stops, because the DMA engine
@@ -593,14 +657,17 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 }
 
 //Send a packet of data received by UART to DDR3 memory
+//XUartLite_RecvByte((&uart_module)->RegBaseAddress)
 static int SendPacket(XAxiDma * AxiDmaInstPtr)
 {
-	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(AxiDmaInstPtr); //se obtiene el puntero del TxRing
+	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(AxiDmaInstPtr);
 	u8 *TxPacket;
-	u8 Value;
+	u8 *TxPacketInitial;
 	XAxiDma_Bd *BdPtr, *BdCurPtr;
 	int Status;
 	int Index, Pkts;
+	int column_counter = 0;
+	int element_counter = 0;
 	UINTPTR BufferAddr;
 
 	/*
@@ -608,26 +675,62 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	 *
 	 * This will not be the case if hardware has store and forward built in
 	 */
-	if (MAX_PKT_LEN * NUMBER_OF_BDS_PER_PKT >
+	if (BDS_DEPTH * 3 * NUMBER_OF_BDS_PER_PKT + 2 >
 			TxRingPtr->MaxTransferLen) {
 
 		xil_printf("Invalid total per packet transfer length for the "
 		    "packet %d/%d\r\n",
-		    MAX_PKT_LEN * NUMBER_OF_BDS_PER_PKT,
+			BDS_DEPTH * NUMBER_OF_BDS_PER_PKT,
 		    TxRingPtr->MaxTransferLen);
 
 		return XST_INVALID_PARAM;
 	}
 
-	TxPacket = (u8 *) Packet;
+	TxPacketInitial = (u8 *) (Packet + 0x80000);
+	TxPacket        = (u8 *)  Packet;
 
-	Value = 0xC;
+	//ORIGINAL FOR
+	TxPacket[0] = transmission_init;
+	TxPacket[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 1)] = transmission_end1;
+	TxPacket[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 2)] = transmission_end2;
 
-	for(Index = 0; Index < MAX_PKT_LEN * NUMBER_OF_BDS_TO_TRANSFER; Index ++) {
-		TxPacket[Index] = Value;
+	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);
+									Index ++) {
+			TxPacketInitial[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+		}
 
-		Value = (Value + 1) & 0xFF;
-	}
+	for(int i = 0; i< (NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
+			if(column_counter == 0){
+				TxPacket[(element_counter*3)+1] = TxPacketInitial[i];
+				element_counter++;
+			}
+			else if(column_counter == 1){
+				TxPacket[((element_counter*3)+1)+1]      = TxPacketInitial[i];
+				TxPacket[((element_counter*3)+rows*3)+1] = TxPacketInitial[i];
+				element_counter++;
+			}
+			else if(column_counter == columns-1){
+				TxPacket[((element_counter*3)+(3*rows*(columns-3)+2))+1] = TxPacketInitial[i];
+				element_counter++;
+			}
+			else if(column_counter == columns-2){
+				TxPacket[((element_counter*3)+(3*rows*(columns-4))+2)+1] = TxPacketInitial[i];
+				TxPacket[((element_counter*3)+(3*rows*(columns-3))+1)+1] = TxPacketInitial[i];
+				element_counter++;
+			}
+			else{
+				TxPacket[((element_counter*3)+(3*rows*(column_counter-2))+2)+1] = TxPacketInitial[i];
+				TxPacket[((element_counter*3)+(3*rows*(column_counter-1))+1)+1] = TxPacketInitial[i];
+				TxPacket[((element_counter*3)+(3*rows*column_counter))+1]       = TxPacketInitial[i];
+				element_counter++;
+			}
+
+			if(element_counter == rows){
+				column_counter++;
+				element_counter = 0;
+			}
+	    }
+
 
 	/* Flush the buffers before the DMA transfer, in case the Data Cache
 	 * is enabled
@@ -637,7 +740,8 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	Xil_DCacheFlushRange((UINTPTR)RX_BUFFER_BASE, MAX_PKT_LEN *
 							NUMBER_OF_BDS_TO_TRANSFER);
 
-	Status = XAxiDma_BdRingAlloc(TxRingPtr, NUMBER_OF_BDS_TO_TRANSFER, &BdPtr);
+	Status = XAxiDma_BdRingAlloc(TxRingPtr, NUMBER_OF_BDS_TO_TRANSFER,
+								&BdPtr);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Failed bd alloc\r\n");
 		return XST_FAILURE;
@@ -648,9 +752,10 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 
 	/*
 	 * Set up the BD using the information of the packet to transmit
-	 * Each transfer has NUMBER_OF_BDS_PER_PKT BDs (pkt packets)
+	 * Each transfer has NUMBER_OF_BDS_PER_PKT BDs
 	 */
 	for(Index = 0; Index < NUMBER_OF_PKTS_TO_TRANSFER; Index++) {
+
 		for(Pkts = 0; Pkts < NUMBER_OF_BDS_PER_PKT; Pkts++) {
 			u32 CrBits = 0;
 
@@ -676,7 +781,6 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 				/* The first BD has SOF set
 				 */
 				CrBits |= XAXIDMA_BD_CTRL_TXSOF_MASK;
-
 			}
 
 			if(Pkts == (NUMBER_OF_BDS_PER_PKT - 1)) {
@@ -693,9 +797,11 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 		}
 	}
 
-	/* Give the BD to hardware */
-	Status = XAxiDma_BdRingToHw(TxRingPtr, NUMBER_OF_BDS_TO_TRANSFER, BdPtr);
+	/* Give the BD to hardware (DMA) to kick off the transmission. */
+	Status = XAxiDma_BdRingToHw(TxRingPtr, NUMBER_OF_BDS_TO_TRANSFER,
+						BdPtr);
 	if (Status != XST_SUCCESS) {
+
 		xil_printf("Failed to hw, length %d\r\n",
 			(int)XAxiDma_BdGetLength(BdPtr,
 					TxRingPtr->MaxTransferLen));
@@ -704,4 +810,81 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	}
 
 	return XST_SUCCESS;
+}
+
+static int ReturnData(int Length)
+{
+	u8 *RxPacket;
+	int Index = 0;
+
+	RxPacket = (u8 *) RX_BUFFER_BASE;
+
+
+	/* Invalidate the DestBuffer before receiving the data, in case the
+	 * Data Cache is enabled
+	 */
+
+	Xil_DCacheInvalidateRange((UINTPTR)RxPacket, Length);
+	delay();
+	print("Return data\r\n");
+	for(Index = 0; Index < Length; Index++) {
+		delay();
+		XUartLite_Send(&uart_module, &(RxPacket[Index]), 1);
+	}
+	return XST_SUCCESS;
+}
+
+
+static void DisableIntrSystem(INTC * IntcInstancePtr,
+					u16 TxIntrId, u16 RxIntrId)
+{
+	/* Disconnect the interrupts for the DMA TX and RX channels */
+	XIntc_Disconnect(IntcInstancePtr, TxIntrId);
+	XIntc_Disconnect(IntcInstancePtr, RxIntrId);
+}
+
+static int GetTrama(void){
+	unsigned char header[5];
+
+	for (int i=0; i<4; i++){
+		header[i]=XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+	}
+	if (header[0]==TRAMA_INIT){
+		transmission_init  = (header[1]);
+		transmission_end1  = (header[2]);
+		transmission_end2  = (header[3]);
+
+		xil_printf("Transmission init value : %d\r\n",transmission_init);
+		xil_printf("Transmission end value 1: %d\r\n",transmission_end1);
+		xil_printf("Transmission end value 2: %d\r\n",transmission_end2);
+
+		return XST_SUCCESS;
+	}
+
+	return XST_FAILURE;
+}
+
+void delay(void){
+	//535
+	for (int n=0;n<535;n++){}
+	return;
+}
+
+void delay2(void){
+	for (int n=0;n<535*1000;n++){}
+	return;
+}
+
+void ResetAxi(void){
+	int TimeOut;
+
+	XAxiDma_Reset(&AxiDma);
+	TimeOut = RESET_TIMEOUT_COUNTER;
+	while (TimeOut) {
+		if(XAxiDma_ResetIsDone(&AxiDma)) {
+			break;
+		}
+		TimeOut -= 1;
+	}
+	return;
 }

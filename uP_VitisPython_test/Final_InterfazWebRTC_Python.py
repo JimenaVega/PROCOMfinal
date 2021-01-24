@@ -51,7 +51,7 @@ def plotHist(conv_image,name,pos):
 def rebuildIm ():
     outInteger = []
     i = 0
-    while (i < ROWIM):
+    while (i < 5):
         value=ord(ser.read(1))
         outInteger.append(value)
         i=i+1
@@ -62,7 +62,7 @@ def rebuildIm ():
 
 #ser = serial.serial_for_url('loop://', timeout=1) 
 ser = serial.Serial(
-	port='/dev/ttyUSB9',		#Configurar con el puerto a usar 
+	port='/dev/ttyUSB1',		#Configurar con el puerto a usar 
 	baudrate=115200,
 	parity=serial.PARITY_NONE,
 	stopbits=serial.STOPBITS_ONE,
@@ -105,16 +105,19 @@ byteHeader  = bytearray()
 byteImage   = bytearray()
 
 sizeOfImage = ROWIM*COLIM
-rowImLSB = (ROWIM  & 0xff)
-rowImMSB = ((ROWIM & 0xff00) >> 8)
-colImLSB = (COLIM  & 0xff)
-colImMSB = ((COLIM & 0xff00) >> 8)
+#rowImLSB = (ROWIM  & 0xff)
+#rowImMSB = ((ROWIM & 0xff00) >> 8)
+#colImLSB = (COLIM  & 0xff)
+#colImMSB = ((COLIM & 0xff00) >> 8)
 
-byteHeader.append(0xb0)     #10110000
-byteHeader.append(rowImLSB)
-byteHeader.append(rowImMSB)
-byteHeader.append(colImLSB)
-byteHeader.append(colImMSB)
+byteHeader.append(0xb0)     
+byteHeader.append(0x7b)
+byteHeader.append(0x7c)
+byteHeader.append(0x4f)
+#byteHeader.append(rowImLSB)
+#byteHeader.append(rowImMSB)
+#byteHeader.append(colImLSB)
+#byteHeader.append(colImMSB)
 
 imReconsArray  = []
 imReconsMatrix = []
@@ -144,9 +147,7 @@ while(1):
 			print("Sent Image\r\n")
 
 		elif (a == (b"Return data\r\n")):
-			while (m < COLIM):
-				imReconsMatrix.append(rebuildIm()) 
-				m = m+1
+			imReconsMatrix.append(rebuildIm()) 
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
 				
 			#Check size
@@ -154,24 +155,4 @@ while(1):
 			print(imReconsMatrix.shape) 
 			print(imReconsMatrix)
 			
-			print("COMPARACION DE MATRICES")
-			print("Returned image:")
-			print(imReconsMatrix)
-			print("Original image:")
-			print(gray)
-
-			for n in range (ROWIM):
-				print(imReconsMatrix[n])
-
-			#plotHist (imReconsMatrix, 'lineal reconstructed',1)
-			#cv2.imshow ("1 image after UART ", imReconsMatrix)	#Rescalling
-			
-			#Guardar las imagenes resultantes
-			filename1 = 'sentImage.jpg'
-			filename2 = 'receivedImage.jpg'
-
-			cv2.imwrite(filename1, gray)
-			cv2.imwrite(filename2, imReconsMatrix)
-
 			print("Finished processing/r/n")
-			
