@@ -662,12 +662,14 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(AxiDmaInstPtr);
 	u8 *TxPacket;
+	u8 *TxPacket_WithoutZeros;
 	u8 *TxPacketInitial;
 	XAxiDma_Bd *BdPtr, *BdCurPtr;
 	int Status;
 	int Index, Pkts;
 	int column_counter = 0;
 	int element_counter = 0;
+	int j = 0;
 	UINTPTR BufferAddr;
 
 	/*
@@ -686,51 +688,68 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 		return XST_INVALID_PARAM;
 	}
 
-	TxPacketInitial = (u8 *) (Packet + 0x80000);
-	TxPacket        = (u8 *)  Packet;
+	TxPacketInitial 		= (u8 *) (Packet + 0x80000);
+	TxPacket_WithoutZeros   = (u8 *)  Packet;
+	TxPacket			 	= (u8 *) (Packet + 0xB0000);
 
 	//ORIGINAL FOR
-	TxPacket[0] = transmission_init;
-	TxPacket[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 1)] = transmission_end1;
-	TxPacket[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 2)] = transmission_end2;
+	TxPacket_WithoutZeros[0] = transmission_init;
+	TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 1)] = transmission_end1;
+	TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 2)] = transmission_end2;
 
-	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);
-									Index ++) {
-			TxPacketInitial[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);Index ++){
+		TxPacketInitial[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+	}
+
+	for(int i = 0; i<(NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
+		if(column_counter == 0){
+			TxPacket_WithoutZeros[(element_counter*3)+1] = TxPacketInitial[i];
+			element_counter++;
+		}
+		else if(column_counter == 1){
+			TxPacket_WithoutZeros[((element_counter*3)+1)+1]      = TxPacketInitial[i];
+			TxPacket_WithoutZeros[((element_counter*3)+rows*3)+1] = TxPacketInitial[i];
+			element_counter++;
+		}
+		else if(column_counter == columns-1){
+			TxPacket_WithoutZeros[((element_counter*3)+(3*rows*(columns-3)+2))+1] = TxPacketInitial[i];
+			element_counter++;
+		}
+		else if(column_counter == columns-2){
+			TxPacket_WithoutZeros[((element_counter*3)+(3*rows*(columns-4))+2)+1] = TxPacketInitial[i];
+			TxPacket_WithoutZeros[((element_counter*3)+(3*rows*(columns-3))+1)+1] = TxPacketInitial[i];
+			element_counter++;
+		}
+		else{
+			TxPacket_WithoutZeros[((element_counter*3)+(3*rows*(column_counter-2))+2)+1] = TxPacketInitial[i];
+			TxPacket_WithoutZeros[((element_counter*3)+(3*rows*(column_counter-1))+1)+1] = TxPacketInitial[i];
+			TxPacket_WithoutZeros[((element_counter*3)+(3*rows*column_counter))+1]       = TxPacketInitial[i];
+			element_counter++;
 		}
 
-	for(int i = 0; i< (NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
-			if(column_counter == 0){
-				TxPacket[(element_counter*3)+1] = TxPacketInitial[i];
-				element_counter++;
-			}
-			else if(column_counter == 1){
-				TxPacket[((element_counter*3)+1)+1]      = TxPacketInitial[i];
-				TxPacket[((element_counter*3)+rows*3)+1] = TxPacketInitial[i];
-				element_counter++;
-			}
-			else if(column_counter == columns-1){
-				TxPacket[((element_counter*3)+(3*rows*(columns-3)+2))+1] = TxPacketInitial[i];
-				element_counter++;
-			}
-			else if(column_counter == columns-2){
-				TxPacket[((element_counter*3)+(3*rows*(columns-4))+2)+1] = TxPacketInitial[i];
-				TxPacket[((element_counter*3)+(3*rows*(columns-3))+1)+1] = TxPacketInitial[i];
-				element_counter++;
-			}
-			else{
-				TxPacket[((element_counter*3)+(3*rows*(column_counter-2))+2)+1] = TxPacketInitial[i];
-				TxPacket[((element_counter*3)+(3*rows*(column_counter-1))+1)+1] = TxPacketInitial[i];
-				TxPacket[((element_counter*3)+(3*rows*column_counter))+1]       = TxPacketInitial[i];
-				element_counter++;
-			}
+		if(element_counter == rows){
+			column_counter++;
+			element_counter = 0;
+		}
+	}
 
-			if(element_counter == rows){
-				column_counter++;
-				element_counter = 0;
-			}
-	    }
+	TxPacket[0] = TxPacket_WithoutZeros[0];
 
+	for(int i = 1; i<4; i++){
+		TxPacket[i] = 0;
+	}
+
+	for(int i = 4; i<(NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH*3)+4; i++){
+		TxPacket[j] = TxPacket_WithoutZeros[i];
+		j++;
+
+		if((j+1)%4 == 0){
+			TxPacket[j] = 0;
+			j++;
+		}
+	}
+	TxPacket[j] 	= TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 1)];
+	TxPacket[j+1] 	= TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 2)];
 
 	/* Flush the buffers before the DMA transfer, in case the Data Cache
 	 * is enabled
