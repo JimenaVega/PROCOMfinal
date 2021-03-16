@@ -1,0 +1,7 @@
+1- Ir a File -> New -> Application Project.
+2- Nombrar el proyecto y luego incluir el bitstream generado en vivado siguiendo los pasos indicados en el tutorial del classroom (PROCOM 2).
+3- Al momento de seleccionar la "plantilla" del proyecto, en lugar de elegir el proyecto "Hello World", elegir "Peripheral Test".
+4- Terminar de crear el nuevo proyecto. Buscar en el workspace el proyecto, abrirlo. 
+5- En la carpeta src dejar los archivos: axidma_header.h, intc_header.h, lscript.ld. Eliminar el resto.
+6- Agregar los archivos (de la carpeta de git uP_VitisCode): ConvolveIP.c, platform.c, platform.h, platform_config.h. Estos reemplazan los archivos borrados.
+7- Compilar y configurar el Program FPGA y Run Configurations para usar alguna FPGA en específico. (Para mas detalles, ver las filminas correspondientes en el tutorial del classroom).

@@ -1,0 +1,9 @@
+Para actualizar el IP de convolucion: 
+1- Open Block Design.
+2- Seleccionar el IP de convolucion y hacer click derecho.
+3- Seleccionar Edit in IP Packager. Esto hará que se abra un nuevo proyecto en donde se encuentra el codigo del IP.
+4- En el nuevo proyecto que se abrió, seleccionar el .v llamado convolution_v1_0. Eliminar el contenido y copiar el archivo .v del mismo nombre que se encuentra en git (carpeta uP-BlockDesign).
+5- Ir al tutorial https://www.fpgadeveloper.com/2017/11/creating-a-custom-axi-streaming-ip-in-vivado.html/
+6- En esta página se encuentra un video. Una vez actualizado el código seguir los pasos del video desde el minuto 4:59 hasta 5:11.
+7- En el Block Design aparecerá un cartel en la parte superior: Ir a Report IP Status y actualizar el IP de convolución.
+8- Dar click en Generate Block Design y correr nuevamente Sintesis, Implementación y Bitstream.
