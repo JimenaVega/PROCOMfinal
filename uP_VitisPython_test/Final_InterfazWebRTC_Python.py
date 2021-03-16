@@ -51,7 +51,7 @@ def plotHist(conv_image,name,pos):
 def rebuildIm ():
     outInteger = []
     i = 0
-    while (i < 5):
+    while (i < (ROWIM-2)*4):
         value=ord(ser.read(1))
         outInteger.append(value)
         i=i+1
@@ -104,20 +104,10 @@ ser.flushOutput()
 byteHeader  = bytearray()
 byteImage   = bytearray()
 
-sizeOfImage = ROWIM*COLIM
-#rowImLSB = (ROWIM  & 0xff)
-#rowImMSB = ((ROWIM & 0xff00) >> 8)
-#colImLSB = (COLIM  & 0xff)
-#colImMSB = ((COLIM & 0xff00) >> 8)
-
-byteHeader.append(0xb0)     
+byteHeader.append(0xb0)    
 byteHeader.append(0x7b)
 byteHeader.append(0x7c)
 byteHeader.append(0x4f)
-#byteHeader.append(rowImLSB)
-#byteHeader.append(rowImMSB)
-#byteHeader.append(colImLSB)
-#byteHeader.append(colImMSB)
 
 imReconsArray  = []
 imReconsMatrix = []
@@ -147,12 +137,34 @@ while(1):
 			print("Sent Image\r\n")
 
 		elif (a == (b"Return data\r\n")):
-			imReconsMatrix.append(rebuildIm()) 
+			while (m < (COLIM-2)):
+				imReconsMatrix.append(rebuildIm()) 
+				m = m+1
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
 				
 			#Check size
 			print("Final size1:")
 			print(imReconsMatrix.shape) 
-			print(imReconsMatrix)
 			
-			print("Finished processing/r/n")
+			print("Columna 0 returned image")
+			for n in range((ROWIM-2)*4):
+				print(imReconsMatrix[n,1])
+
+			print("Columna 0 original image")
+			for n in range(ROWIM):
+				print(gray[n,2])
+
+			print("COMPARACION DE MATRICES")
+			print("Returned image:")
+			print(imReconsMatrix)
+			print("Original image:")
+			print(gray)
+			
+			#Guardar las imagenes resultantes
+			filename1 = 'sentImage.jpg'
+			filename2 = 'receivedImage1.jpg'
+
+			cv2.imwrite(filename1, gray)
+			cv2.imwrite(filename2, imReconsMatrix)
+
+			print("Finished processing/r/n")	
