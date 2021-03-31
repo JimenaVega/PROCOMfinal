@@ -143,7 +143,8 @@ int main(void){
 	init_platform();
 	initUART();
 
-	returnLength	= orig_rows * orig_columns * 4;
+	//returnLength	= rows * columns;
+	returnLength	= orig_rows * orig_columns *4;
 
 	print("Entering main\r\n");
 	print("Send header\r\n");
@@ -698,22 +699,19 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 		return XST_INVALID_PARAM;
 	}
 
-	TxPacketInitial 		= (u8 *) (Packet + 0x80000); 		//Recepción de los datos
-	TxPacket_WithoutZeros   = (u8 *) (Packet + 0xB0000);		//Mixeo sin ceros
+	TxPacketInitial 		= (u8 *)  Packet;					//Recepción de los datos
+	TxPacket_WithoutZeros   = (u8 *) (Packet + 0x86000);		//Mixeo sin ceros
 	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros
 
-	//Agregado de datos para iniciar la transmisión
-	//TxPacket_WithoutZeros[0] = transmission_init;
-	//TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 1)] = transmission_end1;
-	//TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 2)] = transmission_end2;
+	/*TxPacketInitial 		= (u8 *) (Packet + 0x86000); 		//Recepción de los datos
+	TxPacket_WithoutZeros   = (u8 *) (Packet + 0xa8000);		//Mixeo sin ceros
+	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros*/
 
-	//for(m = 0; m < 2; m++){
-	//	TxPacketInitial[Index] = m+1;
-	//}
 	//Recepción de datos
 	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);Index ++){
-		TxPacketInitial[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+		TxPacket[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
 	}
+
 
 	//Mixeo sin ceros (original)
 	for(int i = 0; i<(NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
@@ -843,9 +841,10 @@ static int ReturnData(int Length)
 {
 	u8 *RxPacket    ;
 
-	int Index ;
-	unsigned long time = 2000;
-	RxPacket     = (u8 *) RX_BUFFER_BASE;
+	int  Index;
+	u8   saveData;
+
+	RxPacket      = (u8 *) RX_BUFFER_BASE;
 
 	/* Invalidate the DestBuffer before receiving the data, in case the
 	 * Data Cache is enabled
@@ -855,9 +854,13 @@ static int ReturnData(int Length)
 	Xil_DCacheInvalidateRange((UINTPTR)RxPacket, Length);
 	delay();
 	print("Return data\r\n");
-	for(Index = 4*2; Index < (Length + 4*2); Index++) {
-		XUartLite_Send(&uart_module, &(RxPacket[Index]), 1);
-		usleep(time);
+
+	saveData = RxPacket[0];
+
+	for(Index = 1; Index < (Length); Index++) {
+		while(XUartLite_IsSending(&uart_module)){}
+		XUartLite_Send(&uart_module, &(saveData), 1);
+		saveData = RxPacket[Index];
 	}
 	return XST_SUCCESS;
 }
