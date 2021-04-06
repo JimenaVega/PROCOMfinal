@@ -1,0 +1,18 @@
+
+
+*Final_InterfazWebRTC_Python.py:
+
+	Código que sirve como interfaz entre el WebRTC-Python-Vitis. Hace el envío de los datos de la imagen y los recibe.
+	RECORDAR CONFIGURAR EL PUERTO QUE SE VA A USAR EN EL CÓDIGO DE ACUERDO CON EL PUERTO EN QUE SE UBIQUE LA FPGA QUE SE DESEA PROGRAMAR.
+
+
+
+
+
+
+*FixImageReconstruction:
+
+	Se encarga de sacar los ceros incorporados en el procesamiento de los datos. Devuelve una imagen del mismo tamaño que la original.
+	Se deben cambiar los path de ubicación y guardado de las imágenes de acuerdo con el directorio en el que se guarden los archivos. 
+	"foto1" es la foto original.
+	"receivedImage1" es la imagen que se guarda al ejecutar el código Final_InterfazWebRTC_Python.py. A ésta imagen se le deben sacar los ceros de más.	

@@ -60,7 +60,6 @@ def rebuildIm ():
 
 #------------------ serial port configuration -------------------------------------------
 
-#ser = serial.serial_for_url('loop://', timeout=1) 
 ser = serial.Serial(
 	port='/dev/ttyUSB1',		#Configurar con el puerto a usar 
 	baudrate=115200,

@@ -53,8 +53,8 @@ extern void xil_printf(const char *format, ...);
 #define INTC_HANDLER				XIntc_InterruptHandler
 
 //Mixeo
-#define rows                        302//482
-#define columns                     452//642
+#define rows                        302
+#define columns                     452
 #define orig_rows					300
 #define orig_columns				450
 
@@ -68,7 +68,7 @@ extern void xil_printf(const char *format, ...);
 
 //Buffer and Buffer Descriptor related constant definition
 #define MAX_PKT_LEN_TX				0x52c
-#define MAX_PKT_LEN_RX				0x52c //buscar valor correcto
+#define MAX_PKT_LEN_RX				0x52c
 #define MARK_UNCACHEABLE        	0x701
 
 /************************** Function Prototypes ******************************/
@@ -143,7 +143,6 @@ int main(void){
 	init_platform();
 	initUART();
 
-	//returnLength	= rows * columns;
 	returnLength	= orig_rows * orig_columns *4;
 
 	print("Entering main\r\n");
@@ -671,10 +670,12 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 static int SendPacket(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(AxiDmaInstPtr);
+	XAxiDma_Bd *BdPtr, *BdCurPtr;
+
 	u8 *TxPacket;
 	u8 *TxPacket_WithoutZeros;
 	u8 *TxPacketInitial;
-	XAxiDma_Bd *BdPtr, *BdCurPtr;
+
 	int Status;
 	int Index=0, Pkts;
 	int column_counter = 0;
@@ -703,9 +704,11 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	TxPacket_WithoutZeros   = (u8 *) (Packet + 0x86000);		//Mixeo sin ceros
 	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros
 
-	/*TxPacketInitial 		= (u8 *) (Packet + 0x86000); 		//Recepción de los datos
+	/*
+	TxPacketInitial 		= (u8 *) (Packet + 0x86000); 		//Recepción de los datos
 	TxPacket_WithoutZeros   = (u8 *) (Packet + 0xa8000);		//Mixeo sin ceros
-	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros*/
+	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros
+	*/
 
 	//Recepción de datos
 	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);Index ++){
@@ -865,48 +868,6 @@ static int ReturnData(int Length)
 	return XST_SUCCESS;
 }
 
-/*
-static int ReturnData(int Length)
-{
-	u8 *RxPacket    ;
-	u8 *RxPacketUART1;
-
-	int Index ;
-	int Index1 = 0;
-	int Index2;
-
-	RxPacket      = (u8 *) RX_BUFFER_BASE;
-	RxPacketUART1 = (u8 *) RX_BUFFER_BASE + 0x80000;
-
-
-	//Reacomodar el paquete sacando los ceros
-	//for (Index1 = 0; Index1 < (NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); Index1++ ){
-	//	RxPacketUART[Index1] = RxPacket[Index2];
-	//	Index2 = Index2 + 4;
-	//}
-
-	//Retornar los datos
-	Xil_DCacheInvalidateRange((UINTPTR)RxPacket, Length);
-	delay();
-	print("Return data\r\n");
-
-	for(Index=0 ; Index < Length + (4*2*orig_columns); Index++) {
-
-			if ((Index % (orig_rows*4)) == 0) {
-				Index1 = (Index + 4*2);
-			}
-			RxPacketUART1[Index] = RxPacket[Index1];
-			Index1++;
-		}
-
-	for(Index2 = 4*2; Index2 < Length ; Index2++) {
-		delay();
-		XUartLite_Send(&uart_module, &(RxPacketUART1[Index2]), 1);
-	}
-	return XST_SUCCESS;
-}
-*/
-
 
 static void DisableIntrSystem(INTC * IntcInstancePtr,
 					u16 TxIntrId, u16 RxIntrId)
@@ -939,7 +900,6 @@ static int GetTrama(void){
 }
 
 void delay(void){
-	//535
 	for (int n=0;n<535;n++){}
 	return;
 }
