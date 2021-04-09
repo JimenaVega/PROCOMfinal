@@ -8,6 +8,8 @@ import cv2
 import time
 import serial
 
+rebuiltIm = []
+reshapeIm = []
 
 def linearScalling (imMatrix,maxVal, minVal):  
     
@@ -21,9 +23,10 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
 
-def sendCol(imageCol):
-   
+def sendCol(imageCol): 
+
     ser.write(imageCol)
+    rebuiltIm.append(imageCol)
     time.sleep(0.001)
 
     return 
@@ -51,11 +54,11 @@ def plotHist(conv_image,name,pos):
 def rebuildIm ():
     outInteger = []
     i = 0
-    while (i < (ROWIM-2)*4):
+#    while (i < (ROWIM-2)*4):
+    while (i < (ROWIM-2)):
         value=ord(ser.read(1))
         outInteger.append(value)
         i=i+1
-
     return outInteger
 
 #------------------ serial port configuration -------------------------------------------
@@ -134,6 +137,10 @@ while(1):
 				sendCol(byteImage)
 				byteImage.clear() 
 			print("Sent Image\r\n")
+			reshapeIm = np.asarray(reshapeIm)
+			reshapeIm = np.reshape(reshapeIm,(452,302))
+			reshapeIm = reshapeIm.T
+
 
 		elif (a == (b"Return data\r\n")):
 			while (m < (COLIM-2)):
@@ -162,8 +169,10 @@ while(1):
 			#Guardar las imagenes resultantes
 			filename1 = 'sentImage.jpg'
 			filename2 = 'receivedImage1.jpg'
+			filename3 = 'toSendReshape.jpg'
 
 			cv2.imwrite(filename1, gray)
 			cv2.imwrite(filename2, imReconsMatrix)
+			cv2.imwrite(filename3, reshapeIm)
 
 			print("Finished processing/r/n")	
