@@ -1,4 +1,3 @@
-## Import Packages
 from   skimage.exposure import rescale_intensity
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,9 +6,6 @@ import cv2
 
 import time
 import serial
-
-rebuiltIm = []
-reshapeIm = []
 
 def linearScalling (imMatrix,maxVal, minVal):  
     
@@ -26,7 +22,6 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
 def sendCol(imageCol): 
 
     ser.write(imageCol)
-    rebuiltIm.append(imageCol)
     time.sleep(0.001)
 
     return 
@@ -54,8 +49,7 @@ def plotHist(conv_image,name,pos):
 def rebuildIm ():
     outInteger = []
     i = 0
-#    while (i < (ROWIM-2)*4):
-    while (i < (ROWIM-2)):
+    while (i < (ROWIM)*4):
         value=ord(ser.read(1))
         outInteger.append(value)
         i=i+1
@@ -137,13 +131,9 @@ while(1):
 				sendCol(byteImage)
 				byteImage.clear() 
 			print("Sent Image\r\n")
-			reshapeIm = np.asarray(reshapeIm)
-			reshapeIm = np.reshape(reshapeIm,(452,302))
-			reshapeIm = reshapeIm.T
-
 
 		elif (a == (b"Return data\r\n")):
-			while (m < (COLIM-2)):
+			while (m < (COLIM)):
 				imReconsMatrix.append(rebuildIm()) 
 				m = m+1
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
@@ -152,14 +142,6 @@ while(1):
 			print("Final size1:")
 			print(imReconsMatrix.shape) 
 			
-			print("Columna 0 returned image")
-			for n in range((ROWIM-2)*4):
-				print(imReconsMatrix[n,1])
-
-			print("Columna 0 original image")
-			for n in range(ROWIM):
-				print(gray[n,2])
-
 			print("COMPARACION DE MATRICES")
 			print("Returned image:")
 			print(imReconsMatrix)
@@ -169,10 +151,8 @@ while(1):
 			#Guardar las imagenes resultantes
 			filename1 = 'sentImage.jpg'
 			filename2 = 'receivedImage1.jpg'
-			filename3 = 'toSendReshape.jpg'
 
 			cv2.imwrite(filename1, gray)
 			cv2.imwrite(filename2, imReconsMatrix)
-			cv2.imwrite(filename3, reshapeIm)
 
-			print("Finished processing/r/n")	
+			print("Finished processing/r
