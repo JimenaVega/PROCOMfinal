@@ -43,10 +43,8 @@ extern void xil_printf(const char *format, ...);
 #define TRAMA_INIT			0xB0
 #define TRAMA_END			0x50
 
-
-
 //Timeout loop counter for reset
-#define RESET_TIMEOUT_COUNTER	10000
+#define RESET_TIMEOUT_COUNTER	    10000
 
 //Interrupt
 #define INTC						XIntc
@@ -59,7 +57,6 @@ extern void xil_printf(const char *format, ...);
 #define orig_columns				450
 
 //Dma transmission
-#define BDS_DEPTH					302
 #define NUMBER_OF_BDS_PER_PKT		113
 #define NUMBER_OF_PKTS_TO_TRANSFER 	4
 #define NUMBER_OF_BDS_TO_TRANSFER	(NUMBER_OF_PKTS_TO_TRANSFER * NUMBER_OF_BDS_PER_PKT)
@@ -67,8 +64,8 @@ extern void xil_printf(const char *format, ...);
 #define DELAY_TIMER_COUNT			10
 
 //Buffer and Buffer Descriptor related constant definition
-#define MAX_PKT_LEN_TX				0x52c
-#define MAX_PKT_LEN_RX				0x52c
+#define MAX_PKT_LEN_TX				0x468 //0x52c
+#define MAX_PKT_LEN_RX				0x468
 #define MARK_UNCACHEABLE        	0x701
 
 /************************** Function Prototypes ******************************/
@@ -143,7 +140,7 @@ int main(void){
 	init_platform();
 	initUART();
 
-	returnLength	= orig_rows * orig_columns *4;
+	returnLength	= rows * columns * 4;
 
 	print("Entering main\r\n");
 	print("Send header\r\n");
@@ -711,13 +708,12 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	*/
 
 	//Recepción de datos
-	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);Index ++){
+	for(Index = 0; Index < (rows * columns);Index ++){
 		TxPacket[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
 	}
 
-
 	//Mixeo sin ceros (original)
-	for(int i = 0; i<(NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
+	for(int i = 0; i<(rows * columns); i++){
 		if(column_counter == 0){
 			TxPacket_WithoutZeros[(element_counter*3)] = TxPacketInitial[i];
 			element_counter++;
@@ -750,7 +746,7 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	}
 
 	//Agregado de los ceros en el mixeo
-	for(int i = 0; i<((NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH)*3); i++){
+	for(int i = 0; i<((rows * columns)*3); i++){
 		TxPacket[j] = TxPacket_WithoutZeros[i];
 		j++;
 
@@ -764,9 +760,9 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	 * is enabled
 	 */
 	Xil_DCacheFlushRange((UINTPTR)TxPacket, MAX_PKT_LEN_TX *
-							NUMBER_OF_BDS_TO_TRANSFER);
+			NUMBER_OF_BDS_TO_TRANSFER);
 	Xil_DCacheFlushRange((UINTPTR)RX_BUFFER_BASE, MAX_PKT_LEN_RX *
-							NUMBER_OF_BDS_TO_TRANSFER);
+			NUMBER_OF_BDS_TO_TRANSFER);
 
 	Status = XAxiDma_BdRingAlloc(TxRingPtr, NUMBER_OF_BDS_TO_TRANSFER,
 								&BdPtr);
@@ -849,6 +845,7 @@ static int ReturnData(int Length)
 
 	RxPacket      = (u8 *) RX_BUFFER_BASE;
 
+	//RxPacket      = (u8 *)  Packet;
 	/* Invalidate the DestBuffer before receiving the data, in case the
 	 * Data Cache is enabled
 	 */
