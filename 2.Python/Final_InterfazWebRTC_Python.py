@@ -7,44 +7,10 @@ import cv2
 import time
 import serial
 
-def linearScalling (imMatrix,maxVal, minVal):  
-    
-    imMatrix = (imMatrix-minVal) 
-    imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(0.0,255.0))
-
-    return imMatrix
-
-def linearNorm (matrix, Max, Min, newMax, newMin):
-    
-    matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
-    return matrix
-
 def sendCol(imageCol): 
-
     ser.write(imageCol)
     time.sleep(0.001)
-
     return 
-
-def searchXtremeValues (imMatrix, imHeight, imWidth):
-    maxVal = imMatrix[0,0]
-    minVal = imMatrix[0,0]
-    for i in range(imHeight):
-        for j in range(imWidth):
-            if (imMatrix[i,j]>maxVal):
-                maxVal=imMatrix[i,j]
-            elif (imMatrix[i,j]<minVal):
-                minVal=imMatrix[i,j]
-    return maxVal, minVal
-
-def plotHist(conv_image,name,pos):
-    [x  ,y]   = np.unique(conv_image,return_counts=True)
-    plt.subplot(2,1,pos)
-    plt.stem(x,y,'ko',label=name,use_line_collection=True)
-    plt.legend()
-    plt.grid()
-    
-    plt.show()
 
 def rebuildIm ():
     outInteger = []
@@ -71,7 +37,8 @@ print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-path = "foto1.jpg"
+path  = "foto1.jpg"
+start = 1
 
 ap = argparse.ArgumentParser( description = "Convolution 2D")
 ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
@@ -109,14 +76,14 @@ imReconsArray  = []
 imReconsMatrix = []
 imSendArray    = []
 imSendMatrix   = []
+imDecimation   = []
 n = 0
 m = 0
 
 #envio de imagen escalada linealmente
-while(1):
+while(start):
 	
 	if(ser.inWaiting() > 0):
-		
 		a = ser.readline()
 		print(a)
 		
@@ -137,22 +104,34 @@ while(1):
 				imReconsMatrix.append(rebuildIm()) 
 				m = m+1
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
+
+			#Decimation (Elimination of zeros)
+			imDecimation = imReconsMatrix[0::4,:]
 				
 			#Check size
-			print("Final size1:")
+			print("Size post processing (with zeros):")
 			print(imReconsMatrix.shape) 
+			print("Size post processing (without zeros):")
+			print(imDecimation.shape) 
 			
+			"""
 			print("COMPARACION DE MATRICES")
 			print("Returned image:")
 			print(imReconsMatrix)
 			print("Original image:")
 			print(gray)
-			
+			"""
+
 			#Guardar las imagenes resultantes
 			filename1 = 'sentImage.jpg'
-			filename2 = 'receivedImage1.jpg'
+			filename2 = 'receivedImage.jpg'
+			filename3 = 'decimatedImage.jpg'
 
 			cv2.imwrite(filename1, gray)
 			cv2.imwrite(filename2, imReconsMatrix)
+			cv2.imwrite(filename3, imDecimation)
 
-			print("Finished processing/r
+			#Finaliza el procesamiento
+			start = 0
+			
+			print("Finished processing/r")
