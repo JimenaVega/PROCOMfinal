@@ -18,6 +18,35 @@ from   tool._fixedInt import *
 import serial
 import time
 
+import multiprocessing
+import pyimgur
+import asyncio
+import os
+
+
+class _QueueProxy(object):
+    def __init__(self):
+        self._queueimp = None
+
+    @property
+    def _queue(self):
+        if self._queueimp is None:
+            isMonoCPU = multiprocessing.cpu_count() == 1
+            self._queueimp = queue.Queue() if isMonoCPU else multiprocessing.Queue() 
+
+        return self._queueimp
+
+    def get(self, *args, **kw):
+        return self._queue.get(*args, **kw)
+
+    def put(self, *args, **kw):
+        return self._queue.put(*args, **kw)
+
+   # etc... only expose public methods and attributes of course
+
+
+# and now our `shared_queue` instance    
+
 
 # In[]: Funciones
 #kernel stuff
@@ -127,14 +156,60 @@ def searchXtremeValues (imMatrix, imHeight, imWidth):
                 minVal=imMatrix[i,j]
     return maxVal, minVal
 
+def upload_image(image,path,photo_name):
+
+    #Datos de acceso IMGUR:
+    #Usuario:  AJEMProcom
+    #Password: quesadilla123
+    
+   
+    PATH = path +  photo_name
+    
+    CLIENT_ID = "fdecbab9c6d3bc0" #proporcionado por la pagina IMGUR
+    CLIENT_SECRET= "9c7ebc0e24263b9a1f1a7cd6c11815ef734aec8a" #por ahora no se usa , la dejo guardada
+
+    im = pyimgur.Imgur(CLIENT_ID)
+    uploaded_image = im.upload_image(PATH, title="foto_post_process")
+
+   
+    return uploaded_image.link
 
     
 
 
-
 # In[0]: serial port configuration
-def run(gray):
-   
+if __name__ == "__main__":
+
+        
+
+        
+    ser = serial.serial_for_url('loop://', timeout=1)
+
+    ##Descomentar en caso de enviar a FPGA
+    # ser = serial.Serial(
+    #     port     = '/dev/ttyUSB1',
+    #     baudrate = 115200,
+    #     parity   = serial.PARITY_NONE,
+    #     stopbits = serial.STOPBITS_ONE,
+    #     bytesize = serial.EIGHTBITS
+    # )
+
+    ser.isOpen()
+    ser.timeout=None
+    ser.flushInput()
+    ser.flushOutput()
+    # print(ser.timeout)
+
+
+
+
+
+
+
+
+
+    # def run(gray):
+        
 
 
     # In[1]: Main
@@ -144,14 +219,22 @@ def run(gray):
     # path = "descarga.jpg"
     # #path = "foto1.jpg"
 
-    # ap = argparse.ArgumentParser( description="Convolution 2D")
-    # ap.add_argument("-i", "--image", required=False, help="Path to the input image",default=path)
+    ap = argparse.ArgumentParser( description="Convolution 2D")
+    ap.add_argument("-c", "--condicion", required=False, default="0")
+    # ap.add_argument("-i", "--image", required=False, help="Path to the input image",default="path")
     # ap.add_argument("-k", "--kernel", help="Path to the kernel")
-    # args = ap.parse_args()
+    args = ap.parse_args()
 
-    #Load input image 
-    # gray   = cv2.imread(args.image,0)
-    # endFlag = 0                                          """A pedido de Mateo"""
+
+
+    ##Lo que quiero hacer es que no cargue dos veces la imagen osea si el argumento del parser se da como true entonces 
+    ##lo carga pero esto es para que no cargue cualquier cosa por defecto al hacer el import
+    # # Load input image 
+
+        
+    #ejecucion normal
+
+    gray   = cv2.imread("photo.jpg",0)
 
 
     #Kernel to use momentaneamente 
@@ -214,7 +297,7 @@ def run(gray):
             byteImage.append(quantImage[i+(delta*ROWIM)]) 
         imRecons.append(sendCol(byteImage,delta))
         byteImage.clear() 
-    
+
 
     ser.close()
 
@@ -224,8 +307,8 @@ def run(gray):
         
 
     imageLinRec = (np.asarray(imRecons,'float64').T) #imagen reconstruida
-  
-    
+
+
     endFlag = 1
 
     #------------------------------------------------------------------------------
@@ -250,22 +333,23 @@ def run(gray):
     # plotHist(imAfterUART,'lineal reconstructed',2)
     # cv2.imshow("2- image after UART ", imAfterUART)
 
-    return imAfterUART
+
+    PATH="C:\\Educacion\\Procom2020\\PROCOMeste\\PROCOMfinal\\WebRTC\\"
+
+    cv2.imwrite("photoAFTERUART.jpg",imAfterUART)
+    photo_name = 'photoAFTERUART.jpg'
 
 
-ser = serial.serial_for_url('loop://', timeout=1)
 
-##Descomentar en caso de enviar a FPGA
-# ser = serial.Serial(
-#     port     = '/dev/ttyUSB1',
-#     baudrate = 115200,
-#     parity   = serial.PARITY_NONE,
-#     stopbits = serial.STOPBITS_ONE,
-#     bytesize = serial.EIGHTBITS
-# )
+    link=upload_image(imAfterUART,PATH,photo_name)
+  
+    
+    f = open("url.txt",'r+')
+    f.write(link)
+    f.close()
 
-ser.isOpen()
-ser.timeout=None
-ser.flushInput()
-ser.flushOutput()
-# print(ser.timeout)
+    print("Fin INTERFAZWEBUART")
+
+        # return imAfterUART,link
+
+            

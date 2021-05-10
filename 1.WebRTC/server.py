@@ -21,7 +21,7 @@ from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
 from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRecorder
 from rtcbot import RTCConnection, getRTCBotJS, CVCamera, CVDisplay
 
-
+import threading
 
 
 conn = RTCConnection()
@@ -42,9 +42,11 @@ imagen  = cv2.imread('foto1.jpg')
 conn = RTCConnection()
 routes = web.RouteTableDef()
 
+condicion=1
 
-
-
+f = open("url.txt",'r+')
+f.truncate(0)
+f.close()
 class VideoTransformTrack(MediaStreamTrack):
     """
     A video stream track that transforms frames from an another track.
@@ -61,7 +63,7 @@ class VideoTransformTrack(MediaStreamTrack):
         self.rows = rows
         self.cols = cols
         self.kernel = kernel
-
+        
         global row
         row=rows
         global col
@@ -77,6 +79,18 @@ class VideoTransformTrack(MediaStreamTrack):
 
   
     async def recv(self):
+
+
+        global condicion
+        if(condicion)==0:
+            print("la condicion fue cambiada")
+            hilo = threading.Thread(target=funcion).start()
+            hilo2= threading.Thread(target=funcion2).start()
+            print("el hilo fue ejecutado")
+
+            
+            condicion=1
+
         frame = await self.track.recv()
         
 
@@ -196,13 +210,15 @@ async def on_shutdown(app):
 
 
 
+
+
+
  #Cuando se presione el boton de enviar foto, se entra al condicional
 @conn.subscribe
 async def onMessage(msg):  # Called when each message is sent
 
     global pic
-    PATH="C:\\Educacion\\Procom2020\\PROCOMfinal\\WebRTC\\"
-    photo_name = 'photo.jpg'
+   
 
     if(msg=='take_photo'):
         
@@ -213,23 +229,10 @@ async def onMessage(msg):  # Called when each message is sent
         # print("Got message:" + msg)
         # conn.put_nowait({"data": "pong"})
 
-        # print(b64encode(pic))
-        # cv2.imwrite("photo.jpg",imagen_gris) #es otra opcion para hacerlo pero requiere guardar la foto
-
-    if(msg=='send_photo'):
+        cv2.imwrite("photo.jpg",imagen_gris) #es otra opcion para hacerlo pero requiere guardar la foto
         
-        imAfterUART = interfazWebUART.run(pic)
-        time.sleep(0.25)
+       
         
-        
-        cv2.imwrite("photo.jpg", imAfterUART)
-        
-        link="" #para que me lo tome como STRING
-        link= await upload_image(imAfterUART,PATH,photo_name) #modificar el path a gusto
-        time.sleep(0.25)
-
-        print(link)
-        conn.put_nowait({"im_url": link})
        
        
         # cv2.imshow("asd",imAfterUART)
@@ -238,7 +241,37 @@ async def onMessage(msg):  # Called when each message is sent
         
         
         # # os.system('python interfazWebUART.py --image photo.jpg')
-        print("EXITO")
+        global condicion
+        condicion=0
+        
+        
+    # if(msg=='send_photo'):
+        
+
+
+def funcion():
+    time.sleep(0.1)
+    os.system("python interfazWebUART.py -c 1")
+    
+    
+def funcion2():
+
+    while(1):
+
+        if os.stat("url.txt").st_size == 0:
+            pass
+        else:
+            print('File is not empty')
+            f=open("url.txt","r+")
+            link=f.read()
+            conn.put_nowait({"im_url": link})
+            f.truncate(0)
+            f.close()
+            break
+
+
+    
+    
 
        
     
@@ -262,7 +295,7 @@ async def upload_image(image,path,photo_name):
     
 
 def kill_process(): #si el puerto esta ocupado, lo libera para ejecutar el server
-    PID = os.popen("netstat -ano|findstr 8080").read() #busca el process ID para ese puerto
+    PID = os.popen("netstat -ano|findstr 8086").read() #busca el process ID para ese puerto
     PID=PID[::-1]
     trim=[]
     for i, chrt in enumerate(PID):#recorre la respuesta desde el final y guarda el process ID
@@ -289,20 +322,23 @@ async def connect(request):
 
 
 
+
 if __name__ == "__main__":
+    
+  
     parser = argparse.ArgumentParser(
         description="WebRTC audio / video / data-channels demo"
     )
-    parser.add_argument("--cert-file", help="SSL certificate file (for HTTPS)")
-    parser.add_argument("--key-file", help="SSL key file (for HTTPS)")
+    parser.add_argument("--cert-file", help="SSL certificate file (for HTTPS)",default='example.crt')
+    parser.add_argument("--key-file", help="SSL key file (for HTTPS)",default='example.key')
     parser.add_argument(
-        "--port", type=int, default=8080, help="Port for HTTP server (default: 8080)"
+        "--port", type=int, default=8086, help="Port for HTTP server (default: 8086)"
     )
     parser.add_argument("--verbose", "-v", action="count")
     parser.add_argument("--write-audio", help="Write received audio to a file")
 
     args = parser.parse_args()
-
+    # python server.py --cert-file example.cert --key-file example.key
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG)
     else:

@@ -1,4 +1,3 @@
-## Import Packages
 from   skimage.exposure import rescale_intensity
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,7 +6,6 @@ import cv2
 
 import time
 import serial
-
 
 def linearScalling (imMatrix,maxVal, minVal):  
     
@@ -21,8 +19,8 @@ def linearNorm (matrix, Max, Min, newMax, newMin):
     matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
     return matrix
 
-def sendCol(imageCol):
-   
+def sendCol(imageCol): 
+
     ser.write(imageCol)
     time.sleep(0.001)
 
@@ -51,16 +49,14 @@ def plotHist(conv_image,name,pos):
 def rebuildIm ():
     outInteger = []
     i = 0
-    while (i < (ROWIM-2)*4):
+    while (i < (ROWIM)*4):
         value=ord(ser.read(1))
         outInteger.append(value)
         i=i+1
-
     return outInteger
 
 #------------------ serial port configuration -------------------------------------------
 
-#ser = serial.serial_for_url('loop://', timeout=1) 
 ser = serial.Serial(
 	port='/dev/ttyUSB1',		#Configurar con el puerto a usar 
 	baudrate=115200,
@@ -75,7 +71,7 @@ print(ser.timeout)
 
 #---------------------- image reading-------------------------------------------
 
-path = "foto1.jpg"
+path = "preteen_japan.jpeg"
 
 ap = argparse.ArgumentParser( description = "Convolution 2D")
 ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
@@ -137,7 +133,7 @@ while(1):
 			print("Sent Image\r\n")
 
 		elif (a == (b"Return data\r\n")):
-			while (m < (COLIM-2)):
+			while (m < (COLIM)):
 				imReconsMatrix.append(rebuildIm()) 
 				m = m+1
 			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
@@ -146,14 +142,6 @@ while(1):
 			print("Final size1:")
 			print(imReconsMatrix.shape) 
 			
-			print("Columna 0 returned image")
-			for n in range((ROWIM-2)*4):
-				print(imReconsMatrix[n,1])
-
-			print("Columna 0 original image")
-			for n in range(ROWIM):
-				print(gray[n,2])
-
 			print("COMPARACION DE MATRICES")
 			print("Returned image:")
 			print(imReconsMatrix)
@@ -167,4 +155,4 @@ while(1):
 			cv2.imwrite(filename1, gray)
 			cv2.imwrite(filename2, imReconsMatrix)
 
-			print("Finished processing/r/n")	
+			print("Finished processing/r")

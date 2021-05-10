@@ -43,23 +43,20 @@ extern void xil_printf(const char *format, ...);
 #define TRAMA_INIT			0xB0
 #define TRAMA_END			0x50
 
-
-
 //Timeout loop counter for reset
-#define RESET_TIMEOUT_COUNTER	10000
+#define RESET_TIMEOUT_COUNTER	    10000
 
 //Interrupt
 #define INTC						XIntc
 #define INTC_HANDLER				XIntc_InterruptHandler
 
 //Mixeo
-#define rows                        302//482
-#define columns                     452//642
+#define rows                        302
+#define columns                     452
 #define orig_rows					300
 #define orig_columns				450
 
 //Dma transmission
-#define BDS_DEPTH					302
 #define NUMBER_OF_BDS_PER_PKT		113
 #define NUMBER_OF_PKTS_TO_TRANSFER 	4
 #define NUMBER_OF_BDS_TO_TRANSFER	(NUMBER_OF_PKTS_TO_TRANSFER * NUMBER_OF_BDS_PER_PKT)
@@ -67,8 +64,8 @@ extern void xil_printf(const char *format, ...);
 #define DELAY_TIMER_COUNT			10
 
 //Buffer and Buffer Descriptor related constant definition
-#define MAX_PKT_LEN_TX				0x52c
-#define MAX_PKT_LEN_RX				0x52c //buscar valor correcto
+#define MAX_PKT_LEN_TX				0x468 //0x52c
+#define MAX_PKT_LEN_RX				0x468
 #define MARK_UNCACHEABLE        	0x701
 
 /************************** Function Prototypes ******************************/
@@ -143,7 +140,7 @@ int main(void){
 	init_platform();
 	initUART();
 
-	returnLength	= orig_rows * orig_columns * 4;
+	returnLength	= rows * columns * 4;
 
 	print("Entering main\r\n");
 	print("Send header\r\n");
@@ -670,10 +667,12 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 static int SendPacket(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *TxRingPtr = XAxiDma_GetTxRing(AxiDmaInstPtr);
+	XAxiDma_Bd *BdPtr, *BdCurPtr;
+
 	u8 *TxPacket;
 	u8 *TxPacket_WithoutZeros;
 	u8 *TxPacketInitial;
-	XAxiDma_Bd *BdPtr, *BdCurPtr;
+
 	int Status;
 	int Index=0, Pkts;
 	int column_counter = 0;
@@ -698,25 +697,23 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 		return XST_INVALID_PARAM;
 	}
 
-	TxPacketInitial 		= (u8 *) (Packet + 0x80000); 		//Recepción de los datos
-	TxPacket_WithoutZeros   = (u8 *) (Packet + 0xB0000);		//Mixeo sin ceros
+	TxPacketInitial 		= (u8 *)  Packet;					//Recepción de los datos
+	TxPacket_WithoutZeros   = (u8 *) (Packet + 0x86000);		//Mixeo sin ceros
 	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros
 
-	//Agregado de datos para iniciar la transmisión
-	//TxPacket_WithoutZeros[0] = transmission_init;
-	//TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 1)] = transmission_end1;
-	//TxPacket_WithoutZeros[((BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER *3) + 2)] = transmission_end2;
+	/*
+	TxPacketInitial 		= (u8 *) (Packet + 0x86000); 		//Recepción de los datos
+	TxPacket_WithoutZeros   = (u8 *) (Packet + 0xa8000);		//Mixeo sin ceros
+	TxPacket			 	= (u8 *)  Packet;					//Mixeo con ceros
+	*/
 
-	//for(m = 0; m < 2; m++){
-	//	TxPacketInitial[Index] = m+1;
-	//}
 	//Recepción de datos
-	for(Index = 0; Index < (BDS_DEPTH * NUMBER_OF_BDS_TO_TRANSFER);Index ++){
-		TxPacketInitial[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
+	for(Index = 0; Index < (rows * columns);Index ++){
+		TxPacket[Index] = XUartLite_RecvByte((&uart_module)->RegBaseAddress);
 	}
 
 	//Mixeo sin ceros (original)
-	for(int i = 0; i<(NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); i++){
+	for(int i = 0; i<(rows * columns); i++){
 		if(column_counter == 0){
 			TxPacket_WithoutZeros[(element_counter*3)] = TxPacketInitial[i];
 			element_counter++;
@@ -749,7 +746,7 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	}
 
 	//Agregado de los ceros en el mixeo
-	for(int i = 0; i<((NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH)*3); i++){
+	for(int i = 0; i<((rows * columns)*3); i++){
 		TxPacket[j] = TxPacket_WithoutZeros[i];
 		j++;
 
@@ -763,9 +760,9 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	 * is enabled
 	 */
 	Xil_DCacheFlushRange((UINTPTR)TxPacket, MAX_PKT_LEN_TX *
-							NUMBER_OF_BDS_TO_TRANSFER);
+			NUMBER_OF_BDS_TO_TRANSFER);
 	Xil_DCacheFlushRange((UINTPTR)RX_BUFFER_BASE, MAX_PKT_LEN_RX *
-							NUMBER_OF_BDS_TO_TRANSFER);
+			NUMBER_OF_BDS_TO_TRANSFER);
 
 	Status = XAxiDma_BdRingAlloc(TxRingPtr, NUMBER_OF_BDS_TO_TRANSFER,
 								&BdPtr);
@@ -843,10 +840,12 @@ static int ReturnData(int Length)
 {
 	u8 *RxPacket    ;
 
-	int Index ;
-	unsigned long time = 2000;
-	RxPacket     = (u8 *) RX_BUFFER_BASE;
+	int  Index;
+	u8   saveData;
 
+	RxPacket      = (u8 *) RX_BUFFER_BASE;
+
+	//RxPacket      = (u8 *)  Packet;
 	/* Invalidate the DestBuffer before receiving the data, in case the
 	 * Data Cache is enabled
 	 */
@@ -855,54 +854,16 @@ static int ReturnData(int Length)
 	Xil_DCacheInvalidateRange((UINTPTR)RxPacket, Length);
 	delay();
 	print("Return data\r\n");
-	for(Index = 4*2; Index < (Length + 4*2); Index++) {
-		XUartLite_Send(&uart_module, &(RxPacket[Index]), 1);
-		usleep(time);
+
+	saveData = RxPacket[0];
+
+	for(Index = 1; Index < (Length); Index++) {
+		while(XUartLite_IsSending(&uart_module)){}
+		XUartLite_Send(&uart_module, &(saveData), 1);
+		saveData = RxPacket[Index];
 	}
 	return XST_SUCCESS;
 }
-
-/*
-static int ReturnData(int Length)
-{
-	u8 *RxPacket    ;
-	u8 *RxPacketUART1;
-
-	int Index ;
-	int Index1 = 0;
-	int Index2;
-
-	RxPacket      = (u8 *) RX_BUFFER_BASE;
-	RxPacketUART1 = (u8 *) RX_BUFFER_BASE + 0x80000;
-
-
-	//Reacomodar el paquete sacando los ceros
-	//for (Index1 = 0; Index1 < (NUMBER_OF_BDS_TO_TRANSFER*BDS_DEPTH); Index1++ ){
-	//	RxPacketUART[Index1] = RxPacket[Index2];
-	//	Index2 = Index2 + 4;
-	//}
-
-	//Retornar los datos
-	Xil_DCacheInvalidateRange((UINTPTR)RxPacket, Length);
-	delay();
-	print("Return data\r\n");
-
-	for(Index=0 ; Index < Length + (4*2*orig_columns); Index++) {
-
-			if ((Index % (orig_rows*4)) == 0) {
-				Index1 = (Index + 4*2);
-			}
-			RxPacketUART1[Index] = RxPacket[Index1];
-			Index1++;
-		}
-
-	for(Index2 = 4*2; Index2 < Length ; Index2++) {
-		delay();
-		XUartLite_Send(&uart_module, &(RxPacketUART1[Index2]), 1);
-	}
-	return XST_SUCCESS;
-}
-*/
 
 
 static void DisableIntrSystem(INTC * IntcInstancePtr,
@@ -936,7 +897,6 @@ static int GetTrama(void){
 }
 
 void delay(void){
-	//535
 	for (int n=0;n<535;n++){}
 	return;
 }
