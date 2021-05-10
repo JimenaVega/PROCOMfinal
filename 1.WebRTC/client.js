@@ -369,11 +369,22 @@ function take_photo()
 
     // const DataURI = myCanvas
     var context = canvas.getContext('2d');
-    context.drawImage(prueba, 0, 0, 640, 480);
-    conn.put_nowait("take_photo");
 
-    imAfterUART=document.getElementById("imAfterUART");
-    imAfterUART.src="https://static.wixstatic.com/media/c6abac_72b300c91c794879a85fc3f8fd46ed63~mv2.gif"
+
+    var sourceX = 215;
+    var sourceY = 295;
+    var sourceWidth = 50;
+    var sourceHeight = 50;
+    var destWidth = 640;
+    var destHeight = 480;
+    var destX = canvas.width / 2 - destWidth / 2;
+    var destY = canvas.height / 2 - destHeight / 2;
+
+    context.drawImage(prueba, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      
+    // context.drawImage(prueba, 0, 0, 640, 480);
+    
+    conn.put_nowait("take_photo");
     trace("Capturando Foto");
 }
 

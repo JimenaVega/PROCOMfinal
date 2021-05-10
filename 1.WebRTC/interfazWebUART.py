@@ -24,28 +24,6 @@ import asyncio
 import os
 
 
-class _QueueProxy(object):
-    def __init__(self):
-        self._queueimp = None
-
-    @property
-    def _queue(self):
-        if self._queueimp is None:
-            isMonoCPU = multiprocessing.cpu_count() == 1
-            self._queueimp = queue.Queue() if isMonoCPU else multiprocessing.Queue() 
-
-        return self._queueimp
-
-    def get(self, *args, **kw):
-        return self._queue.get(*args, **kw)
-
-    def put(self, *args, **kw):
-        return self._queue.put(*args, **kw)
-
-   # etc... only expose public methods and attributes of course
-
-
-# and now our `shared_queue` instance    
 
 
 # In[]: Funciones
@@ -334,7 +312,7 @@ if __name__ == "__main__":
     # cv2.imshow("2- image after UART ", imAfterUART)
 
 
-    PATH="C:\\Educacion\\Procom2020\\PROCOMeste\\PROCOMfinal\\WebRTC\\"
+    PATH="C:\\Educacion\\Procom2020\\PROCOMfinal\\1.WebRTC\\"
 
     cv2.imwrite("photoAFTERUART.jpg",imAfterUART)
     photo_name = 'photoAFTERUART.jpg'
