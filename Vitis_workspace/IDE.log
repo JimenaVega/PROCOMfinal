@@ -3367,3 +3367,1527 @@ con
 
 21:26:05 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
 21:28:22 WARN  : channel "tcfchan#19" closed
+23:06:41 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:06:42 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:06:42 INFO  : 'jtag frequency' command is executed.
+23:06:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:06:42 ERROR : couldn't open "C:/Educacion/Procom2020/PROCOMfinal/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit": no such file or directory
+23:06:42 ERROR : Exception occured while running Program FPGA.
+java.lang.RuntimeException: couldn't open "C:/Educacion/Procom2020/PROCOMfinal/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit": no such file or directory
+23:06:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+----------------End of Script----------------
+
+23:06:42 ERROR : couldn't open "C:/Educacion/Procom2020/PROCOMfinal/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit": no such file or directory
+23:09:06 INFO  : Bit file 'C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/download.bit' is generated.
+23:09:06 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:09:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:09:08 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/download.bit"
+23:09:55 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:09:55 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:09:55 INFO  : 'jtag frequency' command is executed.
+23:09:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:09:58 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:09:58 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:09:59 INFO  : Context for processor 'microblaze_0' is selected.
+23:09:59 INFO  : System reset is completed.
+23:10:02 INFO  : 'after 3000' command is executed.
+23:10:02 INFO  : Context for processor 'microblaze_0' is selected.
+23:10:02 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:10:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:10:03 INFO  : Memory regions updated for context MicroBlaze #0
+23:10:03 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:10:03 INFO  : Context for processor 'microblaze_0' is selected.
+23:10:03 INFO  : 'con' command is executed.
+23:10:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:10:03 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:13:56 INFO  : Disconnected from the channel tcfchan#20.
+23:13:56 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:13:57 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:13:57 INFO  : 'jtag frequency' command is executed.
+23:13:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:14:00 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:14:00 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:14:00 INFO  : Context for processor 'microblaze_0' is selected.
+23:14:00 INFO  : System reset is completed.
+23:14:03 INFO  : 'after 3000' command is executed.
+23:14:03 INFO  : Context for processor 'microblaze_0' is selected.
+23:14:04 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:14:04 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:14:04 INFO  : Memory regions updated for context MicroBlaze #0
+23:14:04 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:14:05 INFO  : Context for processor 'microblaze_0' is selected.
+23:14:05 INFO  : 'con' command is executed.
+23:14:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:14:05 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:18:00 INFO  : Disconnected from the channel tcfchan#21.
+23:18:00 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:18:01 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:18:01 INFO  : 'jtag frequency' command is executed.
+23:18:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:18:03 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:18:04 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:18:04 INFO  : Context for processor 'microblaze_0' is selected.
+23:18:04 INFO  : System reset is completed.
+23:18:07 INFO  : 'after 3000' command is executed.
+23:18:07 INFO  : Context for processor 'microblaze_0' is selected.
+23:18:08 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:18:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:18:08 INFO  : Memory regions updated for context MicroBlaze #0
+23:18:08 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:18:08 INFO  : Context for processor 'microblaze_0' is selected.
+23:18:08 INFO  : 'con' command is executed.
+23:18:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:18:08 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:24:49 INFO  : Disconnected from the channel tcfchan#22.
+23:24:49 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:24:49 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:24:49 INFO  : 'jtag frequency' command is executed.
+23:24:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:24:52 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:24:53 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:24:53 INFO  : Context for processor 'microblaze_0' is selected.
+23:24:53 INFO  : System reset is completed.
+23:24:56 INFO  : 'after 3000' command is executed.
+23:24:56 INFO  : Context for processor 'microblaze_0' is selected.
+23:24:57 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:24:57 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:24:57 INFO  : Memory regions updated for context MicroBlaze #0
+23:24:57 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:24:57 INFO  : Context for processor 'microblaze_0' is selected.
+23:24:57 INFO  : 'con' command is executed.
+23:24:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:24:57 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:43:07 INFO  : Disconnected from the channel tcfchan#23.
+23:43:07 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:43:07 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:43:07 INFO  : 'jtag frequency' command is executed.
+23:43:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:43:10 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:43:10 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:43:11 INFO  : Context for processor 'microblaze_0' is selected.
+23:43:11 INFO  : System reset is completed.
+23:43:14 INFO  : 'after 3000' command is executed.
+23:43:14 INFO  : Context for processor 'microblaze_0' is selected.
+23:43:15 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:43:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:43:15 INFO  : Memory regions updated for context MicroBlaze #0
+23:43:15 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:43:15 INFO  : Context for processor 'microblaze_0' is selected.
+23:43:15 INFO  : 'con' command is executed.
+23:43:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:43:15 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:44:33 INFO  : Disconnected from the channel tcfchan#24.
+23:44:33 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:44:34 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:44:34 INFO  : 'jtag frequency' command is executed.
+23:44:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:44:37 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:44:37 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:44:37 INFO  : Context for processor 'microblaze_0' is selected.
+23:44:38 INFO  : System reset is completed.
+23:44:41 INFO  : 'after 3000' command is executed.
+23:44:41 INFO  : Context for processor 'microblaze_0' is selected.
+23:44:41 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:44:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:44:42 INFO  : Memory regions updated for context MicroBlaze #0
+23:44:42 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:44:42 INFO  : Context for processor 'microblaze_0' is selected.
+23:44:42 INFO  : 'con' command is executed.
+23:44:42 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:44:42 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:48:27 INFO  : Disconnected from the channel tcfchan#25.
+23:48:27 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:48:28 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:48:28 INFO  : 'jtag frequency' command is executed.
+23:48:29 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:48:32 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:48:32 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:48:33 INFO  : Context for processor 'microblaze_0' is selected.
+23:48:33 INFO  : System reset is completed.
+23:48:36 INFO  : 'after 3000' command is executed.
+23:48:36 INFO  : Context for processor 'microblaze_0' is selected.
+23:48:37 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:48:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:48:37 INFO  : Memory regions updated for context MicroBlaze #0
+23:48:37 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:48:37 INFO  : Context for processor 'microblaze_0' is selected.
+23:48:38 INFO  : 'con' command is executed.
+23:48:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:48:38 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+23:48:53 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+23:49:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:50:40 INFO  : Projects exported to 'C:\Educacion\procomguardar\vitis_export_archive.ide.zip'
+23:59:31 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+23:59:46 INFO  : Disconnected from the channel tcfchan#26.
+23:59:46 INFO  : Connected to target on host 'localhost' and port '3121'.
+23:59:46 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+23:59:46 INFO  : 'jtag frequency' command is executed.
+23:59:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+23:59:51 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+23:59:52 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:59:52 INFO  : Context for processor 'microblaze_0' is selected.
+23:59:52 INFO  : System reset is completed.
+23:59:55 INFO  : 'after 3000' command is executed.
+23:59:55 INFO  : Context for processor 'microblaze_0' is selected.
+23:59:56 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+23:59:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+23:59:57 INFO  : Memory regions updated for context MicroBlaze #0
+23:59:57 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+23:59:57 INFO  : Context for processor 'microblaze_0' is selected.
+23:59:57 INFO  : 'con' command is executed.
+23:59:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+23:59:57 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:03:39 INFO  : Disconnected from the channel tcfchan#28.
+00:03:39 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:03:40 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:03:40 INFO  : 'jtag frequency' command is executed.
+00:03:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:03:43 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:03:44 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:03:44 INFO  : Context for processor 'microblaze_0' is selected.
+00:03:44 INFO  : System reset is completed.
+00:03:47 INFO  : 'after 3000' command is executed.
+00:03:47 INFO  : Context for processor 'microblaze_0' is selected.
+00:03:48 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:03:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:03:49 INFO  : Memory regions updated for context MicroBlaze #0
+00:03:49 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:03:49 INFO  : Context for processor 'microblaze_0' is selected.
+00:03:49 INFO  : 'con' command is executed.
+00:03:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:03:49 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:04:15 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+00:04:46 INFO  : Disconnected from the channel tcfchan#29.
+00:04:46 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:04:47 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:04:47 INFO  : 'jtag frequency' command is executed.
+00:04:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:04:51 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:04:51 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:04:51 INFO  : Context for processor 'microblaze_0' is selected.
+00:04:51 INFO  : System reset is completed.
+00:04:54 INFO  : 'after 3000' command is executed.
+00:04:54 INFO  : Context for processor 'microblaze_0' is selected.
+00:04:55 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:04:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:04:56 INFO  : Memory regions updated for context MicroBlaze #0
+00:04:56 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:04:56 INFO  : Context for processor 'microblaze_0' is selected.
+00:04:56 INFO  : 'con' command is executed.
+00:04:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:04:56 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:17:35 INFO  : Disconnected from the channel tcfchan#30.
+00:17:35 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:17:35 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:17:35 INFO  : 'jtag frequency' command is executed.
+00:17:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:17:39 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:17:39 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:17:40 INFO  : Context for processor 'microblaze_0' is selected.
+00:17:40 INFO  : System reset is completed.
+00:17:43 INFO  : 'after 3000' command is executed.
+00:17:43 INFO  : Context for processor 'microblaze_0' is selected.
+00:17:43 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:17:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:17:44 INFO  : Memory regions updated for context MicroBlaze #0
+00:17:44 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:17:44 INFO  : Context for processor 'microblaze_0' is selected.
+00:17:44 INFO  : 'con' command is executed.
+00:17:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:17:44 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:45:41 INFO  : Disconnected from the channel tcfchan#31.
+00:45:41 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:45:41 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:45:41 INFO  : 'jtag frequency' command is executed.
+00:45:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:45:43 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:45:44 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:45:44 INFO  : Context for processor 'microblaze_0' is selected.
+00:45:44 INFO  : System reset is completed.
+00:45:47 INFO  : 'after 3000' command is executed.
+00:45:47 INFO  : Context for processor 'microblaze_0' is selected.
+00:45:48 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:45:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:45:48 INFO  : Memory regions updated for context MicroBlaze #0
+00:45:48 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:45:48 INFO  : Context for processor 'microblaze_0' is selected.
+00:45:48 INFO  : 'con' command is executed.
+00:45:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:45:48 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:45:58 INFO  : Disconnected from the channel tcfchan#32.
+00:45:58 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:45:59 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:45:59 INFO  : 'jtag frequency' command is executed.
+00:45:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:46:01 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:46:01 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:46:02 INFO  : Context for processor 'microblaze_0' is selected.
+00:46:02 INFO  : System reset is completed.
+00:46:05 INFO  : 'after 3000' command is executed.
+00:46:05 INFO  : Context for processor 'microblaze_0' is selected.
+00:46:05 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:46:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:46:06 INFO  : Memory regions updated for context MicroBlaze #0
+00:46:06 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:46:06 INFO  : Context for processor 'microblaze_0' is selected.
+00:46:06 INFO  : 'con' command is executed.
+00:46:06 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:46:06 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:46:41 INFO  : Disconnected from the channel tcfchan#33.
+00:46:41 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:46:41 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:46:41 INFO  : 'jtag frequency' command is executed.
+00:46:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:46:44 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:46:44 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:46:44 INFO  : Context for processor 'microblaze_0' is selected.
+00:46:45 INFO  : System reset is completed.
+00:46:48 INFO  : 'after 3000' command is executed.
+00:46:48 INFO  : Context for processor 'microblaze_0' is selected.
+00:46:48 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:46:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:46:49 INFO  : Memory regions updated for context MicroBlaze #0
+00:46:49 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:46:49 INFO  : Context for processor 'microblaze_0' is selected.
+00:46:49 INFO  : 'con' command is executed.
+00:46:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:46:49 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:50:01 INFO  : Disconnected from the channel tcfchan#34.
+00:50:01 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:50:01 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:50:01 INFO  : 'jtag frequency' command is executed.
+00:50:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:50:04 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:50:05 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:50:05 INFO  : Context for processor 'microblaze_0' is selected.
+00:50:05 INFO  : System reset is completed.
+00:50:08 INFO  : 'after 3000' command is executed.
+00:50:08 INFO  : Context for processor 'microblaze_0' is selected.
+00:50:09 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:50:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:50:09 INFO  : Memory regions updated for context MicroBlaze #0
+00:50:09 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:50:09 INFO  : Context for processor 'microblaze_0' is selected.
+00:50:10 INFO  : 'con' command is executed.
+00:50:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:50:10 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:50:42 INFO  : Disconnected from the channel tcfchan#35.
+00:50:42 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:50:43 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:50:43 INFO  : 'jtag frequency' command is executed.
+00:50:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:50:46 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:50:46 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:50:47 INFO  : Context for processor 'microblaze_0' is selected.
+00:50:47 INFO  : System reset is completed.
+00:50:50 INFO  : 'after 3000' command is executed.
+00:50:50 INFO  : Context for processor 'microblaze_0' is selected.
+00:50:50 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:50:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:50:51 INFO  : Memory regions updated for context MicroBlaze #0
+00:50:51 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:50:51 INFO  : Context for processor 'microblaze_0' is selected.
+00:50:51 INFO  : 'con' command is executed.
+00:50:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:50:51 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:55:48 INFO  : Disconnected from the channel tcfchan#36.
+00:55:48 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:55:48 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:55:48 INFO  : 'jtag frequency' command is executed.
+00:55:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:55:51 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:55:51 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:55:52 INFO  : Context for processor 'microblaze_0' is selected.
+00:55:52 INFO  : System reset is completed.
+00:55:55 INFO  : 'after 3000' command is executed.
+00:55:55 INFO  : Context for processor 'microblaze_0' is selected.
+00:55:55 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:55:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:55:56 INFO  : Memory regions updated for context MicroBlaze #0
+00:55:56 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:55:56 INFO  : Context for processor 'microblaze_0' is selected.
+00:55:56 INFO  : 'con' command is executed.
+00:55:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:55:56 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:56:05 INFO  : Disconnected from the channel tcfchan#37.
+00:56:05 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:56:07 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:56:07 INFO  : 'jtag frequency' command is executed.
+00:56:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:56:09 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:56:09 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:56:10 INFO  : Context for processor 'microblaze_0' is selected.
+00:56:10 INFO  : System reset is completed.
+00:56:13 INFO  : 'after 3000' command is executed.
+00:56:13 INFO  : Context for processor 'microblaze_0' is selected.
+00:56:14 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:56:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:56:14 INFO  : Memory regions updated for context MicroBlaze #0
+00:56:14 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:56:14 INFO  : Context for processor 'microblaze_0' is selected.
+00:56:14 INFO  : 'con' command is executed.
+00:56:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:56:14 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:57:42 INFO  : Disconnected from the channel tcfchan#38.
+00:57:42 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:57:43 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:57:43 INFO  : 'jtag frequency' command is executed.
+00:57:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:57:45 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:57:45 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:57:46 INFO  : Context for processor 'microblaze_0' is selected.
+00:57:46 INFO  : System reset is completed.
+00:57:49 INFO  : 'after 3000' command is executed.
+00:57:49 INFO  : Context for processor 'microblaze_0' is selected.
+00:57:49 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:57:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:57:50 INFO  : Memory regions updated for context MicroBlaze #0
+00:57:50 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:57:50 INFO  : Context for processor 'microblaze_0' is selected.
+00:57:50 INFO  : 'con' command is executed.
+00:57:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:57:50 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+00:58:07 INFO  : Disconnected from the channel tcfchan#39.
+00:58:07 INFO  : Connected to target on host 'localhost' and port '3121'.
+00:58:07 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+00:58:07 INFO  : 'jtag frequency' command is executed.
+00:58:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+00:58:09 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+00:58:10 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+00:58:10 INFO  : Context for processor 'microblaze_0' is selected.
+00:58:10 INFO  : System reset is completed.
+00:58:13 INFO  : 'after 3000' command is executed.
+00:58:13 INFO  : Context for processor 'microblaze_0' is selected.
+00:58:14 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+00:58:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+00:58:14 INFO  : Memory regions updated for context MicroBlaze #0
+00:58:14 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:58:15 INFO  : Context for processor 'microblaze_0' is selected.
+00:58:15 INFO  : 'con' command is executed.
+00:58:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+00:58:15 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:01:15 INFO  : Disconnected from the channel tcfchan#40.
+01:01:15 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:01:15 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:01:15 INFO  : 'jtag frequency' command is executed.
+01:01:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:01:17 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:01:18 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:01:18 INFO  : Context for processor 'microblaze_0' is selected.
+01:01:18 INFO  : System reset is completed.
+01:01:21 INFO  : 'after 3000' command is executed.
+01:01:21 INFO  : Context for processor 'microblaze_0' is selected.
+01:01:22 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:01:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:01:22 INFO  : Memory regions updated for context MicroBlaze #0
+01:01:22 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:01:22 INFO  : Context for processor 'microblaze_0' is selected.
+01:01:22 INFO  : 'con' command is executed.
+01:01:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:01:22 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:03:27 INFO  : Disconnected from the channel tcfchan#41.
+01:03:27 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:03:27 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:03:27 INFO  : 'jtag frequency' command is executed.
+01:03:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:03:29 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:03:30 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:03:30 INFO  : Context for processor 'microblaze_0' is selected.
+01:03:30 INFO  : System reset is completed.
+01:03:33 INFO  : 'after 3000' command is executed.
+01:03:33 INFO  : Context for processor 'microblaze_0' is selected.
+01:03:34 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:03:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:03:34 INFO  : Memory regions updated for context MicroBlaze #0
+01:03:34 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:03:34 INFO  : Context for processor 'microblaze_0' is selected.
+01:03:34 INFO  : 'con' command is executed.
+01:03:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:03:34 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:03:52 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:03:57 INFO  : Disconnected from the channel tcfchan#42.
+01:03:57 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:03:58 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:03:58 INFO  : 'jtag frequency' command is executed.
+01:03:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:04:00 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:04:01 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:04:01 INFO  : Context for processor 'microblaze_0' is selected.
+01:04:01 INFO  : System reset is completed.
+01:04:04 INFO  : 'after 3000' command is executed.
+01:04:04 INFO  : Context for processor 'microblaze_0' is selected.
+01:04:05 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:04:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:04:05 INFO  : Memory regions updated for context MicroBlaze #0
+01:04:05 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:04:05 INFO  : Context for processor 'microblaze_0' is selected.
+01:04:05 INFO  : 'con' command is executed.
+01:04:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:04:05 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:07:48 INFO  : Disconnected from the channel tcfchan#43.
+01:07:48 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:07:49 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:07:49 INFO  : 'jtag frequency' command is executed.
+01:07:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:07:53 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:07:54 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:07:54 INFO  : Context for processor 'microblaze_0' is selected.
+01:07:54 INFO  : System reset is completed.
+01:07:57 INFO  : 'after 3000' command is executed.
+01:07:57 INFO  : Context for processor 'microblaze_0' is selected.
+01:07:58 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:07:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:07:58 INFO  : Memory regions updated for context MicroBlaze #0
+01:07:58 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:07:58 INFO  : Context for processor 'microblaze_0' is selected.
+01:07:58 INFO  : 'con' command is executed.
+01:07:58 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:07:58 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:10:40 WARN  : channel "tcfchan#44" closed
+01:11:41 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:11:41 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:11:41 INFO  : 'jtag frequency' command is executed.
+01:11:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:11:44 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:11:44 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:11:44 INFO  : Context for processor 'microblaze_0' is selected.
+01:11:45 INFO  : System reset is completed.
+01:11:48 INFO  : 'after 3000' command is executed.
+01:11:48 INFO  : Context for processor 'microblaze_0' is selected.
+01:11:48 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:11:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:11:49 INFO  : Memory regions updated for context MicroBlaze #0
+01:11:49 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:11:49 INFO  : Context for processor 'microblaze_0' is selected.
+01:11:49 INFO  : 'con' command is executed.
+01:11:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:11:49 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:19:14 INFO  : Disconnected from the channel tcfchan#45.
+01:19:14 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:19:15 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:19:15 INFO  : 'jtag frequency' command is executed.
+01:19:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:19:17 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:19:17 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:19:18 INFO  : Context for processor 'microblaze_0' is selected.
+01:19:18 INFO  : System reset is completed.
+01:19:21 INFO  : 'after 3000' command is executed.
+01:19:21 INFO  : Context for processor 'microblaze_0' is selected.
+01:19:21 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:19:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:19:22 INFO  : Memory regions updated for context MicroBlaze #0
+01:19:22 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:19:22 INFO  : Context for processor 'microblaze_0' is selected.
+01:19:22 INFO  : 'con' command is executed.
+01:19:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:19:22 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:20:47 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:21:16 INFO  : Disconnected from the channel tcfchan#46.
+01:21:16 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:21:17 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:21:17 INFO  : 'jtag frequency' command is executed.
+01:21:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:21:19 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:21:20 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:21:20 INFO  : Context for processor 'microblaze_0' is selected.
+01:21:20 INFO  : System reset is completed.
+01:21:23 INFO  : 'after 3000' command is executed.
+01:21:23 INFO  : Context for processor 'microblaze_0' is selected.
+01:21:24 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:21:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:21:24 INFO  : Memory regions updated for context MicroBlaze #0
+01:21:24 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:21:24 INFO  : Context for processor 'microblaze_0' is selected.
+01:21:24 INFO  : 'con' command is executed.
+01:21:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:21:24 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:24:14 INFO  : Disconnected from the channel tcfchan#47.
+01:24:14 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:24:14 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:24:14 INFO  : 'jtag frequency' command is executed.
+01:24:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:24:17 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:24:17 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:24:17 INFO  : Context for processor 'microblaze_0' is selected.
+01:24:17 INFO  : System reset is completed.
+01:24:20 INFO  : 'after 3000' command is executed.
+01:24:20 INFO  : Context for processor 'microblaze_0' is selected.
+01:24:21 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:24:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:24:21 INFO  : Memory regions updated for context MicroBlaze #0
+01:24:21 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:24:21 INFO  : Context for processor 'microblaze_0' is selected.
+01:24:21 INFO  : 'con' command is executed.
+01:24:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:24:21 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:26:14 INFO  : Disconnected from the channel tcfchan#48.
+01:26:14 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:26:14 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:26:14 INFO  : 'jtag frequency' command is executed.
+01:26:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:26:16 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:26:17 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:26:17 INFO  : Context for processor 'microblaze_0' is selected.
+01:26:17 INFO  : System reset is completed.
+01:26:20 INFO  : 'after 3000' command is executed.
+01:26:20 INFO  : Context for processor 'microblaze_0' is selected.
+01:26:21 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:26:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:26:21 INFO  : Memory regions updated for context MicroBlaze #0
+01:26:21 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:26:21 INFO  : Context for processor 'microblaze_0' is selected.
+01:26:21 INFO  : 'con' command is executed.
+01:26:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:26:21 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:28:22 INFO  : Disconnected from the channel tcfchan#49.
+01:28:22 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:28:22 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:28:22 INFO  : 'jtag frequency' command is executed.
+01:28:22 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:28:24 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:28:24 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:28:25 INFO  : Context for processor 'microblaze_0' is selected.
+01:28:25 INFO  : System reset is completed.
+01:28:28 INFO  : 'after 3000' command is executed.
+01:28:28 INFO  : Context for processor 'microblaze_0' is selected.
+01:28:28 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:28:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:28:29 INFO  : Memory regions updated for context MicroBlaze #0
+01:28:29 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:28:29 INFO  : Context for processor 'microblaze_0' is selected.
+01:28:29 INFO  : 'con' command is executed.
+01:28:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:28:29 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:29:19 INFO  : Disconnected from the channel tcfchan#50.
+01:29:19 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:29:19 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:29:19 INFO  : 'jtag frequency' command is executed.
+01:29:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:29:22 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:29:22 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:29:23 INFO  : Context for processor 'microblaze_0' is selected.
+01:29:23 INFO  : System reset is completed.
+01:29:26 INFO  : 'after 3000' command is executed.
+01:29:26 INFO  : Context for processor 'microblaze_0' is selected.
+01:29:27 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:29:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:29:27 INFO  : Memory regions updated for context MicroBlaze #0
+01:29:27 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:29:27 INFO  : Context for processor 'microblaze_0' is selected.
+01:29:27 INFO  : 'con' command is executed.
+01:29:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:29:27 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:29:49 INFO  : Disconnected from the channel tcfchan#51.
+01:29:49 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:29:49 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:29:49 INFO  : 'jtag frequency' command is executed.
+01:29:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:29:52 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:29:52 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:29:52 INFO  : Context for processor 'microblaze_0' is selected.
+01:29:52 INFO  : System reset is completed.
+01:29:55 INFO  : 'after 3000' command is executed.
+01:29:56 INFO  : Context for processor 'microblaze_0' is selected.
+01:29:56 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:29:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:29:56 INFO  : Memory regions updated for context MicroBlaze #0
+01:29:56 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:29:57 INFO  : Context for processor 'microblaze_0' is selected.
+01:29:57 INFO  : 'con' command is executed.
+01:29:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:29:57 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:31:16 INFO  : Disconnected from the channel tcfchan#52.
+01:31:16 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:31:16 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:31:16 INFO  : 'jtag frequency' command is executed.
+01:31:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:31:19 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:31:19 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:31:19 INFO  : Context for processor 'microblaze_0' is selected.
+01:31:19 INFO  : System reset is completed.
+01:31:22 INFO  : 'after 3000' command is executed.
+01:31:22 INFO  : Context for processor 'microblaze_0' is selected.
+01:31:23 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:31:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:31:23 INFO  : Memory regions updated for context MicroBlaze #0
+01:31:23 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:31:23 INFO  : Context for processor 'microblaze_0' is selected.
+01:31:23 INFO  : 'con' command is executed.
+01:31:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:31:23 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:37:20 INFO  : Disconnected from the channel tcfchan#53.
+01:37:21 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:37:21 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:37:21 INFO  : 'jtag frequency' command is executed.
+01:37:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:37:23 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:37:24 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:37:24 INFO  : Context for processor 'microblaze_0' is selected.
+01:37:24 INFO  : System reset is completed.
+01:37:27 INFO  : 'after 3000' command is executed.
+01:37:27 INFO  : Context for processor 'microblaze_0' is selected.
+01:37:28 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:37:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:37:28 INFO  : Memory regions updated for context MicroBlaze #0
+01:37:28 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:37:28 INFO  : Context for processor 'microblaze_0' is selected.
+01:37:28 INFO  : 'con' command is executed.
+01:37:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:37:28 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:37:55 INFO  : Disconnected from the channel tcfchan#54.
+01:37:55 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:37:55 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:37:55 INFO  : 'jtag frequency' command is executed.
+01:37:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:37:57 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:37:58 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:37:58 INFO  : Context for processor 'microblaze_0' is selected.
+01:37:58 INFO  : System reset is completed.
+01:38:01 INFO  : 'after 3000' command is executed.
+01:38:01 INFO  : Context for processor 'microblaze_0' is selected.
+01:38:02 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:38:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:38:02 INFO  : Memory regions updated for context MicroBlaze #0
+01:38:02 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:38:02 INFO  : Context for processor 'microblaze_0' is selected.
+01:38:02 INFO  : 'con' command is executed.
+01:38:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:38:02 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:39:34 INFO  : Disconnected from the channel tcfchan#55.
+01:39:34 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:39:34 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:39:34 INFO  : 'jtag frequency' command is executed.
+01:39:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:39:36 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:39:37 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:39:37 INFO  : Context for processor 'microblaze_0' is selected.
+01:39:37 INFO  : System reset is completed.
+01:39:40 INFO  : 'after 3000' command is executed.
+01:39:40 INFO  : Context for processor 'microblaze_0' is selected.
+01:39:41 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:39:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:39:41 INFO  : Memory regions updated for context MicroBlaze #0
+01:39:41 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:39:41 INFO  : Context for processor 'microblaze_0' is selected.
+01:39:41 INFO  : 'con' command is executed.
+01:39:41 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:39:41 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:40:13 INFO  : Disconnected from the channel tcfchan#56.
+01:40:13 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:40:13 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:40:13 INFO  : 'jtag frequency' command is executed.
+01:40:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:40:15 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:40:16 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:40:16 INFO  : Context for processor 'microblaze_0' is selected.
+01:40:16 INFO  : System reset is completed.
+01:40:19 INFO  : 'after 3000' command is executed.
+01:40:19 INFO  : Context for processor 'microblaze_0' is selected.
+01:40:20 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:40:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:40:20 INFO  : Memory regions updated for context MicroBlaze #0
+01:40:20 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:40:20 INFO  : Context for processor 'microblaze_0' is selected.
+01:40:20 INFO  : 'con' command is executed.
+01:40:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:40:20 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:42:59 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:43:53 INFO  : Disconnected from the channel tcfchan#57.
+01:43:53 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:43:54 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:43:54 INFO  : 'jtag frequency' command is executed.
+01:43:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:43:56 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:43:56 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:43:57 INFO  : Context for processor 'microblaze_0' is selected.
+01:43:57 INFO  : System reset is completed.
+01:44:00 INFO  : 'after 3000' command is executed.
+01:44:00 INFO  : Context for processor 'microblaze_0' is selected.
+01:44:00 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:44:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:44:01 INFO  : Memory regions updated for context MicroBlaze #0
+01:44:01 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:44:01 INFO  : Context for processor 'microblaze_0' is selected.
+01:44:01 INFO  : 'con' command is executed.
+01:44:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:44:01 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:44:35 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:45:00 INFO  : Disconnected from the channel tcfchan#58.
+01:45:00 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:45:00 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:45:00 INFO  : 'jtag frequency' command is executed.
+01:45:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:45:03 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:45:03 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:45:03 INFO  : Context for processor 'microblaze_0' is selected.
+01:45:03 INFO  : System reset is completed.
+01:45:06 INFO  : 'after 3000' command is executed.
+01:45:06 INFO  : Context for processor 'microblaze_0' is selected.
+01:45:07 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:45:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:45:07 INFO  : Memory regions updated for context MicroBlaze #0
+01:45:07 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:45:08 INFO  : Context for processor 'microblaze_0' is selected.
+01:45:08 INFO  : 'con' command is executed.
+01:45:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:45:08 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:45:54 INFO  : Disconnected from the channel tcfchan#59.
+01:45:54 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:45:54 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:45:54 INFO  : 'jtag frequency' command is executed.
+01:45:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:45:57 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:45:57 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:45:57 INFO  : Context for processor 'microblaze_0' is selected.
+01:45:57 INFO  : System reset is completed.
+01:46:00 INFO  : 'after 3000' command is executed.
+01:46:00 INFO  : Context for processor 'microblaze_0' is selected.
+01:46:01 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:46:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:46:01 INFO  : Memory regions updated for context MicroBlaze #0
+01:46:01 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:46:01 INFO  : Context for processor 'microblaze_0' is selected.
+01:46:02 INFO  : 'con' command is executed.
+01:46:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:46:02 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:46:26 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:46:46 INFO  : Disconnected from the channel tcfchan#60.
+01:46:46 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:46:46 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:46:46 INFO  : 'jtag frequency' command is executed.
+01:46:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:46:48 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:46:49 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:46:49 INFO  : Context for processor 'microblaze_0' is selected.
+01:46:49 INFO  : System reset is completed.
+01:46:52 INFO  : 'after 3000' command is executed.
+01:46:52 INFO  : Context for processor 'microblaze_0' is selected.
+01:46:53 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:46:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:46:53 INFO  : Memory regions updated for context MicroBlaze #0
+01:46:53 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:46:53 INFO  : Context for processor 'microblaze_0' is selected.
+01:46:53 INFO  : 'con' command is executed.
+01:46:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:46:53 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:47:21 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:47:43 INFO  : Disconnected from the channel tcfchan#61.
+01:47:43 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:47:44 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:47:44 INFO  : 'jtag frequency' command is executed.
+01:47:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:47:46 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:47:46 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:47:46 INFO  : Context for processor 'microblaze_0' is selected.
+01:47:47 INFO  : System reset is completed.
+01:47:50 INFO  : 'after 3000' command is executed.
+01:47:50 INFO  : Context for processor 'microblaze_0' is selected.
+01:47:50 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:47:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:47:51 INFO  : Memory regions updated for context MicroBlaze #0
+01:47:51 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:47:51 INFO  : Context for processor 'microblaze_0' is selected.
+01:47:51 INFO  : 'con' command is executed.
+01:47:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:47:51 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:48:27 INFO  : Disconnected from the channel tcfchan#62.
+01:48:27 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:48:27 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:48:27 INFO  : 'jtag frequency' command is executed.
+01:48:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:48:30 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:48:30 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:48:30 INFO  : Context for processor 'microblaze_0' is selected.
+01:48:30 INFO  : System reset is completed.
+01:48:33 INFO  : 'after 3000' command is executed.
+01:48:33 INFO  : Context for processor 'microblaze_0' is selected.
+01:48:34 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:48:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:48:34 INFO  : Memory regions updated for context MicroBlaze #0
+01:48:34 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:48:34 INFO  : Context for processor 'microblaze_0' is selected.
+01:48:35 INFO  : 'con' command is executed.
+01:48:35 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:48:35 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:49:17 INFO  : Checking for BSP changes to sync application flags for project 'up_CONVOLVE'...
+01:50:04 INFO  : Disconnected from the channel tcfchan#63.
+01:50:04 INFO  : Connected to target on host 'localhost' and port '3121'.
+01:50:04 INFO  : Jtag cable 'Digilent Arty 210319A288D7A' is selected.
+01:50:04 INFO  : 'jtag frequency' command is executed.
+01:50:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0' command is executed.
+01:50:07 INFO  : FPGA configured successfully with bitstream "C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit"
+01:50:07 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+01:50:07 INFO  : Context for processor 'microblaze_0' is selected.
+01:50:07 INFO  : System reset is completed.
+01:50:10 INFO  : 'after 3000' command is executed.
+01:50:10 INFO  : Context for processor 'microblaze_0' is selected.
+01:50:11 INFO  : The application 'C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf' is downloaded to processor 'microblaze_0'.
+01:50:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:localhost:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Arty 210319A288D7A" && level==0} -index 0
+fpga -file C:/Educacion/Procom2020/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+dow C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE/Debug/up_CONVOLVE.elf
+----------------End of Script----------------
+
+01:50:11 INFO  : Memory regions updated for context MicroBlaze #0
+01:50:11 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:50:11 INFO  : Context for processor 'microblaze_0' is selected.
+01:50:12 INFO  : 'con' command is executed.
+01:50:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Arty 210319A288D7A"} -index 0
+con
+----------------End of Script----------------
+
+01:50:12 INFO  : Launch script is exported to file 'C:\Educacion\Procom2020\PROCOMfinal\Vitis_workspace\.sdk\launch_scripts\single_application_debug\systemdebugger_up_convolve_system_standalone.tcl'
+01:50:44 WARN  : channel "tcfchan#64" closed

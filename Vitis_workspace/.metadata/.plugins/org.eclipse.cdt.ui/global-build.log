@@ -1,6 +1,6 @@
 Nothing to build in platform 'FinalConvolve_NoFirstLoad'
 
-20:35:02 **** Incremental Build of configuration Debug for project up_CONVOLVE ****
+01:49:17 **** Incremental Build of configuration Debug for project up_CONVOLVE ****
 make all 
 'Building file: ../src/ConvolveIP_conMixeo.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -15,6 +15,6 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Educacion/Procom2020/PROCOMfinal/Vitis_
 'Invoking: MicroBlaze Print Size'
 mb-size up_CONVOLVE.elf  |tee "up_CONVOLVE.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  34916	   1816	   5324	  42056	   a448	up_CONVOLVE.elf
+  34928	   1816	   5320	  42064	   a450	up_CONVOLVE.elf
 'Finished building: up_CONVOLVE.elf.size'
 ' '

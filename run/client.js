@@ -369,10 +369,12 @@ function take_photo()
 
     // const DataURI = myCanvas
     var context = canvas.getContext('2d');
+    imAfterUART=document.getElementById("imAfterUART");
+    imAfterUART.src="https://static.wixstatic.com/media/c6abac_72b300c91c794879a85fc3f8fd46ed63~mv2.gif"
 
 
-    var sourceX = 220;
-    var sourceY = 300;
+    var sourceX = 300;
+    var sourceY = 220;
     var sourceWidth = 40;
     var sourceHeight = 40;
     var destWidth = 400;

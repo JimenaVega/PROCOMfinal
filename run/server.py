@@ -229,10 +229,10 @@ async def onMessage(msg):  # Called when each message is sent
         px_deseados=40
 
         
-        width_start= int((pic.shape[1]/2)-(px_deseados/2))
-        width_end=int((pic.shape[1]/2)+(px_deseados/2))
-        heigh_start=int((pic.shape[0]/2)-(px_deseados/2))
-        heigh_end=int((pic.shape[0]/2)+(px_deseados/2))
+        width_start= int((pic.shape[0]/2)-(px_deseados/2))
+        width_end=int((pic.shape[0]/2)+(px_deseados/2))
+        heigh_start=int((pic.shape[1]/2)-(px_deseados/2))
+        heigh_end=int((pic.shape[1]/2)+(px_deseados/2))
         print (pic.shape)
        
         print(width_start)

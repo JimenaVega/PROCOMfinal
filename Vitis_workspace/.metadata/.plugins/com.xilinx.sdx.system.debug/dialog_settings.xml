@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="28f00am29ew-bpi-x16" key="up_CONVOLVE-flashType"/>
+	<item value="up_CONVOLVE" key="programflash.hwplatform"/>
+	<item value="" key="up_CONVOLVE-fsblFile"/>
+	<item value="Auto Detect" key="up_CONVOLVE-device"/>
+	<item value="Local" key="up_CONVOLVE-target"/>
+	<item value="" key="up_CONVOLVE-offSet"/>
+	<item value="" key="up_CONVOLVE-imgFile"/>
+	<item value="false" key="up_CONVOLVE-blankCheck"/>
+	<item value="false" key="up_CONVOLVE-verifyFlash"/>
+</section>
