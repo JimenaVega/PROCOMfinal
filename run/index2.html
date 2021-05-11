@@ -26,27 +26,30 @@
 
         #videoContainer {
             position: relative;
-            margin: 0px auto;
-	        width: 500px;
-	        height: 375px;
-	        border: 10px #333 solid;
+            
         }
 
         #videoElement {
-	        width: 500px;
-	        height: 375px;
+	        width: 640px;
+	        height: 480px;
 	        background-color: #666;
-}
+	}
 
 
         #box {
-        width: 100px;
-        height: 50px;
-        border: 5px solid green;
-        position: absolute;
-        left: 200;
-        top: 200;
+       	 width: 40px;
+       	 height: 40px;
+       	 border: 5px solid green;
+       	 position: absolute;
+       	 left: 300px;
+       	 top: 220px;
         }
+
+
+	#bottom { 
+
+		position:absolute; top:900; left:700 
+	}
         
 
         
@@ -54,17 +57,28 @@
         </style>
     </head>
     <body>
+
+ <h2>State</h2>
+    <p>
+        ICE gathering state: <span id="ice-gathering-state"></span>
+    </p>
+    <p>
+        ICE connection state: <span id="ice-connection-state"></span>
+    </p>
+    <p>
+        Signaling state: <span id="signaling-state"></span>
+    </p>
     <h2>Options</h2>
-    <div class="option">
-        <label for="use-video">Use video</label>
-        <select id="video-resolution">
+    <div class="option" style="display: none;">
+        <label for="use-video" style="display: none;">Use video</label>
+        <select id="video-resolution" style="display: none;">
             <option value="640x480">640x480</option>
             <option value="1280x720">1280x720</option>
         </select>
-        <select id="video-codec">
+        <select id="video-codec" >
             <option value="H264/90000">H264</option>
         </select>
-        <select id="kernelRef">
+        <select id="kernelRef" style="display: none;">
             <option value="1">Edge1</option>
             <option value="2">Edge2</option>
         </select>
@@ -79,34 +93,23 @@
 
     
 
-    <button type="button" id="mybutton">send_photo</button>
+    <button type="button" id="mybutton" style="display: none;">send_photo</button>
     
   
 
 
 
-    <h2>State</h2>
-    <p>
-        ICE gathering state: <span id="ice-gathering-state"></span>
-    </p>
-    <p>
-        ICE connection state: <span id="ice-connection-state"></span>
-    </p>
-    <p>
-        Signaling state: <span id="signaling-state"></span>
-    </p>
-
-    <canvas id="canvas" width="640" height="480" background="#000" ></canvas> 
-
-    <img id="imAfterUART" src="https://i.imgur.com/NUXlQrT.jpg" alt="IMAGEN_POST_PROCES" style="width:640px;height:480px;">
+   
 
     <h2>Camara</h2>
 
 
+
+
     <div id="videoContainer">
         <div id="box"></div>
-        <div id="media" style="min-height: 10vh;max-height: 60vh;background:#000;">
-        <video autoplay="true" id="videoElement" playsinline="true" controls style="min-height: 60vh;  max-height: 60vh;background:#000;"></video>
+        <div id="media" style="min-height: 10vh;max-height: 60vh;background:rgb(255, 255, 255);">
+        <video autoplay="true" id="videoElement" playsinline="true" controls></video>
         </div>
 
 
@@ -115,15 +118,39 @@
 
     </div>
 
-    <h2>Process</h2>
-    <div id="media" style="min-height: 60vh;max-height: 60vh;background:rgb(255, 255, 255);">
+<div id="bottom" style="left:10;">
+    <canvas id="canvas" width="640" height="480" background="#000" ></canvas> 
+</div>
 
-      <video id="video" autoplay="true" playsinline="true" controls style="min-height: 60vh;  max-height: 60vh;background:#000;"></video>
+
+<div id="bottom" style="left:850;top:1050;">
+
+    <img id="imAfterUART"  src="https://i.imgur.com/NUXlQrT.jpg" alt="IMAGEN_POST_PROCES" style="width:130px;height:130px;">
+
+
+
+</div>
+
+
+
+    
+    <div id="media" style="display: none;">
+
+      <video id="video" autoplay="true" playsinline="true" controls style="display: none;"></video>
 
 
     </div>
     
+
     
+
+
+
+
+
+
+
+<div id="bottom" style="top:1500px;left:10px;">
 
     
 
@@ -140,7 +167,7 @@
     </body>
 
 
-
+</div>
 
 
 
