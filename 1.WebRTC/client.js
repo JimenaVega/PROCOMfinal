@@ -375,8 +375,8 @@ function take_photo()
     var sourceY = 295;
     var sourceWidth = 50;
     var sourceHeight = 50;
-    var destWidth = 640;
-    var destHeight = 480;
+    var destWidth = 400;
+    var destHeight = 400;
     var destX = canvas.width / 2 - destWidth / 2;
     var destY = canvas.height / 2 - destHeight / 2;
 

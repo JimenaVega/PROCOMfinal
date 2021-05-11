@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="up_CONVOLVE" location="C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/up_CONVOLVE" platform="C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/export/FinalConvolve_NoFirstLoad/FinalConvolve_NoFirstLoad.xpfm" platformUID="xilinx:arty::0.0(custom)" systemProject="up_CONVOLVE_system" sysConfig="FinalConvolve_NoFirstLoad" runtime="C/C++" cpu="standalone_domain" cpuInstance="microblaze_0" os="standalone" mssSignature="d3ca3e45eeded14dd0baeabd760c7d28">
+  <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.335340794" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.254555260" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

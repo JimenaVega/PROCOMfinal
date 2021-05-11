@@ -1,0 +1,6 @@
+15:59:07 **** Build of configuration Debug for project up_CONVOLVE_system ****
+make all 
+Skipping SD card image generation. Reason: "The system project only has applications for microblaze processors."
+
+15:59:07 Build Finished (took 512ms)
+

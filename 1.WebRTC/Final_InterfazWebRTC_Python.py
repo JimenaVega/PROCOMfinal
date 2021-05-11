@@ -7,44 +7,15 @@ import cv2
 import time
 import serial
 
-def linearScalling (imMatrix,maxVal, minVal):  
-    
-    imMatrix = (imMatrix-minVal) 
-    imMatrix = rescale_intensity(imMatrix,in_range=(-minVal,maxVal), out_range=(0.0,255.0))
 
-    return imMatrix
+import pyimgur
 
-def linearNorm (matrix, Max, Min, newMax, newMin):
-    
-    matrix=(matrix-Min)*((newMax-newMin)/(Max-Min))+newMin
-    return matrix
+
 
 def sendCol(imageCol): 
-
     ser.write(imageCol)
     time.sleep(0.001)
-
     return 
-
-def searchXtremeValues (imMatrix, imHeight, imWidth):
-    maxVal = imMatrix[0,0]
-    minVal = imMatrix[0,0]
-    for i in range(imHeight):
-        for j in range(imWidth):
-            if (imMatrix[i,j]>maxVal):
-                maxVal=imMatrix[i,j]
-            elif (imMatrix[i,j]<minVal):
-                minVal=imMatrix[i,j]
-    return maxVal, minVal
-
-def plotHist(conv_image,name,pos):
-    [x  ,y]   = np.unique(conv_image,return_counts=True)
-    plt.subplot(2,1,pos)
-    plt.stem(x,y,'ko',label=name,use_line_collection=True)
-    plt.legend()
-    plt.grid()
-    
-    plt.show()
 
 def rebuildIm ():
     outInteger = []
@@ -55,104 +26,139 @@ def rebuildIm ():
         i=i+1
     return outInteger
 
+def upload_image(image,path,photo_name):
+
+    #Datos de acceso IMGUR:
+    #Usuario:  AJEMProcom
+    #Password: quesadilla123
+    
+   
+    PATH = path +  photo_name
+    
+    CLIENT_ID = "fdecbab9c6d3bc0" #proporcionado por la pagina IMGUR
+    CLIENT_SECRET= "9c7ebc0e24263b9a1f1a7cd6c11815ef734aec8a" #por ahora no se usa , la dejo guardada
+
+    im = pyimgur.Imgur(CLIENT_ID)
+    uploaded_image = im.upload_image(PATH, title="foto_post_process")
+
+   
+    return uploaded_image.link
+
 #------------------ serial port configuration -------------------------------------------
 
-ser = serial.Serial(
-	port='/dev/ttyUSB1',		#Configurar con el puerto a usar 
-	baudrate=115200,
-	parity=serial.PARITY_NONE,
-	stopbits=serial.STOPBITS_ONE,
-	bytesize=serial.EIGHTBITS
-)
- 
-ser.isOpen()
-ser.timeout=None
-print(ser.timeout)
+if __name__ == "__main__":
 
-#---------------------- image reading-------------------------------------------
-
-path = "preteen_japan.jpeg"
-
-ap = argparse.ArgumentParser( description = "Convolution 2D")
-ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
-ap.add_argument("-k", "--kernel", help = "Path to the kernel")
-args = ap.parse_args()
-
-#Load input image 
-image   = cv2.imread(args.image,1)
-endFlag = 0
-
-#Convert image to gray scale
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-#zero-padding
-gray = np.pad(gray, ((1,1),(1,1)), 'constant')
-
-[ROWIM,COLIM] = gray.shape
-print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
-
-
-#----------------------------------UART---------------------------------------
-
-ser.flushInput()
-ser.flushOutput()
-
-byteHeader  = bytearray()
-byteImage   = bytearray()
-
-byteHeader.append(0xb0)    
-byteHeader.append(0x7b)
-byteHeader.append(0x7c)
-byteHeader.append(0x4f)
-
-imReconsArray  = []
-imReconsMatrix = []
-imSendArray    = []
-imSendMatrix   = []
-n = 0
-m = 0
-
-#envio de imagen escalada linealmente
-while(1):
+	ser = serial.Serial(
+		port='/dev/ttyUSB1',		#Configurar con el puerto a usar 
+		baudrate=115200,
+		parity=serial.PARITY_NONE,
+		stopbits=serial.STOPBITS_ONE,
+		bytesize=serial.EIGHTBITS
+	)
 	
-	if(ser.inWaiting() > 0):
-		
-		a = ser.readline()
-		print(a)
-		
-		if (a == (b"Send header\r\n")):
-			ser.write(byteHeader)
-			print("Sent header\r\n")
-			
-		elif (a == (b"Send Image\r\n")):
-			for j in range (COLIM):
-				for i in range (ROWIM):
-					byteImage.append(gray[i][j]) 
-				sendCol(byteImage)
-				byteImage.clear() 
-			print("Sent Image\r\n")
+	ser.isOpen()
+	ser.timeout=None
+	print(ser.timeout)
 
-		elif (a == (b"Return data\r\n")):
-			while (m < (COLIM)):
-				imReconsMatrix.append(rebuildIm()) 
-				m = m+1
-			imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
+	#---------------------- image reading-------------------------------------------
+	# start = 1
+
+	# ap = argparse.ArgumentParser( description = "Convolution 2D")
+	# ap.add_argument("-i", "--image", required = False, help="Path to the input image",default=path)
+	# ap.add_argument("-k", "--kernel", help = "Path to the kernel")
+	# args = ap.parse_args()
+
+	gray   = cv2.imread("photo.jpg",0) #se carga ya gris
+	# endFlag = 0
+
+	#Convert image to gray scale
+	# gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+	#zero-padding
+	gray = np.pad(gray, ((1,1),(1,1)), 'constant')
+
+	[ROWIM,COLIM] = gray.shape
+	print("rows image= {0} \tcolumns image= {1}".format(ROWIM,COLIM))
+
+
+	#----------------------------------UART---------------------------------------
+
+	ser.flushInput()
+	ser.flushOutput()
+
+	byteHeader  = bytearray()
+	byteImage   = bytearray()
+
+	byteHeader.append(0xb0)    
+	byteHeader.append(0x7b)
+	byteHeader.append(0x7c)
+	byteHeader.append(0x4f)
+
+	imReconsArray  = []
+	imReconsMatrix = []
+	imSendArray    = []
+	imSendMatrix   = []
+	imDecimation   = []
+	n = 0
+	m = 0
+
+	#envio de imagen escalada linealmente
+	while(start):
+		
+		if(ser.inWaiting() > 0):
+			a = ser.readline()
+			print(a)
+			
+			if (a == (b"Send header\r\n")):
+				ser.write(byteHeader)
+				print("Sent header\r\n")
 				
-			#Check size
-			print("Final size1:")
-			print(imReconsMatrix.shape) 
-			
-			print("COMPARACION DE MATRICES")
-			print("Returned image:")
-			print(imReconsMatrix)
-			print("Original image:")
-			print(gray)
-			
-			#Guardar las imagenes resultantes
-			filename1 = 'sentImage.jpg'
-			filename2 = 'receivedImage1.jpg'
+			elif (a == (b"Send Image\r\n")):
+				for j in range (COLIM):
+					for i in range (ROWIM):
+						byteImage.append(gray[i][j]) 
+					sendCol(byteImage)
+					byteImage.clear() 
+				print("Sent Image\r\n")
 
-			cv2.imwrite(filename1, gray)
-			cv2.imwrite(filename2, imReconsMatrix)
+			elif (a == (b"Return data\r\n")):
+				while (m < (COLIM)):
+					imReconsMatrix.append(rebuildIm()) 
+					m = m+1
+				imReconsMatrix = (np.asarray(imReconsMatrix, 'uint8').T)
 
-			print("Finished processing/r")
+				#Decimation (Elimination of zeros)
+				imDecimation = imReconsMatrix[0::4,:]
+					
+				#Check size
+				print("Size post processing (with zeros):")
+				print(imReconsMatrix.shape) 
+				print("Size post processing (without zeros):")
+				print(imDecimation.shape) 
+				
+				"""
+				print("COMPARACION DE MATRICES")
+				print("Returned image:")
+				print(imReconsMatrix)
+				print("Original image:")
+				print(gray)
+				"""
+
+				#Guardar las imagenes resultantes
+				filename1 = 'sentImage.jpg'
+				filename2 = 'receivedImage.jpg'
+				filename3 = 'decimatedImage.jpg'
+
+				cv2.imwrite(filename1, gray)
+				cv2.imwrite(filename2, imReconsMatrix)
+				cv2.imwrite(filename3, imDecimation)
+
+				PATH="C:\\Educacion\\Procom2020\\PROCOMfinal\\1.WebRTC\\"
+				link= upload_image(imDecimation,PATH,filename3)
+				f= open("url.txt",'r+')
+				f.write(link)
+				f.close()
+				#Finaliza el procesamiento
+				start = 0
+				
+				print("Finished processing/r")

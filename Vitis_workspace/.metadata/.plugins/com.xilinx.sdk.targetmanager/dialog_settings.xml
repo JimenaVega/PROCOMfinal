@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="up_FIFO-partial_bit"/>
+	<item value="_ide/bitstream/uP_wrapper.mmi" key="up_FIFO-bmmFile"/>
+	<item value="RemoteConection" key="up_CONVOLVE-target"/>
+	<item value="up_CONVOLVE" key="programfpga.sdxproject"/>
+	<item value="Auto Detect" key="up_CONVOLVE_1-device"/>
+	<item value="bootloop" key="up_CONVOLVE_1-microblaze_0-initElf"/>
+	<item value="false" key="up_CONVOLVE_1-partial_bit"/>
+	<item value="RemoteConection" key="up_FIFO-target"/>
+	<item value="bootloop" key="up_FIFO-microblaze_0-initElf"/>
+	<item value="bootloop" key="up_CONVOLVE-microblaze_0-initElf"/>
+	<item value="false" key="up_Convolve-partial_bit"/>
+	<item value="RemoteConection" key="up_CONVOLVE_1-target"/>
+	<item value="_ide/bitstream/FinalConvolve_NoFirstLoad.mmi" key="up_CONVOLVE-bmmFile"/>
+	<item value="Digilent Arty 210319A2D006A/1-xc7a35t" key="up_CONVOLVE-device"/>
+	<item value="_ide/bitstream/uP_wrapper.bit" key="up_FIFO-bitFile"/>
+	<item value="RemoteConection" key="up_Convolve-target"/>
+	<item value="false" key="up_CONVOLVE_1-skip_rev_check"/>
+	<item value="C:\Educacion\Procom2020\PROCOMfinal\PROCOMfinal\3.uP\BlockDesign\FinalConvolve_NoFirstLoad.bit" key="up_Convolve-bitFile"/>
+	<item value="C:\Educacion\Procom2020\PROCOMfinal\3.uP\BlockDesign\FinalConvolve_NoFirstLoad.mmi" key="up_Convolve-bmmFile"/>
+	<item value="bootloop" key="up_Convolve-microblaze_0-initElf"/>
+	<item value="_ide/bitstream/FinalConvolve_NoFirstLoad.mmi" key="up_CONVOLVE_1-bmmFile"/>
+	<item value="false" key="up_CONVOLVE-partial_bit"/>
+	<item value="false" key="up_CONVOLVE-skip_rev_check"/>
+	<item value="_ide/bitstream/FinalConvolve_NoFirstLoad.bit" key="up_CONVOLVE_1-bitFile"/>
+	<item value="Digilent Arty 210319A2D006A/1-xc7a35t" key="up_Convolve-device"/>
+	<item value="_ide/bitstream/FinalConvolve_NoFirstLoad.bit" key="up_CONVOLVE-bitFile"/>
+	<item value="false" key="up_FIFO-skip_rev_check"/>
+	<item value="false" key="up_Convolve-skip_rev_check"/>
+	<item value="Digilent Arty 210319A2D006A/1-xc7a35t" key="up_FIFO-device"/>
+</section>

@@ -12,6 +12,7 @@ import cv2
 # import sysv_ipc
 import time
 import interfazWebUART
+import Final_InterfazWebRTC_Python
 from aiohttp import web
 from base64 import b64encode
 import requests
@@ -100,7 +101,7 @@ class VideoTransformTrack(MediaStreamTrack):
 
         global imagen_gris
         
-        imagen_gris=img #copia a gray
+        imagen_gris=gray #copia a gray
 
         
         

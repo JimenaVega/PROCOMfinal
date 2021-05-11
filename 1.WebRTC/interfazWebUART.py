@@ -176,7 +176,7 @@ if __name__ == "__main__":
     ser.timeout=None
     ser.flushInput()
     ser.flushOutput()
-    # print(ser.timeout)
+    
 
 
 
@@ -197,11 +197,11 @@ if __name__ == "__main__":
     # path = "descarga.jpg"
     # #path = "foto1.jpg"
 
-    ap = argparse.ArgumentParser( description="Convolution 2D")
-    ap.add_argument("-c", "--condicion", required=False, default="0")
+    # ap = argparse.ArgumentParser( description="Convolution 2D")
+    
     # ap.add_argument("-i", "--image", required=False, help="Path to the input image",default="path")
     # ap.add_argument("-k", "--kernel", help="Path to the kernel")
-    args = ap.parse_args()
+    # args = ap.parse_args()
 
 
 

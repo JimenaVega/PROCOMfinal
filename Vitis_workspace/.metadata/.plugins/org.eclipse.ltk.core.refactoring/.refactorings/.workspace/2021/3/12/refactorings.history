@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;up_FIFO/src/helloworld.c&apos;" deleteContents="false" description="Delete resource &apos;up_FIFO/src/helloworld.c&apos;" element1="/up_FIFO/src/helloworld.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1615907684000"/>&#x0A;<refactoring comment="Delete resource &apos;up_FIFO/src/ConvolveIP_conMixeo.c&apos;" deleteContents="false" description="Delete resource &apos;up_FIFO/src/ConvolveIP_conMixeo.c&apos;" element1="/up_FIFO/src/ConvolveIP_conMixeo.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1615939899249"/>
+</session>

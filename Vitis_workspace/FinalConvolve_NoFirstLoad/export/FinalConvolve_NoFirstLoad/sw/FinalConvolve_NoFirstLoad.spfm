@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="FinalConvolve_NoFirstLoad"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+FinalConvolve_NoFirstLoad
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="FinalConvolve_NoFirstLoad">
+        <sdx:configuration sdx:name="FinalConvolve_NoFirstLoad"
+                           sdx:displayName="FinalConvolve_NoFirstLoad"
+                           sdx:defaultProcessorGroup="standalone_domain"
+                           sdx:runtimes="cpp">
+            <sdx:description>FinalConvolve_NoFirstLoad</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="FinalConvolve_NoFirstLoad/boot/FinalConvolve_NoFirstLoad.bif"
+                            sdx:readme="FinalConvolve_NoFirstLoad/boot/generic.readme"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="standalone_domain"
+                                sdx:displayName="standalone on microblaze_0"
+                                sdx:cpuType="microblaze_0"
+                                sdx:cpuInstance="microblaze_0">
+                <sdx:os sdx:name="standalone"
+                        sdx:displayName="standalone"
+                        sdx:bspLibraryPaths="FinalConvolve_NoFirstLoad/standalone_domain/bsplib/lib"
+                        sdx:bspIncludePaths="FinalConvolve_NoFirstLoad/standalone_domain/bspinclude/include"
+                        sdx:bspConfig="FinalConvolve_NoFirstLoad/standalone_domain/system.mss"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>

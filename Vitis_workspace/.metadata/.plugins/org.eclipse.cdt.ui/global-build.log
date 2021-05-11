@@ -1,0 +1,20 @@
+Nothing to build in platform 'FinalConvolve_NoFirstLoad'
+
+20:35:02 **** Incremental Build of configuration Debug for project up_CONVOLVE ****
+make all 
+'Building file: ../src/ConvolveIP_conMixeo.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ConvolveIP_conMixeo.o" -IC:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/export/FinalConvolve_NoFirstLoad/sw/FinalConvolve_NoFirstLoad/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/ConvolveIP_conMixeo.d" -MT"src/ConvolveIP_conMixeo.o" -o "src/ConvolveIP_conMixeo.o" "../src/ConvolveIP_conMixeo.c"
+'Finished building: ../src/ConvolveIP_conMixeo.c'
+' '
+'Building target: up_CONVOLVE.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/export/FinalConvolve_NoFirstLoad/sw/FinalConvolve_NoFirstLoad/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "up_CONVOLVE.elf"  ./src/ConvolveIP_conMixeo.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: up_CONVOLVE.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size up_CONVOLVE.elf  |tee "up_CONVOLVE.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34916	   1816	   5324	  42056	   a448	up_CONVOLVE.elf
+'Finished building: up_CONVOLVE.elf.size'
+' '

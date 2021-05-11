@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="FinalConvolve_NoFirstLoad"
+              sdx:version="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+FinalConvolve_NoFirstLoad
+    </sdx:description>
+    <sdx:hardwarePlatforms>
+        <sdx:hardwarePlatform sdx:path="hw" sdx:name="FinalConvolve_NoFirstLoad.xsa"/>
+    </sdx:hardwarePlatforms>
+    <sdx:softwarePlatforms>
+        <sdx:softwarePlatform sdx:path="sw" sdx:name="FinalConvolve_NoFirstLoad.spfm"/>
+    </sdx:softwarePlatforms>
+</sdx:platform>
+

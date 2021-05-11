@@ -1,0 +1,26 @@
+20:14:37 **** Build of configuration Debug for project jtukj ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IC:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/export/uP_wrapper/sw/uP_wrapper/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -IC:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/export/uP_wrapper/sw/uP_wrapper/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: jtukj.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/export/uP_wrapper/sw/uP_wrapper/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "jtukj.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: jtukj.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size jtukj.elf  |tee "jtukj.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3188	    320	   3108	   6616	   19d8	jtukj.elf
+'Finished building: jtukj.elf.size'
+' '
+
+20:14:44 Build Finished (took 6s.822ms)
+

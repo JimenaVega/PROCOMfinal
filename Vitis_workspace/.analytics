@@ -1,0 +1,50 @@
+timestamp=[2021-03-16 12:09:57], mode=WORKBENCH_START, duration=0:00:15.831, duration_ms=15831, data={}
+timestamp=[2021-03-16 12:10:17], mode=WORKBENCH_UI_INIT, duration=0:00:19.753, duration_ms=19753, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2021-03-16 12:11:48], mode=APP_CREATION, duration=0:00:30.801, duration_ms=30801, data={name=up_FIFO, project_type=sdk, os=standalone, processor=microblaze, runtime=cpp, platform=uP_wrapper, application_type=application}
+timestamp=[2021-03-16 12:13:46], mode=PLATFORM_GENERATION, duration=0:00:31.034, duration_ms=31034, data={name=uP_wrapper}
+timestamp=[2021-03-16 20:36:56], mode=WORKBENCH_START, duration=0:00:58.379, duration_ms=58379, data={}
+timestamp=[2021-03-16 20:37:01], mode=WORKBENCH_UI_INIT, duration=0:00:05.410, duration_ms=5410, data={editors_count=2, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-03-16 20:54:47], mode=WORKBENCH_START, duration=0:00:19.447, duration_ms=19447, data={}
+timestamp=[2021-03-16 20:54:49], mode=WORKBENCH_UI_INIT, duration=0:00:02.218, duration_ms=2218, data={editors_count=2, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-03-16 21:03:55], mode=WORKBENCH_START, duration=0:00:18.216, duration_ms=18216, data={}
+timestamp=[2021-03-16 21:03:57], mode=WORKBENCH_UI_INIT, duration=0:00:01.999, duration_ms=1999, data={editors_count=2, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-03-16 21:13:23], mode=PLATFORM_GENERATION, duration=0:00:42.698, duration_ms=42698, data={name=uP_wrapper}
+timestamp=[2021-03-20 21:59:38], mode=WORKBENCH_START, duration=0:02:01.165, duration_ms=121165, data={}
+timestamp=[2021-03-20 21:59:45], mode=WORKBENCH_UI_INIT, duration=0:00:06.884, duration_ms=6884, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-03-20 22:27:52], mode=WORKBENCH_START, duration=0:00:30.739, duration_ms=30739, data={}
+timestamp=[2021-03-20 22:27:54], mode=WORKBENCH_UI_INIT, duration=0:00:02.518, duration_ms=2518, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-03-21 17:34:42], mode=WORKBENCH_START, duration=0:00:48.616, duration_ms=48616, data={}
+timestamp=[2021-03-21 17:34:46], mode=WORKBENCH_UI_INIT, duration=0:00:03.768, duration_ms=3768, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-03-31 14:21:11], mode=WORKBENCH_START, duration=0:00:37.616, duration_ms=37616, data={}
+timestamp=[2021-03-31 14:21:15], mode=WORKBENCH_UI_INIT, duration=0:00:04.119, duration_ms=4119, data={editors_count=4, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-04-06 16:10:34], mode=WORKBENCH_START, duration=0:01:12.967, duration_ms=72967, data={}
+timestamp=[2021-04-06 16:10:38], mode=WORKBENCH_UI_INIT, duration=0:00:04.217, duration_ms=4217, data={editors_count=4, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-04-22 20:01:17], mode=WORKBENCH_START, duration=0:00:57.769, duration_ms=57769, data={}
+timestamp=[2021-04-22 20:01:23], mode=WORKBENCH_UI_INIT, duration=0:00:05.694, duration_ms=5694, data={editors_count=7, platform_editors_count=4, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-04-22 20:04:30], mode=WORKBENCH_START, duration=0:00:21.831, duration_ms=21831, data={}
+timestamp=[2021-04-22 20:04:32], mode=WORKBENCH_UI_INIT, duration=0:00:02.067, duration_ms=2067, data={editors_count=7, platform_editors_count=4, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-04-22 20:06:49], mode=WORKBENCH_START, duration=0:00:25.154, duration_ms=25154, data={}
+timestamp=[2021-04-22 20:06:51], mode=WORKBENCH_UI_INIT, duration=0:00:02.258, duration_ms=2258, data={editors_count=7, platform_editors_count=4, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,uP_wrapper,up_FIFO,up_FIFO_system}
+timestamp=[2021-04-22 20:13:27], mode=APP_CREATION, duration=0:00:09.024, duration_ms=9024, data={name=jtukj, project_type=sdk, os=standalone, processor=microblaze_0, runtime=C/C++, platform=uP_wrapper, application_type=application}
+timestamp=[2021-04-22 20:14:35], mode=PLATFORM_GENERATION, duration=0:00:46.668, duration_ms=46668, data={name=uP_wrapper}
+timestamp=[2021-04-22 20:29:58], mode=APP_CREATION, duration=0:00:07.354, duration_ms=7354, data={name=up_Convolve, project_type=sdk, os=standalone, processor=microblaze_0, runtime=C/C++, platform=uP_wrapper, application_type=application}
+timestamp=[2021-04-22 20:31:57], mode=WORKBENCH_START, duration=0:00:46.160, duration_ms=46160, data={}
+timestamp=[2021-04-22 20:32:01], mode=WORKBENCH_UI_INIT, duration=0:00:04.571, duration_ms=4571, data={editors_count=11, platform_editors_count=4, projects_count=8, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,jtukj,jtukj_system,uP_wrapper,up_Convolve,up_Convolve_system,up_FIFO,up_FIFO_system}
+timestamp=[2021-04-23 10:00:01], mode=PLATFORM_GENERATION, duration=0:00:42.829, duration_ms=42829, data={name=uP_wrapper}
+timestamp=[2021-04-23 10:29:34], mode=APP_CREATION, duration=0:00:20.593, duration_ms=20593, data={name=up_CONVOLVE_1, project_type=sdk, os=standalone, processor=microblaze, runtime=cpp, platform=FinalConvolve_NoFirstLoad, application_type=application}
+timestamp=[2021-04-23 10:34:03], mode=PLATFORM_GENERATION, duration=0:00:16.311, duration_ms=16311, data={name=FinalConvolve_NoFirstLoad}
+timestamp=[2021-04-23 10:38:45], mode=WORKBENCH_START, duration=0:00:23.808, duration_ms=23808, data={}
+timestamp=[2021-04-23 10:38:47], mode=WORKBENCH_UI_INIT, duration=0:00:01.946, duration_ms=1946, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=FinalConvolve_NoFirstLoad,RemoteSystemsTempFiles,up_CONVOLVE_1,up_CONVOLVE_1_system}
+timestamp=[2021-04-23 10:40:08], mode=APP_CREATION, duration=0:00:03.492, duration_ms=3492, data={name=up_CONVOLVE, project_type=sdk, os=standalone, processor=microblaze_0, runtime=C/C++, platform=FinalConvolve_NoFirstLoad, application_type=application}
+timestamp=[2021-04-30 09:58:04], mode=WORKBENCH_START, duration=0:01:17.689, duration_ms=77689, data={}
+timestamp=[2021-04-30 09:58:07], mode=WORKBENCH_UI_INIT, duration=0:00:03.727, duration_ms=3727, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=FinalConvolve_NoFirstLoad,RemoteSystemsTempFiles,up_CONVOLVE,up_CONVOLVE_system}
+timestamp=[2021-04-30 12:31:22], mode=WORKBENCH_START, duration=0:00:49.471, duration_ms=49471, data={}
+timestamp=[2021-04-30 12:31:26], mode=WORKBENCH_UI_INIT, duration=0:00:03.657, duration_ms=3657, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=FinalConvolve_NoFirstLoad,RemoteSystemsTempFiles,up_CONVOLVE,up_CONVOLVE_system}
+timestamp=[2021-05-03 15:59:00], mode=PLATFORM_GENERATION, duration=0:01:21.719, duration_ms=81719, data={name=FinalConvolve_NoFirstLoad}
+timestamp=[2021-05-10 18:34:28], mode=WORKBENCH_START, duration=0:01:06.410, duration_ms=66410, data={}
+timestamp=[2021-05-10 18:34:33], mode=WORKBENCH_UI_INIT, duration=0:00:04.349, duration_ms=4349, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=FinalConvolve_NoFirstLoad,RemoteSystemsTempFiles,up_CONVOLVE,up_CONVOLVE_system}
+timestamp=[2021-05-10 19:21:15], mode=WORKBENCH_START, duration=0:00:47.909, duration_ms=47909, data={}
+timestamp=[2021-05-10 19:21:18], mode=WORKBENCH_UI_INIT, duration=0:00:02.715, duration_ms=2715, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=FinalConvolve_NoFirstLoad,RemoteSystemsTempFiles,up_CONVOLVE,up_CONVOLVE_system}
+timestamp=[2021-05-10 19:41:38], mode=PLATFORM_GENERATION, duration=0:00:36.987, duration_ms=36987, data={name=FinalConvolve_NoFirstLoad}
+timestamp=[2021-05-10 20:09:45], mode=WORKBENCH_START, duration=0:00:16.448, duration_ms=16448, data={}
+timestamp=[2021-05-10 20:09:47], mode=WORKBENCH_UI_INIT, duration=0:00:01.607, duration_ms=1607, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=FinalConvolve_NoFirstLoad,RemoteSystemsTempFiles,up_CONVOLVE,up_CONVOLVE_system}

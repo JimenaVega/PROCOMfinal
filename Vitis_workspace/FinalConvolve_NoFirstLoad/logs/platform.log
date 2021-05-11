@@ -1,0 +1,1560 @@
+TRACE::2021-04-23.10:29:13::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:13::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:13::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:13::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:13::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:13::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:13::SCWPlatform::Do not have an existing db opened. 
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened new HwDB with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	""
+}
+TRACE::2021-04-23.10:29:14::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad"
+		}]
+}
+TRACE::2021-04-23.10:29:14::SCWPlatform::Boot application domains not present, creating them
+TRACE::2021-04-23.10:29:14::SCWPlatform::Pure FPGA device, no boot application will be created.
+TRACE::2021-04-23.10:29:14::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad"
+		}]
+}
+TRACE::2021-04-23.10:29:14::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad"
+		}]
+}
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWDomain::checking for install qemu data   : 
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:14::SCWMssOS::No sw design opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::mss does not exists at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::Creating sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::Adding the swdes entry, created swdb C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss with des name C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::updating the scw layer changes to swdes at   C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::Writing mss at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-04-23.10:29:14::SCWMssOS::Picking up changes from newly written mss file into SCW Layer. 
+TRACE::2021-04-23.10:29:14::SCWMssOS::Updated the changes from newly written mss file into SCW Layer. 
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:14::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:14::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:14::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"",
+					"compatibleApp":	"hello_world",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:14::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:14::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:14::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:14::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:14::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:14::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-04-23.10:29:14::SCWMssOS::Forcing BSP Sources regeneration.
+LOG::2021-04-23.10:29:29::SCWPlatform::Started generating the artifacts platform FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:29:29::SCWPlatform::Sanity checking of platform is completed
+LOG::2021-04-23.10:29:29::SCWPlatform::Started generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+LOG::2021-04-23.10:29:29::SCWSystem::Checking the domain standalone_domain
+LOG::2021-04-23.10:29:29::SCWSystem::Not a boot domain 
+LOG::2021-04-23.10:29:29::SCWSystem::Started Processing the domain standalone_domain
+TRACE::2021-04-23.10:29:29::SCWDomain::Generating domain artifcats
+TRACE::2021-04-23.10:29:29::SCWMssOS::Generating standalone artifcats
+TRACE::2021-04-23.10:29:29::SCWMssOS:: Copying the user libraries. 
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+KEYINFO::2021-04-23.10:29:29::SCWMssOS::Could not open the swdb for C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+KEYINFO::2021-04-23.10:29:29::SCWMssOS::Could not open the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+ERROR: [Hsi 55-1558] Software Design C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss is not found
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Cleared the swdb table entry
+TRACE::2021-04-23.10:29:29::SCWMssOS::No sw design opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::mss exists loading the mss file  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::Opened the sw design from mss  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::Adding the swdes entry C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss with des name system_0
+TRACE::2021-04-23.10:29:29::SCWMssOS::updating the scw layer about changes
+TRACE::2021-04-23.10:29:29::SCWMssOS::Opened the sw design.  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-04-23.10:29:29::SCWMssOS::Mss edits present, copying mssfile into export location C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::bsp generated is upto date with the mss file. Skipping bsp generation.
+TRACE::2021-04-23.10:29:29::SCWMssOS::BSP is already built. skipping the bsp build ... 
+TRACE::2021-04-23.10:29:29::SCWDomain::Skipping the build for domain :  standalone_domain
+TRACE::2021-04-23.10:29:29::SCWMssOS::skipping the bsp build ... 
+TRACE::2021-04-23.10:29:29::SCWMssOS::Copying to export directory.
+TRACE::2021-04-23.10:29:29::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2021-04-23.10:29:29::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2021-04-23.10:29:29::SCWSystem::Completed Processing the domain standalone_domain
+LOG::2021-04-23.10:29:29::SCWSystem::Completed Processing the sysconfig FinalConvolve_NoFirstLoad
+LOG::2021-04-23.10:29:29::SCWPlatform::Completed generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:29:29::SCWPlatform::Started preparing the platform 
+TRACE::2021-04-23.10:29:29::SCWSystem::Writing the bif file for system config FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:29:29::SCWSystem::dir created 
+TRACE::2021-04-23.10:29:29::SCWSystem::Writing the bif 
+TRACE::2021-04-23.10:29:29::SCWPlatform::Started writing the spfm file 
+TRACE::2021-04-23.10:29:29::SCWPlatform::Started writing the xpfm file 
+TRACE::2021-04-23.10:29:29::SCWPlatform::Completed generating the platform
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"hello_world",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2021-04-23.10:29:29::SCWPlatform::updated the xpfm file.
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"hello_world",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:29::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:29::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:29::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:29::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:29::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:29::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"hello_world",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+LOG::2021-04-23.10:29:30::SCWPlatform::Started generating the artifacts platform FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:29:30::SCWPlatform::Sanity checking of platform is completed
+LOG::2021-04-23.10:29:30::SCWPlatform::Started generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+LOG::2021-04-23.10:29:30::SCWSystem::Started Processing the domain standalone_domain
+TRACE::2021-04-23.10:29:30::SCWDomain::Generating domain artifcats
+TRACE::2021-04-23.10:29:30::SCWMssOS::Generating standalone artifcats
+TRACE::2021-04-23.10:29:30::SCWMssOS:: Copying the user libraries. 
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:30::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:30::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-04-23.10:29:30::SCWMssOS::Mss edits present, copying mssfile into export location C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWMssOS::bsp generated is upto date with the mss file. Skipping bsp generation.
+TRACE::2021-04-23.10:29:30::SCWMssOS::BSP is already built. skipping the bsp build ... 
+TRACE::2021-04-23.10:29:30::SCWDomain::Building the domain as part of full build :  standalone_domain
+TRACE::2021-04-23.10:29:30::SCWMssOS::skipping the bsp build ... 
+TRACE::2021-04-23.10:29:30::SCWMssOS::Copying to export directory.
+TRACE::2021-04-23.10:29:30::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2021-04-23.10:29:30::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2021-04-23.10:29:30::SCWSystem::Completed Processing the domain standalone_domain
+LOG::2021-04-23.10:29:30::SCWSystem::Completed Processing the sysconfig FinalConvolve_NoFirstLoad
+LOG::2021-04-23.10:29:30::SCWPlatform::Completed generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:29:30::SCWPlatform::Started preparing the platform 
+TRACE::2021-04-23.10:29:30::SCWSystem::Writing the bif file for system config FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:29:30::SCWSystem::dir created 
+TRACE::2021-04-23.10:29:30::SCWSystem::Writing the bif 
+TRACE::2021-04-23.10:29:30::SCWPlatform::Started writing the spfm file 
+TRACE::2021-04-23.10:29:30::SCWPlatform::Started writing the xpfm file 
+TRACE::2021-04-23.10:29:30::SCWPlatform::Completed generating the platform
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:30::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:30::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:30::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:30::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:29:30::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:29:30::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:29:30::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:29:30::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/uP_wrapper/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-04-23.10:29:30::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:29:30::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"hello_world",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2021-04-23.10:29:30::SCWPlatform::updated the xpfm file.
+LOG::2021-04-23.10:33:50::SCWPlatform::Started generating the artifacts platform FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:33:50::SCWPlatform::Sanity checking of platform is completed
+LOG::2021-04-23.10:33:50::SCWPlatform::Started generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+LOG::2021-04-23.10:33:50::SCWSystem::Checking the domain standalone_domain
+LOG::2021-04-23.10:33:50::SCWSystem::Not a boot domain 
+LOG::2021-04-23.10:33:50::SCWSystem::Started Processing the domain standalone_domain
+TRACE::2021-04-23.10:33:50::SCWDomain::Generating domain artifcats
+TRACE::2021-04-23.10:33:50::SCWMssOS::Generating standalone artifcats
+TRACE::2021-04-23.10:33:50::SCWMssOS:: Copying the user libraries. 
+TRACE::2021-04-23.10:33:50::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:33:50::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:33:50::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:33:50::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:33:50::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:33:50::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:33:50::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:33:50::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:33:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:33:50::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:33:50::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+
+TRACE::2021-04-23.10:33:50::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:33:50::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-04-23.10:33:50::SCWMssOS::Mss edits present, copying mssfile into export location C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:33:50::SCWMssOS::bsp generated is upto date with the mss file. Skipping bsp generation.
+TRACE::2021-04-23.10:33:50::SCWMssOS::BSP is already built. skipping the bsp build ... 
+TRACE::2021-04-23.10:33:50::SCWDomain::Building the domain as part of full build :  standalone_domain
+TRACE::2021-04-23.10:33:50::SCWMssOS::doing bsp build ... 
+TRACE::2021-04-23.10:33:50::SCWMssOS::System Command Ran  C: & cd  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp & make 
+TRACE::2021-04-23.10:33:51::SCWMssOS::"Running Make include in microblaze_0/libsrc/axidma_v9_10/src"
+
+TRACE::2021-04-23.10:33:51::SCWMssOS::make -C microblaze_0/libsrc/axidma_v9_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMP
+TRACE::2021-04-23.10:33:51::SCWMssOS::ILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wa
+TRACE::2021-04-23.10:33:51::SCWMssOS::ll -Wextra"
+
+TRACE::2021-04-23.10:33:51::SCWMssOS::"Running Make include in microblaze_0/libsrc/bram_v4_3/src"
+
+TRACE::2021-04-23.10:33:51::SCWMssOS::make -C microblaze_0/libsrc/bram_v4_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-04-23.10:33:51::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-04-23.10:33:51::SCWMssOS::-Wextra"
+
+TRACE::2021-04-23.10:33:51::SCWMssOS::"Running Make include in microblaze_0/libsrc/cpu_v2_10/src"
+
+TRACE::2021-04-23.10:33:51::SCWMssOS::make -C microblaze_0/libsrc/cpu_v2_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-04-23.10:33:51::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-04-23.10:33:51::SCWMssOS::-Wextra"
+
+TRACE::2021-04-23.10:33:52::SCWMssOS::"Running Make include in microblaze_0/libsrc/intc_v3_10/src"
+
+TRACE::2021-04-23.10:33:52::SCWMssOS::make -C microblaze_0/libsrc/intc_v3_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPIL
+TRACE::2021-04-23.10:33:52::SCWMssOS::ER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall
+TRACE::2021-04-23.10:33:52::SCWMssOS:: -Wextra"
+
+TRACE::2021-04-23.10:33:52::SCWMssOS::"Running Make include in microblaze_0/libsrc/standalone_v7_1/src"
+
+TRACE::2021-04-23.10:33:52::SCWMssOS::make -C microblaze_0/libsrc/standalone_v7_1/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "C
+TRACE::2021-04-23.10:33:52::SCWMssOS::OMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections 
+TRACE::2021-04-23.10:33:52::SCWMssOS::-Wall -Wextra"
+
+TRACE::2021-04-23.10:33:53::SCWMssOS::"Running Make include in microblaze_0/libsrc/uartlite_v3_3/src"
+
+TRACE::2021-04-23.10:33:53::SCWMssOS::make -C microblaze_0/libsrc/uartlite_v3_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COM
+TRACE::2021-04-23.10:33:53::SCWMssOS::PILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -W
+TRACE::2021-04-23.10:33:53::SCWMssOS::all -Wextra"
+
+TRACE::2021-04-23.10:33:53::SCWMssOS::"Running Make libs in microblaze_0/libsrc/axidma_v9_10/src"
+
+TRACE::2021-04-23.10:33:53::SCWMssOS::make -C microblaze_0/libsrc/axidma_v9_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-04-23.10:33:53::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-04-23.10:33:53::SCWMssOS::-Wextra"
+
+TRACE::2021-04-23.10:33:53::SCWMssOS::"Compiling axidma"
+
+TRACE::2021-04-23.10:33:55::SCWMssOS::"Running Make libs in microblaze_0/libsrc/bram_v4_3/src"
+
+TRACE::2021-04-23.10:33:55::SCWMssOS::make -C microblaze_0/libsrc/bram_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_F
+TRACE::2021-04-23.10:33:55::SCWMssOS::LAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -We
+TRACE::2021-04-23.10:33:55::SCWMssOS::xtra"
+
+TRACE::2021-04-23.10:33:55::SCWMssOS::"Compiling bram"
+
+TRACE::2021-04-23.10:33:55::SCWMssOS::"Running Make libs in microblaze_0/libsrc/cpu_v2_10/src"
+
+TRACE::2021-04-23.10:33:55::SCWMssOS::make -C microblaze_0/libsrc/cpu_v2_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_F
+TRACE::2021-04-23.10:33:55::SCWMssOS::LAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -We
+TRACE::2021-04-23.10:33:55::SCWMssOS::xtra"
+
+TRACE::2021-04-23.10:33:56::SCWMssOS::"Compiling cpu"
+
+TRACE::2021-04-23.10:33:56::SCWMssOS::"Running Make libs in microblaze_0/libsrc/intc_v3_10/src"
+
+TRACE::2021-04-23.10:33:56::SCWMssOS::make -C microblaze_0/libsrc/intc_v3_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_
+TRACE::2021-04-23.10:33:56::SCWMssOS::FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -W
+TRACE::2021-04-23.10:33:56::SCWMssOS::extra"
+
+TRACE::2021-04-23.10:33:56::SCWMssOS::"Compiling intc"
+
+TRACE::2021-04-23.10:33:57::SCWMssOS::"Running Make libs in microblaze_0/libsrc/standalone_v7_1/src"
+
+TRACE::2021-04-23.10:33:57::SCWMssOS::make -C microblaze_0/libsrc/standalone_v7_1/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMP
+TRACE::2021-04-23.10:33:57::SCWMssOS::ILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wa
+TRACE::2021-04-23.10:33:57::SCWMssOS::ll -Wextra"
+
+TRACE::2021-04-23.10:33:57::SCWMssOS::"Compiling standalone";
+
+TRACE::2021-04-23.10:34:02::SCWMssOS::"Running Make libs in microblaze_0/libsrc/uartlite_v3_3/src"
+
+TRACE::2021-04-23.10:34:02::SCWMssOS::make -C microblaze_0/libsrc/uartlite_v3_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPIL
+TRACE::2021-04-23.10:34:02::SCWMssOS::ER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall
+TRACE::2021-04-23.10:34:02::SCWMssOS:: -Wextra"
+
+TRACE::2021-04-23.10:34:02::SCWMssOS::"Compiling uartlite"
+
+TRACE::2021-04-23.10:34:03::SCWMssOS::'Finished building libraries'
+
+TRACE::2021-04-23.10:34:03::SCWMssOS::Copying to export directory.
+TRACE::2021-04-23.10:34:03::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2021-04-23.10:34:03::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2021-04-23.10:34:03::SCWSystem::Completed Processing the domain standalone_domain
+LOG::2021-04-23.10:34:03::SCWSystem::Completed Processing the sysconfig FinalConvolve_NoFirstLoad
+LOG::2021-04-23.10:34:03::SCWPlatform::Completed generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:34:03::SCWPlatform::Started preparing the platform 
+TRACE::2021-04-23.10:34:03::SCWSystem::Writing the bif file for system config FinalConvolve_NoFirstLoad
+TRACE::2021-04-23.10:34:03::SCWSystem::dir created 
+TRACE::2021-04-23.10:34:03::SCWSystem::Writing the bif 
+TRACE::2021-04-23.10:34:03::SCWPlatform::Started writing the spfm file 
+TRACE::2021-04-23.10:34:03::SCWPlatform::Started writing the xpfm file 
+TRACE::2021-04-23.10:34:03::SCWPlatform::Completed generating the platform
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:34:03::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+
+TRACE::2021-04-23.10:34:03::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:34:03::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+
+TRACE::2021-04-23.10:34:03::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:34:03::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+
+TRACE::2021-04-23.10:34:03::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"hello_world",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2021-04-23.10:34:03::SCWPlatform::updated the xpfm file.
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-04-23.10:34:03::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-04-23.10:34:03::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Opened existing hwdb uP_wrapper_2
+TRACE::2021-04-23.10:34:03::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-04-23.10:34:03::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-04-23.10:34:03::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system_0||
+
+TRACE::2021-04-23.10:34:03::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:57:53::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:57:53::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:57:53::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:20::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:21::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:21::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:21::SCWPlatform::Do not have an existing db opened. 
+TRACE::2021-05-03.15:58:21::SCWPlatform::Opened new HwDB with name uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWReader::Active system found as  FinalConvolve_NoFirstLoad
+TRACE::2021-05-03.15:58:22::SCWReader::Handling sysconfig FinalConvolve_NoFirstLoad
+TRACE::2021-05-03.15:58:22::SCWDomain::checking for install qemu data   : 
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:22::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2021-05-03.15:58:22::SCWMssOS::No sw design opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::mss exists loading the mss file  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::Opened the sw design from mss  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::Adding the swdes entry C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss with des name system
+TRACE::2021-05-03.15:58:22::SCWMssOS::updating the scw layer about changes
+TRACE::2021-05-03.15:58:22::SCWMssOS::Opened the sw design.  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2021-05-03.15:58:22::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:22::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-03.15:58:22::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWReader::No isolation master present  
+LOG::2021-05-03.15:58:22::SCWPlatform::Started generating the artifacts platform FinalConvolve_NoFirstLoad
+TRACE::2021-05-03.15:58:22::SCWPlatform::Sanity checking of platform is completed
+LOG::2021-05-03.15:58:22::SCWPlatform::Started generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+LOG::2021-05-03.15:58:22::SCWSystem::Checking the domain standalone_domain
+LOG::2021-05-03.15:58:22::SCWSystem::Not a boot domain 
+LOG::2021-05-03.15:58:22::SCWSystem::Started Processing the domain standalone_domain
+TRACE::2021-05-03.15:58:22::SCWDomain::Generating domain artifcats
+TRACE::2021-05-03.15:58:22::SCWMssOS::Generating standalone artifcats
+TRACE::2021-05-03.15:58:22::SCWMssOS:: Copying the user libraries. 
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:22::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:22::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:22::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:22::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-03.15:58:22::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-05-03.15:58:22::SCWMssOS::Mss edits present, copying mssfile into export location C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:22::SCWMssOS::bsp generated is upto date with the mss file. Skipping bsp generation.
+TRACE::2021-05-03.15:58:22::SCWMssOS::BSP is already built. skipping the bsp build ... 
+TRACE::2021-05-03.15:58:22::SCWDomain::Building the domain as part of full build :  standalone_domain
+TRACE::2021-05-03.15:58:22::SCWMssOS::doing bsp build ... 
+TRACE::2021-05-03.15:58:22::SCWMssOS::System Command Ran  C: & cd  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp & make 
+TRACE::2021-05-03.15:58:24::SCWMssOS::"Running Make include in microblaze_0/libsrc/axidma_v9_10/src"
+
+TRACE::2021-05-03.15:58:24::SCWMssOS::make -C microblaze_0/libsrc/axidma_v9_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMP
+TRACE::2021-05-03.15:58:24::SCWMssOS::ILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wa
+TRACE::2021-05-03.15:58:24::SCWMssOS::ll -Wextra"
+
+TRACE::2021-05-03.15:58:26::SCWMssOS::"Running Make include in microblaze_0/libsrc/bram_v4_3/src"
+
+TRACE::2021-05-03.15:58:26::SCWMssOS::make -C microblaze_0/libsrc/bram_v4_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-05-03.15:58:26::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-05-03.15:58:26::SCWMssOS::-Wextra"
+
+TRACE::2021-05-03.15:58:27::SCWMssOS::"Running Make include in microblaze_0/libsrc/cpu_v2_10/src"
+
+TRACE::2021-05-03.15:58:27::SCWMssOS::make -C microblaze_0/libsrc/cpu_v2_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-05-03.15:58:27::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-05-03.15:58:27::SCWMssOS::-Wextra"
+
+TRACE::2021-05-03.15:58:27::SCWMssOS::"Running Make include in microblaze_0/libsrc/intc_v3_10/src"
+
+TRACE::2021-05-03.15:58:27::SCWMssOS::make -C microblaze_0/libsrc/intc_v3_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPIL
+TRACE::2021-05-03.15:58:27::SCWMssOS::ER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall
+TRACE::2021-05-03.15:58:27::SCWMssOS:: -Wextra"
+
+TRACE::2021-05-03.15:58:28::SCWMssOS::"Running Make include in microblaze_0/libsrc/standalone_v7_1/src"
+
+TRACE::2021-05-03.15:58:28::SCWMssOS::make -C microblaze_0/libsrc/standalone_v7_1/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "C
+TRACE::2021-05-03.15:58:28::SCWMssOS::OMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections 
+TRACE::2021-05-03.15:58:28::SCWMssOS::-Wall -Wextra"
+
+TRACE::2021-05-03.15:58:35::SCWMssOS::"Running Make include in microblaze_0/libsrc/uartlite_v3_3/src"
+
+TRACE::2021-05-03.15:58:35::SCWMssOS::make -C microblaze_0/libsrc/uartlite_v3_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COM
+TRACE::2021-05-03.15:58:35::SCWMssOS::PILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -W
+TRACE::2021-05-03.15:58:35::SCWMssOS::all -Wextra"
+
+TRACE::2021-05-03.15:58:36::SCWMssOS::"Running Make libs in microblaze_0/libsrc/axidma_v9_10/src"
+
+TRACE::2021-05-03.15:58:36::SCWMssOS::make -C microblaze_0/libsrc/axidma_v9_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-05-03.15:58:36::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-05-03.15:58:36::SCWMssOS::-Wextra"
+
+TRACE::2021-05-03.15:58:36::SCWMssOS::"Compiling axidma"
+
+TRACE::2021-05-03.15:58:44::SCWMssOS::"Running Make libs in microblaze_0/libsrc/bram_v4_3/src"
+
+TRACE::2021-05-03.15:58:44::SCWMssOS::make -C microblaze_0/libsrc/bram_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_F
+TRACE::2021-05-03.15:58:44::SCWMssOS::LAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -We
+TRACE::2021-05-03.15:58:44::SCWMssOS::xtra"
+
+TRACE::2021-05-03.15:58:44::SCWMssOS::"Compiling bram"
+
+TRACE::2021-05-03.15:58:46::SCWMssOS::"Running Make libs in microblaze_0/libsrc/cpu_v2_10/src"
+
+TRACE::2021-05-03.15:58:46::SCWMssOS::make -C microblaze_0/libsrc/cpu_v2_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_F
+TRACE::2021-05-03.15:58:46::SCWMssOS::LAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -We
+TRACE::2021-05-03.15:58:46::SCWMssOS::xtra"
+
+TRACE::2021-05-03.15:58:46::SCWMssOS::"Compiling cpu"
+
+TRACE::2021-05-03.15:58:47::SCWMssOS::"Running Make libs in microblaze_0/libsrc/intc_v3_10/src"
+
+TRACE::2021-05-03.15:58:47::SCWMssOS::make -C microblaze_0/libsrc/intc_v3_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_
+TRACE::2021-05-03.15:58:47::SCWMssOS::FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -W
+TRACE::2021-05-03.15:58:47::SCWMssOS::extra"
+
+TRACE::2021-05-03.15:58:47::SCWMssOS::"Compiling intc"
+
+TRACE::2021-05-03.15:58:48::SCWMssOS::"Running Make libs in microblaze_0/libsrc/standalone_v7_1/src"
+
+TRACE::2021-05-03.15:58:48::SCWMssOS::make -C microblaze_0/libsrc/standalone_v7_1/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMP
+TRACE::2021-05-03.15:58:48::SCWMssOS::ILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wa
+TRACE::2021-05-03.15:58:48::SCWMssOS::ll -Wextra"
+
+TRACE::2021-05-03.15:58:48::SCWMssOS::"Compiling standalone";
+
+TRACE::2021-05-03.15:58:55::SCWMssOS::"Running Make libs in microblaze_0/libsrc/uartlite_v3_3/src"
+
+TRACE::2021-05-03.15:58:55::SCWMssOS::make -C microblaze_0/libsrc/uartlite_v3_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPIL
+TRACE::2021-05-03.15:58:55::SCWMssOS::ER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall
+TRACE::2021-05-03.15:58:55::SCWMssOS:: -Wextra"
+
+TRACE::2021-05-03.15:58:55::SCWMssOS::"Compiling uartlite"
+
+TRACE::2021-05-03.15:58:57::SCWMssOS::'Finished building libraries'
+
+TRACE::2021-05-03.15:58:58::SCWMssOS::Copying to export directory.
+TRACE::2021-05-03.15:58:58::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2021-05-03.15:58:58::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2021-05-03.15:58:58::SCWSystem::Completed Processing the domain standalone_domain
+LOG::2021-05-03.15:58:58::SCWSystem::Completed Processing the sysconfig FinalConvolve_NoFirstLoad
+LOG::2021-05-03.15:58:58::SCWPlatform::Completed generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+TRACE::2021-05-03.15:58:58::SCWPlatform::Started preparing the platform 
+TRACE::2021-05-03.15:58:58::SCWSystem::Writing the bif file for system config FinalConvolve_NoFirstLoad
+TRACE::2021-05-03.15:58:58::SCWSystem::dir created 
+TRACE::2021-05-03.15:58:58::SCWSystem::Writing the bif 
+TRACE::2021-05-03.15:58:58::SCWPlatform::Started writing the spfm file 
+TRACE::2021-05-03.15:58:58::SCWPlatform::Started writing the xpfm file 
+TRACE::2021-05-03.15:58:58::SCWPlatform::Completed generating the platform
+TRACE::2021-05-03.15:58:58::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:58::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:58::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:58::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:58::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:58::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:58::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:58::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:58::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:58::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-03.15:58:58::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:58::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2021-05-03.15:58:58::SCWPlatform::updated the xpfm file.
+TRACE::2021-05-03.15:58:59::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:59::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:59::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:59::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-03.15:58:59::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-03.15:58:59::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-03.15:58:59::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper
+TRACE::2021-05-03.15:58:59::SCWPlatform::Opened existing hwdb uP_wrapper
+TRACE::2021-05-03.15:58:59::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-03.15:58:59::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-03.15:58:59::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-03.15:58:59::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:05::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:05::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:05::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:10::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Do not have an existing db opened. 
+TRACE::2021-05-10.19:41:11::SCWPlatform::Opened new HwDB with name uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWReader::Active system found as  FinalConvolve_NoFirstLoad
+TRACE::2021-05-10.19:41:11::SCWReader::Handling sysconfig FinalConvolve_NoFirstLoad
+TRACE::2021-05-10.19:41:11::SCWDomain::checking for install qemu data   : 
+TRACE::2021-05-10.19:41:11::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:11::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:11::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:11::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:11::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:12::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2021-05-10.19:41:12::SCWMssOS::No sw design opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::mss exists loading the mss file  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::Opened the sw design from mss  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::Adding the swdes entry C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss with des name system
+TRACE::2021-05-10.19:41:12::SCWMssOS::updating the scw layer about changes
+TRACE::2021-05-10.19:41:12::SCWMssOS::Opened the sw design.  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2021-05-10.19:41:12::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2021-05-10.19:41:12::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:12::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:12::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:12::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:12::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:12::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-10.19:41:12::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWReader::No isolation master present  
+LOG::2021-05-10.19:41:12::SCWPlatform::Started generating the artifacts platform FinalConvolve_NoFirstLoad
+TRACE::2021-05-10.19:41:12::SCWPlatform::Sanity checking of platform is completed
+LOG::2021-05-10.19:41:12::SCWPlatform::Started generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+LOG::2021-05-10.19:41:12::SCWSystem::Checking the domain standalone_domain
+LOG::2021-05-10.19:41:12::SCWSystem::Not a boot domain 
+LOG::2021-05-10.19:41:12::SCWSystem::Started Processing the domain standalone_domain
+TRACE::2021-05-10.19:41:12::SCWDomain::Generating domain artifcats
+TRACE::2021-05-10.19:41:12::SCWMssOS::Generating standalone artifcats
+TRACE::2021-05-10.19:41:12::SCWMssOS:: Copying the user libraries. 
+TRACE::2021-05-10.19:41:12::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:12::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:12::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:12::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:12::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:12::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:12::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-10.19:41:12::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::Completed writing the mss file at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp
+TRACE::2021-05-10.19:41:12::SCWMssOS::Mss edits present, copying mssfile into export location C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:12::SCWMssOS::bsp generated is upto date with the mss file. Skipping bsp generation.
+TRACE::2021-05-10.19:41:12::SCWMssOS::BSP is already built. skipping the bsp build ... 
+TRACE::2021-05-10.19:41:12::SCWDomain::Building the domain as part of full build :  standalone_domain
+TRACE::2021-05-10.19:41:12::SCWMssOS::doing bsp build ... 
+TRACE::2021-05-10.19:41:12::SCWMssOS::System Command Ran  C: & cd  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp & make 
+TRACE::2021-05-10.19:41:13::SCWMssOS::"Running Make include in microblaze_0/libsrc/axidma_v9_10/src"
+
+TRACE::2021-05-10.19:41:13::SCWMssOS::make -C microblaze_0/libsrc/axidma_v9_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMP
+TRACE::2021-05-10.19:41:13::SCWMssOS::ILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wa
+TRACE::2021-05-10.19:41:13::SCWMssOS::ll -Wextra"
+
+TRACE::2021-05-10.19:41:14::SCWMssOS::"Running Make include in microblaze_0/libsrc/bram_v4_3/src"
+
+TRACE::2021-05-10.19:41:14::SCWMssOS::make -C microblaze_0/libsrc/bram_v4_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-05-10.19:41:14::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-05-10.19:41:14::SCWMssOS::-Wextra"
+
+TRACE::2021-05-10.19:41:15::SCWMssOS::"Running Make include in microblaze_0/libsrc/cpu_v2_10/src"
+
+TRACE::2021-05-10.19:41:15::SCWMssOS::make -C microblaze_0/libsrc/cpu_v2_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-05-10.19:41:15::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-05-10.19:41:15::SCWMssOS::-Wextra"
+
+TRACE::2021-05-10.19:41:15::SCWMssOS::"Running Make include in microblaze_0/libsrc/intc_v3_10/src"
+
+TRACE::2021-05-10.19:41:15::SCWMssOS::make -C microblaze_0/libsrc/intc_v3_10/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPIL
+TRACE::2021-05-10.19:41:15::SCWMssOS::ER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall
+TRACE::2021-05-10.19:41:15::SCWMssOS:: -Wextra"
+
+TRACE::2021-05-10.19:41:15::SCWMssOS::"Running Make include in microblaze_0/libsrc/standalone_v7_1/src"
+
+TRACE::2021-05-10.19:41:15::SCWMssOS::make -C microblaze_0/libsrc/standalone_v7_1/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "C
+TRACE::2021-05-10.19:41:15::SCWMssOS::OMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections 
+TRACE::2021-05-10.19:41:15::SCWMssOS::-Wall -Wextra"
+
+TRACE::2021-05-10.19:41:18::SCWMssOS::"Running Make include in microblaze_0/libsrc/uartlite_v3_3/src"
+
+TRACE::2021-05-10.19:41:18::SCWMssOS::make -C microblaze_0/libsrc/uartlite_v3_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COM
+TRACE::2021-05-10.19:41:18::SCWMssOS::PILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -W
+TRACE::2021-05-10.19:41:18::SCWMssOS::all -Wextra"
+
+TRACE::2021-05-10.19:41:18::SCWMssOS::"Running Make libs in microblaze_0/libsrc/axidma_v9_10/src"
+
+TRACE::2021-05-10.19:41:18::SCWMssOS::make -C microblaze_0/libsrc/axidma_v9_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILE
+TRACE::2021-05-10.19:41:18::SCWMssOS::R_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall 
+TRACE::2021-05-10.19:41:18::SCWMssOS::-Wextra"
+
+TRACE::2021-05-10.19:41:18::SCWMssOS::"Compiling axidma"
+
+TRACE::2021-05-10.19:41:25::SCWMssOS::"Running Make libs in microblaze_0/libsrc/bram_v4_3/src"
+
+TRACE::2021-05-10.19:41:25::SCWMssOS::make -C microblaze_0/libsrc/bram_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_F
+TRACE::2021-05-10.19:41:25::SCWMssOS::LAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -We
+TRACE::2021-05-10.19:41:25::SCWMssOS::xtra"
+
+TRACE::2021-05-10.19:41:25::SCWMssOS::"Compiling bram"
+
+TRACE::2021-05-10.19:41:27::SCWMssOS::"Running Make libs in microblaze_0/libsrc/cpu_v2_10/src"
+
+TRACE::2021-05-10.19:41:27::SCWMssOS::make -C microblaze_0/libsrc/cpu_v2_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_F
+TRACE::2021-05-10.19:41:27::SCWMssOS::LAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -We
+TRACE::2021-05-10.19:41:27::SCWMssOS::xtra"
+
+TRACE::2021-05-10.19:41:27::SCWMssOS::"Compiling cpu"
+
+TRACE::2021-05-10.19:41:27::SCWMssOS::"Running Make libs in microblaze_0/libsrc/intc_v3_10/src"
+
+TRACE::2021-05-10.19:41:27::SCWMssOS::make -C microblaze_0/libsrc/intc_v3_10/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPILER_
+TRACE::2021-05-10.19:41:27::SCWMssOS::FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall -W
+TRACE::2021-05-10.19:41:27::SCWMssOS::extra"
+
+TRACE::2021-05-10.19:41:27::SCWMssOS::"Compiling intc"
+
+TRACE::2021-05-10.19:41:29::SCWMssOS::"Running Make libs in microblaze_0/libsrc/standalone_v7_1/src"
+
+TRACE::2021-05-10.19:41:29::SCWMssOS::make -C microblaze_0/libsrc/standalone_v7_1/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMP
+TRACE::2021-05-10.19:41:29::SCWMssOS::ILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wa
+TRACE::2021-05-10.19:41:29::SCWMssOS::ll -Wextra"
+
+TRACE::2021-05-10.19:41:29::SCWMssOS::"Compiling standalone";
+
+TRACE::2021-05-10.19:41:36::SCWMssOS::"Running Make libs in microblaze_0/libsrc/uartlite_v3_3/src"
+
+TRACE::2021-05-10.19:41:36::SCWMssOS::make -C microblaze_0/libsrc/uartlite_v3_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ASSEMBLER=mb-as" "ARCHIVER=mb-ar" "COMPIL
+TRACE::2021-05-10.19:41:36::SCWMssOS::ER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g -ffunction-sections -fdata-sections -Wall
+TRACE::2021-05-10.19:41:36::SCWMssOS:: -Wextra"
+
+TRACE::2021-05-10.19:41:36::SCWMssOS::"Compiling uartlite"
+
+TRACE::2021-05-10.19:41:37::SCWMssOS::'Finished building libraries'
+
+TRACE::2021-05-10.19:41:37::SCWMssOS::Copying to export directory.
+TRACE::2021-05-10.19:41:38::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2021-05-10.19:41:38::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2021-05-10.19:41:38::SCWSystem::Completed Processing the domain standalone_domain
+LOG::2021-05-10.19:41:38::SCWSystem::Completed Processing the sysconfig FinalConvolve_NoFirstLoad
+LOG::2021-05-10.19:41:38::SCWPlatform::Completed generating the artifacts for system configuration FinalConvolve_NoFirstLoad
+TRACE::2021-05-10.19:41:38::SCWPlatform::Started preparing the platform 
+TRACE::2021-05-10.19:41:38::SCWSystem::Writing the bif file for system config FinalConvolve_NoFirstLoad
+TRACE::2021-05-10.19:41:38::SCWSystem::dir created 
+TRACE::2021-05-10.19:41:38::SCWSystem::Writing the bif 
+TRACE::2021-05-10.19:41:38::SCWPlatform::Started writing the spfm file 
+TRACE::2021-05-10.19:41:38::SCWPlatform::Started writing the xpfm file 
+TRACE::2021-05-10.19:41:38::SCWPlatform::Completed generating the platform
+TRACE::2021-05-10.19:41:38::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:38::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:38::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:38::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:38::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:38::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:38::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-10.19:41:38::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:38::SCWWriter::formatted JSON is {
+	"platformName":	"FinalConvolve_NoFirstLoad",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"FinalConvolve_NoFirstLoad",
+	"platHandOff":	"C:/Educacion/Procom2020/PROCOMeste/PROCOMfinal/3.uP/BlockDesign/FinalConvolve_NoFirstLoad.xsa",
+	"platIntHandOff":	"<platformDir>/hw/FinalConvolve_NoFirstLoad.xsa",
+	"deviceType":	"FPGA",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"FinalConvolve_NoFirstLoad",
+	"systems":	[{
+			"systemName":	"FinalConvolve_NoFirstLoad",
+			"systemDesc":	"FinalConvolve_NoFirstLoad",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"FinalConvolve_NoFirstLoad",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on microblaze_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"microblaze_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"f9fc141bca33a50827ad9b7f4ac9b3ac",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2021-05-10.19:41:38::SCWPlatform::updated the xpfm file.
+TRACE::2021-05-10.19:41:38::SCWPlatform::Trying to open the hw design at C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform::DSA given C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform::DSA absoulate path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform::DSA directory C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw
+TRACE::2021-05-10.19:41:38::SCWPlatform:: Platform Path C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/hw/FinalConvolve_NoFirstLoad.xsa
+TRACE::2021-05-10.19:41:38::SCWPlatform:: Unique name xilinx:arty::0.0
+TRACE::2021-05-10.19:41:38::SCWPlatform::Trying to set the existing hwdb with name uP_wrapper_0
+TRACE::2021-05-10.19:41:38::SCWPlatform::Opened existing hwdb uP_wrapper_0
+TRACE::2021-05-10.19:41:38::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2021-05-10.19:41:38::SCWMssOS::Checking the sw design at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
+TRACE::2021-05-10.19:41:38::SCWMssOS::DEBUG:  swdes dump  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2021-05-10.19:41:38::SCWMssOS::Sw design exists and opened at  C:/Educacion/Procom2020/PROCOMfinal/Vitis_workspace/FinalConvolve_NoFirstLoad/microblaze_0/standalone_domain/bsp/system.mss
